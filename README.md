@@ -11,21 +11,21 @@ best places to observe it's behavior.
 
 The following git repositories are pulled during installation:
 
-    - suckless-hakirot
-    - backup-configs
-    - nvim-config
-    - skps
-    - SARA CLI
+- suckless-hakirot
+- backup-configs
+- nvim-config
+- skps
+- SARA CLI
 
 SARA CLI, while installed, is not enabled by default.
 
 ## FEATURES
 
-    - Patched DWM and ST provide extra features
-    - Complete NeoVim installation and configuration
-    - Dynamic system color configuration via pywal.
-    - Oh-my-zsh
-    - SARA CLI
+- Patched DWM and ST provide extra features
+- Complete NeoVim installation and configuration
+- Dynamic system color configuration via pywal.
+- Oh-my-zsh
+- SARA CLI
 
 ## INSTALLATION
 
