@@ -11,9 +11,9 @@ source "qemu" "sara" {
   boot_wait = "5s"
   boot_command = [
     "<wait10><enter><wait><enter><f12><wait>linux archisobasedir=arch cow_spacesize=10G console=ttyS0<enter><wait20>",
-    "curl {{ .HTTPIP }}:{{ .HTTPPort }}/archinstall.sh",
-    "chmod +x ./install.sh",
-    "install.sh<enter>"
+    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
+    "chmod +x ./install.sh<enter>",
+    "./install.sh<enter>"
   ]
   qemu_binary = "/usr/bin/qemu-system-x86_64"
   headless = false

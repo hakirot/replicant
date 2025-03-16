@@ -1,6 +1,6 @@
 # REPLICANT
 
-Installs and configures my entire software development workstation in a single
+Installs and configures an entire software development workstation in a single
 command from the Arch Boot ISO. This is an optimized software development
 workstation continuously designed to present information and perform
 common tasks as quickly as possible.
