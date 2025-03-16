@@ -4,13 +4,16 @@ source "qemu" "sara" {
   output_directory = "output-sara"
   disk_size    = "20000"
   format       = "qcow2"
+  http_directory = "http"
   memory       = 4096
   ssh_username = "root"
   ssh_timeout = "20m"
   boot_wait = "5s"
   boot_command = [
     "<wait10><enter><wait><enter><f12><wait>linux archisobasedir=arch cow_spacesize=10G console=ttyS0<enter><wait20>",
-    "curl {{ .HTTPIP }}:{{ .HTTPPort }}/archinstall.sh && chmod +x ./archinstall.sh & archinstall.sh<enter>"
+    "curl {{ .HTTPIP }}:{{ .HTTPPort }}/archinstall.sh",
+    "chmod +x ./install.sh",
+    "install.sh<enter>"
   ]
   qemu_binary = "/usr/bin/qemu-system-x86_64"
   headless = false
