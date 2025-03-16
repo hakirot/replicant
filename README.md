@@ -14,6 +14,7 @@ The following git repositories are pulled during installation:
 - suckless-hakirot
 - backup-configs
 - nvim-config
+- lualine-patch
 - skps
 - SARA CLI
 
@@ -30,13 +31,12 @@ SARA CLI, while installed, is not enabled by default.
 ## INSTALLATION
 
 This repository is for local testing with a QEMU/KVM virtual environment and
-Packer. To run the live installation, run the following steps:
+Packer. To run a live installation, perform the following:
 
-    - From the first prompt within the Arch Live Boot Image, configure a connection to the web, then run:
+- From the first prompt within the Arch Live Boot Image, configure a connection to the web, then run:
 
     curl cachecoyotes.com/replicate | bash
 
 cachecoyotes.com/replicate is a mirror to the release currenlty hosted by Akamai.
 
 Enjoy!
-
