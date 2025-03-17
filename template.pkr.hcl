@@ -9,7 +9,7 @@ source "qemu" "sara" {
   memory       = 4096
   ssh_username = "username"
   ssh_password = "asdf"
-  ssh_timeout = "120m"
+  ssh_timeout = "20m"
   boot_wait = "5s"
   qemu_binary = "/usr/bin/qemu-system-x86_64"
   headless = false
