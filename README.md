@@ -33,7 +33,7 @@ SARA CLI, while installed, is not enabled by default.
 This repository is for local testing with a QEMU/KVM virtual environment and
 Packer. To run a live installation, perform the following:
 
-- From the first prompt within the Arch Live Boot Image, configure a connection to the web, then run:
+- From the first prompt within the Arch Live Boot Image, verify a web connection, then run:
 
     curl cachecoyotes.com/replicate | bash
 
