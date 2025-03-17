@@ -6,7 +6,7 @@ sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
 sudo rmdir /etc/systemd/system/getty@tty1.service.d/
 
 # install/enable sshd
-sudo pacman -S openssh --no-confirm
+sudo pacman -S openssh --noconfirm
 sudo systemctl enable sshd
 sudo systemctl start sshd
 

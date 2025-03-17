@@ -1,5 +1,5 @@
 source "qemu" "sara" {
-  vm_name      = SARA
+  vm_name      = "SARA"
   iso_url      = "./archlinux-x86_64.iso"
   iso_checksum = "file:./checksum"
   output_directory = "output-sara"
