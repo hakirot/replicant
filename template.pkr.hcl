@@ -17,9 +17,9 @@ source "qemu" "sara" {
     "<wait10><enter><wait><enter><f12><wait>linux archisobasedir=arch cow_spacesize=10G console=ttyS0<enter><wait20>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_configuration.json<enter>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_credentials.json<enter>",
-    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>"
-    "chmod +x install.sh"
-    "./install.sh"
+    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
+    "chmod +x install.sh<enter>",
+    "./install.sh<enter>"
   ]
 }
 
