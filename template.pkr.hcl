@@ -7,7 +7,8 @@ source "qemu" "sara" {
   http_directory = "http"
   memory       = 4096
   ssh_username = "root"
-  ssh_timeout = "20m"
+  ssh_password = "asdf"
+  ssh_timeout = "120m"
   boot_wait = "5s"
   qemu_binary = "/usr/bin/qemu-system-x86_64"
   headless = false
@@ -16,8 +17,9 @@ source "qemu" "sara" {
     "<wait10><enter><wait><enter><f12><wait>linux archisobasedir=arch cow_spacesize=10G console=ttyS0<enter><wait20>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_configuration.json<enter>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_credentials.json<enter>",
-    "archinstall --config user_configuration.json --creds user_credentials.json<enter><wait15>",
-    "jjjjjjjjjjjjjjjjjjjj<enter><enter>"
+    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>"
+    "chmod +x install.sh"
+    "./install.sh"
   ]
 }
 

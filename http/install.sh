@@ -1,2 +1,2 @@
 #!/bin/bash
-archinstall --config user_configuration.json --creds user_credentials.json
+archinstall --config user_configuration.json --creds user_credentials.json --silent
