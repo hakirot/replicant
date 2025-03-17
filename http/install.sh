@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "why hello there"
+archinstall --config user_configuration.json --creds user_credentials.json

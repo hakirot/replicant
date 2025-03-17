@@ -9,15 +9,16 @@ source "qemu" "sara" {
   ssh_username = "root"
   ssh_timeout = "20m"
   boot_wait = "5s"
-  boot_command = [
-    "<wait10><enter><wait><enter><f12><wait>linux archisobasedir=arch cow_spacesize=10G console=ttyS0<enter><wait20>",
-    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
-    "chmod +x ./install.sh<enter>",
-    "./install.sh<enter>"
-  ]
   qemu_binary = "/usr/bin/qemu-system-x86_64"
   headless = false
   accelerator = "kvm"
+  boot_command = [
+    "<wait10><enter><wait><enter><f12><wait>linux archisobasedir=arch cow_spacesize=10G console=ttyS0<enter><wait20>",
+    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_configuration.json<enter>",
+    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_credentials.json<enter>",
+    "archinstall --config user_configuration.json --creds user_credentials.json<enter><wait15>",
+    "jjjjjjjjjjjjjjjjjjjj<enter><enter>"
+  ]
 }
 
 build {

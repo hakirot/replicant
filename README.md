@@ -37,6 +37,6 @@ Packer. To run a live installation, perform the following:
 
     curl cachecoyotes.com/replicate | bash
 
-cachecoyotes.com/replicate is a mirror to the release currenlty hosted by Akamai.
+cachecoyotes.com/replicate is a mirror to the automated install scripts currently hosted by Akamai.
 
 Enjoy!
