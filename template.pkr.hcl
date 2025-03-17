@@ -1,4 +1,5 @@
 source "qemu" "sara" {
+  vm_name      = SARA
   iso_url      = "./archlinux-x86_64.iso"
   iso_checksum = "file:./checksum"
   output_directory = "output-sara"
@@ -6,7 +7,7 @@ source "qemu" "sara" {
   format       = "qcow2"
   http_directory = "http"
   memory       = 4096
-  ssh_username = "root"
+  ssh_username = "username"
   ssh_password = "asdf"
   ssh_timeout = "120m"
   boot_wait = "5s"
@@ -14,9 +15,9 @@ source "qemu" "sara" {
   headless = false
   accelerator = "kvm"
   boot_command = [
-    "<wait10><enter><wait><enter><f12><wait>linux archisobasedir=arch cow_spacesize=10G console=ttyS0<enter><wait20>",
-    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_configuration.json<enter>",
-    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/user_credentials.json<enter>",
+    "<wait70>",
+    "export PACKER_HTTP_IP={{ .HTTPIP}}<enter>",
+    "export PACKER_HTTP_PORT={{ .HTTPPort}}<enter>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
     "chmod +x install.sh<enter>",
     "./install.sh<enter>"
@@ -26,9 +27,3 @@ source "qemu" "sara" {
 build {
   sources = ["source.qemu.sara"]
 }
-
-variable "iso_checksum" {
-  type = string
-  default = "none"
-}
-
