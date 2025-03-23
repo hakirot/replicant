@@ -1,6 +1,19 @@
 #!/bin/bash
 set -eou pipefail
 
+# Please set your default username
+#   Confirm
+
+#   |   > "Input a four character word or string [A-Z]"
+#   |   > "Word not acceptable"
+#   |   > "Confirm"
+#   |   > "Word accepted. This word is XXXX"
+
+# Sleep 1
+
+# Keep your hands off the system during execution
+# You will know the system is ready when you see your word again
+
 curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/user_configuration.json
 curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/user_credentials.json
 archinstall --config user_configuration.json --creds user_credentials.json --silent
@@ -16,4 +29,4 @@ cp /mnt/archinstall/home/username/.bash_profile /mnt/archinstall/home/username/.
 echo "sudo chown username:username ./configure.sh" >> /mnt/archinstall/home/username/.bash_profile
 echo "chmod +x /home/username/configure.sh" >> /mnt/archinstall/home/username/.bash_profile
 echo "/home/username/configure.sh" >> /mnt/archinstall/home/username/.bash_profile
-shutdown now -r
+shutdown -r now
