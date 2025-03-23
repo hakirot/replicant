@@ -42,7 +42,7 @@ Packer. To run a live installation, perform the following:
 
 - From the first prompt within the Arch Live Boot Image, verify a web connection, then run:
 
-    curl cachecoyotes.com/replicate | bash
+    `curl cachecoyotes.com/replicate | bash`
 
 cachecoyotes.com/replicate is a mirror for the install scripts served elsewhere.
 
