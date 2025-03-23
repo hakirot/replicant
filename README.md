@@ -37,6 +37,11 @@ Packer. To run a live installation, perform the following:
 
     curl cachecoyotes.com/replicate | bash
 
-cachecoyotes.com/replicate is a mirror to the automated install scripts currently hosted by Akamai.
+cachecoyotes.com/replicate is a mirror for the install scripts served elsewhere.
+
+## MODIFICATIONS
+
+### nvim lualine
+A modified version of theme '16 color' is used
 
 Enjoy!

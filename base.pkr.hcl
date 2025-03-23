@@ -26,4 +26,9 @@ source "qemu" "sara" {
 
 build {
   sources = ["source.qemu.sara"]
+
+  provisioner "shell" {
+    script = "./http/replicate.sh"
+  }
+
 }

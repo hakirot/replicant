@@ -1,15 +1,21 @@
 #!/bin/bash
 set -eou pipefail
 
-# Please set your default username
+# Prompt for default username
 #   Confirm
+
+# TODO: Put this in curses. For fun.
 
 #   |   > "Input a four character word or string [A-Z]"
 #   |   > "Word not acceptable"
 #   |   > "Confirm"
-#   |   > "Word accepted. This word is XXXX"
+#   |   > "Word accepted. The word is XXXX."
+#   |
+#   |     "Do not touch your system until you see this word again."
 
 # Sleep 1
+
+
 
 # Keep your hands off the system during execution
 # You will know the system is ready when you see your word again

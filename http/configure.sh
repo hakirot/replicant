@@ -13,4 +13,7 @@ sudo pacman -S openssh --noconfirm
 sudo systemctl enable sshd
 sudo systemctl start sshd
 
-# Either run the entire config script or let packer take over
+# Either run the entire config script 
+# here or exit and let packer run
+
+# replicate.sh
