@@ -1,13 +1,19 @@
 # REPLICANT
 
-Installs and configures an entire software development workstation in a single
-command from the Arch Boot ISO. This is an optimized software development
-workstation continuously designed to present information and perform
-common tasks as quickly as possible.
+Installs and configures a software development workstation for Arch, either
+from a live Arch boot ISO or in this automated development repo using Packer.
 
-Being productive in this system requires basic knowledge of Suckless Software
-(DWM, ST, DMENU), tmux, and neovim. The installed configuration files are the
-best places to observe it's behavior.
+This is an optimized software development workstation configured for writing
+software around three vim-mapped tools: neovim, tmux, and dwm (plus utilities)
+
+Being productive in this system requires knowledge of Suckless Software
+(DWM, ST, DMENU), tmux, and neovim. Usage of this system without experience
+with these systems is not recommended. The installed configuration files 
+included in this system via the linked repositories are the only locations to
+go to understand how to navigate this environment.
+
+This project was created to save time installing my configuration on future
+machines.
 
 The following git repositories are pulled during installation:
 
@@ -39,7 +45,7 @@ Packer. To run a live installation, perform the following:
 
 cachecoyotes.com/replicate is a mirror for the install scripts served elsewhere.
 
-## MODIFICATIONS
+## SYSTEM MODIFICATIONS
 
 ### nvim lualine
 A modified version of theme '16 color' is used
