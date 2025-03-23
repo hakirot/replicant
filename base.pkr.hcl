@@ -1,8 +1,13 @@
-source "qemu" "sara" {
-  vm_name      = "SARA"
+
+#
+# BASE ARCH
+#
+
+source "qemu" "base" {
+  vm_name      = "arch-base"
   iso_url      = "./archlinux-x86_64.iso"
   iso_checksum = "file:./checksum"
-  output_directory = "output-sara"
+  output_directory = "output-arch-base"
   disk_size    = "20000"
   format       = "qcow2"
   http_directory = "http"
@@ -25,10 +30,9 @@ source "qemu" "sara" {
 }
 
 build {
-  sources = ["source.qemu.sara"]
+  sources = ["source.qemu.base"]
 
   provisioner "shell" {
-    script = "./http/replicate.sh"
+    inline = "echo DONE! :D"
   }
-
 }
