@@ -1,34 +1,26 @@
-source "qemu" "sara" {
-  vm_name      = "SARA"
-  iso_url      = "./archlinux-x86_64.iso"
-  iso_checksum = "file:./checksum"
-  output_directory = "output-sara"
-  disk_size    = "20000"
-  format       = "qcow2"
-  http_directory = "http"
-  memory       = 4096
-  ssh_username = "username"
-  ssh_password = "asdf"
-  ssh_timeout = "20m"
-  boot_wait = "5s"
-  qemu_binary = "/usr/bin/qemu-system-x86_64"
-  headless = false
-  accelerator = "kvm"
-  boot_command = [
-    "<wait70>",
-    "export PACKER_HTTP_IP={{ .HTTPIP}}<enter>",
-    "export PACKER_HTTP_PORT={{ .HTTPPort}}<enter>",
-    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
-    "chmod +x install.sh<enter>",
-    "./install.sh<enter>"
-  ]
+source "qemu" "replicant" {
+  vm_name           = "SARA"
+  iso_url           = "./output-arch-base/arch-base"
+  disk_image        = true
+  iso_checksum      = "none"
+  output_directory  = "output-replicant"
+  disk_size         = "30000"
+  memory            = 4096
+  format            = "qcow2"
+  http_directory    = "http"
+  ssh_username      = "username"
+  ssh_password      = "asdf"
+  ssh_timeout       = "20m"
+  qemu_binary       = "/usr/bin/qemu-system-x86_64"
+  headless          = false
+  accelerator       = "kvm"
 }
 
 build {
-  sources = ["source.qemu.sara"]
+  sources = ["source.qemu.replicant"]
 
   provisioner "shell" {
-    script = "./http/replicate.sh"
+#   script = "./http/replicate.sh"
+    inline = ["echo yay!"]
   }
-
 }
