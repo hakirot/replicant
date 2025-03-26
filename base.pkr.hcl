@@ -8,7 +8,7 @@ source "qemu" "base" {
   iso_url      = "./archlinux-x86_64.iso"
   iso_checksum = "file:./checksum"
   output_directory = "output-arch-base"
-  disk_size    = "20000"
+  disk_size    = "30000"
   format       = "qcow2"
   http_directory = "http"
   memory       = 4096
@@ -33,6 +33,6 @@ build {
   sources = ["source.qemu.base"]
 
   provisioner "shell" {
-    inline = "echo DONE! :D"
+    inline = ["echo DONE! :D"]
   }
 }
