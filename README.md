@@ -28,7 +28,7 @@ SARA CLI, while installed, is not enabled by default.
 
 ## FEATURES
 
-- Manually patched (and resoloved) DWM and ST provide extra features and
+- Manually patched (and resolved) DWM provides extra features, mainly
 interopability with polybar
 - Complete NeoVim installation and configuration
 - Dynamic system color configuration via pywal.

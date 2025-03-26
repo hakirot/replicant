@@ -15,8 +15,6 @@ set -eou pipefail
 
 # Sleep 1
 
-
-
 # Keep your hands off the system during execution
 # You will know the system is ready when you see your word again
 

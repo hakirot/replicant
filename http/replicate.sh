@@ -2,6 +2,7 @@
 set -eou pipefail
 
 # yay
+# firewall
 # speedrun desktop env with suckess project mods
 # grab walls.zip and install
 # sara dynamic config
