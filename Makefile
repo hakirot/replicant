@@ -1,9 +1,12 @@
 # Makefile #
 SHELL := /bin/bash
 
-sarapack:
+replicant: output-arch-base/arch-base
+	packer build replicant.pkr.hcl
+
+base:
 	./setup.sh
-	packer build .
+	packer build base.pkr.hcl
 
 clean:
 	rm -rf output-sara
