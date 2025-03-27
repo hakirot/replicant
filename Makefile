@@ -4,7 +4,7 @@ SHELL := /bin/bash
 replicant: output-arch-base/arch-base
 	packer build replicant.pkr.hcl
 
-base:
+output-arch-base/arch-base:
 	./setup.sh
 	packer build base.pkr.hcl
 
