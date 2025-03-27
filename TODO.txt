@@ -1,0 +1,21 @@
+STAGES
+  
+  PACKER
+
+    init
+    |
+    | . ArchInstall, install second stage
+    . 
+
+  LIVE
+
+    init 
+    |
+    | `cachecoyotes.com | bash`
+    |
+    |   . ArchInstall
+    |   . Configure autologin 
+    |   . Install second stage package
+    |   . Write launch to bash
+    |
+    . 
