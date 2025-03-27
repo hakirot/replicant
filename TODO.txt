@@ -15,7 +15,7 @@ STAGES
     |
     |   . ArchInstall
     |   . Configure autologin 
-    |   . Install second stage package
+    |   . Install second stage hooks
     |   . Write launch to bash
     |
     |
@@ -24,7 +24,12 @@ STAGES
     base
     |
     | . Remove autologin configuration
-    | . 
-    |
+    | . configure.sh
+    | . Install third stage hooks
+    | .   > maybe a lanched background task wait? dmenu?
+    | .   > maybe a cool animation
     |
     . > DWM <
+    |
+    | . > Autolaunch ST
+    | . > Countdown
