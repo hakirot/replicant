@@ -9,13 +9,22 @@ STAGES
 
   LIVE
 
-    init 
+    init    < rename install.sh
     |
-    | `cachecoyotes.com | bash`
+    | `cachecoyotes.com | bash`   ! configure server
     |
     |   . ArchInstall
     |   . Configure autologin 
     |   . Install second stage package
     |   . Write launch to bash
     |
-    . 
+    |
+    . > Reboot <
+    |
+    base
+    |
+    | . Remove autologin configuration
+    | . 
+    |
+    |
+    . > DWM <
