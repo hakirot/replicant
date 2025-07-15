@@ -12,7 +12,7 @@ software around three vim-mapped tools: neovim, tmux, and dwm (plus utilities).
 It also includes some subtle optimizations that I find helpful for use with
 my custom corne keymaps.
 
-Being productive in this system requires knowledge of Suckless Software
+Being productive in this system requires knowledge of some software by Suckless
 (DWM, ST, DMENU), tmux, and neovim. Usage of this system without experience
 with the softare is not recommended. The installed configuration files
 included in this project, as well as those pulled from other repositories
