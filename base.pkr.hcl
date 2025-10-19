@@ -1,6 +1,6 @@
 
 #
-# BASE ARCH
+# BASE VM ARCH INSTALL
 #
 
 source "qemu" "base" {
