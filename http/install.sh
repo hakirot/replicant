@@ -6,9 +6,10 @@ set -eou pipefail
 
 # TODO: Put this in curses. For fun.
 
-#   |   > "Input a four character word or string [A-Z]"
-#   |   > "Word not acceptable"
-#   |   > "Confirm"
+#   |   > "Input a four-letter word [A-Z]"
+#   |   > "Word not accepted."
+#   |   > "Input a four-letter word [A-Z]"
+#   |   > "Confirm [y/Y]"
 #   |   > "Word accepted. The word is XXXX."
 #   |
 #   |     "Do not touch your system until you see this word again."

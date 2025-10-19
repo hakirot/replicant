@@ -10,7 +10,7 @@ my use only, and the code here is presented for demonstration purposes only.
 This is an optimized software development workstation configured for writing
 software around three vim-mapped tools: neovim, tmux, and dwm (plus utilities).
 It also includes some subtle optimizations that I find helpful for use with
-my custom corne keymaps.
+common keymaps for corne keyboards.
 
 Being productive in this system requires knowledge of some software by Suckless
 (DWM, ST, DMENU), tmux, and neovim. Usage of this system without experience
