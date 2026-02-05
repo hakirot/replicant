@@ -22,11 +22,23 @@ cd yay
 makepkg -si --noconfirm --clean
 cd ../
 
-echo -e "${GREEN}Installing base packages..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing base packages..${RESET}"
 yay --noconfirm -S \
   polybar-dwm-git \
+  xorg-fonts-encodings \
   xorg-server \
+  xorg-server-common \
+  xorg-setxkbmap \
+  xorg-xauth \
+  xorg-xev \
+  xorg-xinit \
+  xorg-xkbcomp \
+  xorg-xmodmap \
+  xorg-xprop \
   xorg-xrandr \
+  xorg-xrdb \
+  xorg-xset \
+  xorgproto \
   xwallpaper \
   libxft \
   libxinerama \
@@ -39,6 +51,18 @@ yay --noconfirm -S \
   python-pywal \
   xdotool \
   zsh
+
+echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
+mkdir dls Downloads dox git gmz go lib mnt mzk pix skps test
+
+echo -e "${GREEN}REPLICANT: Cloning SARA projects..${RESET}"
+cd git
+git clone https://github.com/hakirot/suckless-hakirot.git
+git clone https://github.com/hakirot/sara.git
+
+echo -e "${GREEN}REPLICANT: Installing SARA configs..${RESET}"
+cd git
+git clone https://github.com/hakirot/d07f1135.git
 
 # xinit
 # xrandr (interactive xrandr?)
