@@ -1,17 +1,18 @@
 # REPLICANT
 
-Provisions a software development workstation for Arch, configuring DWM, tmux,
+Provisions a software development workstation for Arch from the initial boot ISO, configuring DWM, tmux,
 zsh, nvim, st, polybar, sara, and others. This is my daily driver config, and
-saves time when I build new PCs.
+saves time whenever I build new PCs, which, apparently, is often enough.
 
 ## FEATURES
 
 - Manually patched (and resolved) DWM provides extra features, mainly
 interopability with polybar
-- Complete NeoVim installation and configuration
+- Complete NeoVim configuration
 - Dynamic system color configuration via pywal.
 - Oh-my-zsh
 - SARA CLI
+- .. and many others. Just read the code.
 
 ## INSTALLATION
 
@@ -24,6 +25,5 @@ my website:
 connection and run:
 
     `curl cachecoyotes.com/replicant | bash`
-
-cachecoyotes.com/replicate is a mirror for the install scripts served elsewhere.
-
+  
+Enjoy.
