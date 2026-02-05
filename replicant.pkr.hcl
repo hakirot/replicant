@@ -10,7 +10,7 @@ source "qemu" "replicant" {
   http_directory    = "http"
   ssh_username      = "username"
   ssh_password      = "asdf"
-  ssh_timeout       = "20m"
+  ssh_timeout       = "40m"
   qemu_binary       = "/usr/bin/qemu-system-x86_64"
   headless          = false
   accelerator       = "kvm"

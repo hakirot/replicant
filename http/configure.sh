@@ -14,15 +14,15 @@ echo -e "${GREEN}++CONFIGURE.sh++${RESET}"
 sudo chown username:username $HOME/.bash_profile.bak
 cp $HOME/.bash_profile.bak $HOME/.bash_profile
 
-# If pacman lockfile, delete it
-rm -f /var/lib/pacman/db.lck
-
 # Remove autologin
 #sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
 #sudo rmdir /etc/systemd/system/getty@tty1.service.d/
 
-rm -f $HOME/configure.sh
-echo "$HOME/replicate.sh" >> "$HOME/.bash_profile"
+rm -f configure.sh
+echo "/home/username/replicate.sh" >> /home/username/.bash_profile
+
+# If pacman lockfile, delete it
+rm -f /var/lib/pacman/db.lck
 
 sudo pacman -S openssh --noconfirm
 sudo systemctl start sshd

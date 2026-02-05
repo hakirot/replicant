@@ -19,13 +19,29 @@ echo -e "${GREEN}yay..${RESET}"
 sudo pacman --noconfirm -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm --clean
 cd ../
-rm -rf yay
+
+echo -e "${GREEN}Installing base packages..${RESET}"
+yay --noconfirm -S \
+  polybar-dwm-git \
+  xorg-server \
+  xorg-xrandr \
+  xwallpaper \
+  libxft \
+  libxinerama \
+  ttf-jetbrains-mono \
+  ttf-jetbrains-mono-nerd \
+  ttf-font-awesome \
+  ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-common \
+  picom-git \
+  python-pywal \
+  xdotool \
+  zsh
 
 # xinit
 # xrandr (interactive xrandr?)
-# yay
 # firewall
 # speedrun desktop env with suckless project mods
 # grab walls.zip and install
