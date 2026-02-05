@@ -1,14 +1,12 @@
 
-#
 # BASE VM ARCH INSTALL
-#
 
 source "qemu" "base" {
   vm_name      = "arch-base"
   iso_url      = "./archlinux-x86_64.iso"
   iso_checksum = "file:./checksum"
   output_directory = "output-arch-base"
-  disk_size    = "30000"
+  disk_size    = "20000"
   format       = "qcow2"
   http_directory = "http"
   memory       = 4096
@@ -20,7 +18,7 @@ source "qemu" "base" {
   headless = false
   accelerator = "kvm"
   boot_command = [
-    "<wait70>",
+    "<wait110>",
     "export PACKER_HTTP_IP={{ .HTTPIP}}<enter>",
     "export PACKER_HTTP_PORT={{ .HTTPPort}}<enter>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
@@ -33,6 +31,6 @@ build {
   sources = ["source.qemu.base"]
 
   provisioner "shell" {
-    inline = ["echo DONE! :D"]
+    inline = ["echo Install script complete"]
   }
 }

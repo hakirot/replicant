@@ -1,11 +1,60 @@
 #!/bin/bash
 set -eou pipefail
 
-# This'll basically just be the presentation (?)
-# (Looks like it'll be fancy presentation hacks)
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+RESET='\033[0m'
+
+# --- Live.sh
+#curl www.cachecoyotes.com/replicant/sara.zip
+#unzip sara.zip
+#chmod -x replicate.sh
+#./replicate.sh
+
+#archinstall --config user_configuration.json --creds user_credentials.json --silent
+
+echo -e "${GREEN}++REPLICATE.sh++${RESET}"
+
+echo -e "${GREEN}yay..${RESET}"
+sudo pacman --noconfirm -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../
+rm -rf yay
+
+# xinit
+# xrandr (interactive xrandr?)
+# yay
+# firewall
+# speedrun desktop env with suckless project mods
+# grab walls.zip and install
+# sara dynamic config (?)
+# Neovim
+# lualine patch (not patchable until lazy is run)
+#   . /home/$USER/.local/share/nvim/lazy/lualine.nvim/lua/lualine/config.lua
+#   | > theme = '16color',
+#   | > section_separators = { left = '', right = '' },
+#   . Install 16color.lua to /home/username/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
+# oh-my-zsh
+# backupConfs
+# polybar
+# skps
+#   - inotifytools
+# Grub?
+# Rust and rust tools
+
+# (launch dwm last)
+
+# startx
+# launch st
+# replicate.sh
 
 # configure neovim (run Lazy inside the editor somehow)
 #   exit
 # Compile SARA
 # Edit sara into zsh
 # Run sara
+
+# --SIM
+#sudo systemctl start sshd

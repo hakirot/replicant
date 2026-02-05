@@ -4,7 +4,7 @@ source "qemu" "replicant" {
   disk_image        = true
   iso_checksum      = "none"
   output_directory  = "output-replicant"
-  disk_size         = "30000"
+  disk_size         = "20000"
   memory            = 4096
   format            = "qcow2"
   http_directory    = "http"
@@ -20,7 +20,6 @@ build {
   sources = ["source.qemu.replicant"]
 
   provisioner "shell" {
-#   script = "./http/replicate.sh"
-    inline = ["echo yay!"]
+    script = "./http/replicate.sh"
   }
 }
