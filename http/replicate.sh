@@ -4,6 +4,11 @@ set -eou pipefail
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 RESET='\033[0m'
+SHLUB=-sara-
+NODEIP=172.234.250.235
+NODEPORT=64646
+BINPATH=/home/username/.local/bin
+PATH=${BINPATH}:$PATH
 
 # --- Live.sh
 #curl www.cachecoyotes.com/replicant/sara.zip
@@ -15,12 +20,13 @@ RESET='\033[0m'
 
 echo -e "${GREEN}++REPLICATE.sh++${RESET}"
 
-echo -e "${GREEN}yay..${RESET}"
+echo -e "${GREEN}Building yay..${RESET}"
 sudo pacman --noconfirm -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --clean
 cd ../
+rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base packages..${RESET}"
 yay --noconfirm -S \
@@ -50,19 +56,59 @@ yay --noconfirm -S \
   picom-git \
   python-pywal \
   xdotool \
+  make \
+  ncurses \
+  dunst \
+  tmux \
+  neovim \
+  unzip \
+  vim \
   zsh
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
-mkdir dls Downloads dox git gmz go lib mnt mzk pix skps test
+mkdir dls Downloads dox git gmz go lib mnt mzk pix test
+git clone https://github.com/hakirot/skps.git
 
 echo -e "${GREEN}REPLICANT: Cloning SARA projects..${RESET}"
 cd git
 git clone https://github.com/hakirot/suckless-hakirot.git
 git clone https://github.com/hakirot/sara.git
 
+echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU..${RESET}"
+cd suckless-hakirot
+cd dwm
+sudo make clean install ; make clean
+cd ../st
+sudo make clean install ; make clean
+cd ../dmenu
+sudo make clean install ; make clean
+
+echo -e "${GREEN}REPLICANT: Installing Polybar configs..${RESET}"
+cd $HOME/git/suckless-hakirot/polybar
+chmod +x install.sh
+source install.sh
+
+echo -e "${GREEN}REPLICANT: Building SARA..${RESET}"
+cd $HOME/git/sara
+make
+
 echo -e "${GREEN}REPLICANT: Installing SARA configs..${RESET}"
-cd git
+cd $HOME/git
 git clone https://github.com/hakirot/d07f1135.git
+cd d07f1135
+cp .tmux.conf .xinitrc $HOME
+
+echo -e "${GREEN}REPLICANT: Fetching walls..${RESET}"
+cd $HOME/pix
+echo "curl -k -u download:${SHLUB} -O http://${NODEIP}:${NODEPORT}/walls.zip"
+curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip
+unzip walls.zip
+rm -f walls.zip
+
+echo -e "${GREEN}REPLICANT: Prepping X scripts..${RESET}"
+mkdir -p ${BINPATH}
+cd BINPATH
+ln -s $HOME/skps/newlook
 
 # xinit
 # xrandr (interactive xrandr?)
@@ -78,9 +124,6 @@ git clone https://github.com/hakirot/d07f1135.git
 #   . Install 16color.lua to /home/username/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
 # oh-my-zsh
 # backupConfs
-# polybar
-# skps
-#   - inotifytools
 # Grub?
 # Rust and rust tools
 
@@ -88,7 +131,6 @@ git clone https://github.com/hakirot/d07f1135.git
 
 # startx
 # launch st
-# replicate.sh
 
 # configure neovim (run Lazy inside the editor somehow)
 #   exit
