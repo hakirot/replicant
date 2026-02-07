@@ -62,15 +62,13 @@ yay --noconfirm -S \
   dunst \
   tmux \
   vim \
-  neovim \
-  unzip \
-  zsh
+  unzip
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
 mkdir dls Downloads dox git gmz go lib mnt mzk pix test
 git clone https://github.com/hakirot/skps.git
 
-echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot/SARA repos..${RESET}"
+echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot..${RESET}"
 cd git
 git clone https://github.com/hakirot/suckless-hakirot.git
 
@@ -88,21 +86,19 @@ cd $HOME/git/suckless-hakirot/polybar
 chmod +x install.sh
 source install.sh
 
-echo -e "${GREEN}REPLICANT: Cloning SARA..${RESET}"
-cd git
+echo -e "${GREEN}REPLICANT: SARA..${RESET}"
+cd $HOME/git
 git clone https://github.com/hakirot/sara.git
-
-echo -e "${GREEN}REPLICANT: Building SARA..${RESET}"
 cd $HOME/git/sara
 make
 
-echo -e "${GREEN}REPLICANT: Installing SARA configs..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing dotfiles..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
 cp .tmux.conf .xinitrc $HOME
 
-echo -e "${GREEN}REPLICANT: Fetching walls..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing walls..${RESET}"
 cd $HOME/pix
 echo "curl -k -u download:${SHLUB} -O http://${NODEIP}:${NODEPORT}/walls.zip"
 curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip
@@ -116,13 +112,45 @@ ln -s $HOME/skps/newlook
 #nohup bash -c 'sleep 10; xdotool key super+space' > /dev/null 2>&1 &
 #startx
 
-# xinit
-# xrandr (interactive xrandr?)
 # firewall
-# speedrun desktop env with suckless project mods
-# grab walls.zip and install
-# sara dynamic config (?)
-# Neovim
+# Neovim config
+# (yay) More packages
+#   cava \
+#   discord \
+#   fastfetch \
+#   figlet \
+#   figlet-fonts \
+#   figlet-fonts-extra \
+#   file \
+#   firefox \
+#   gzip \
+#   heroku-cli-bin \
+#   inotify-tools \
+#   jq \
+#   kitty \
+#   mpd \
+#   nftables \
+#   nodejs \
+#   nodejs-nodemon \
+#   neovim \
+#   packer \
+#   polychromatic \
+#   rmpc \
+#   rtorrent \
+#   ticker \
+#   tldr \
+#   tmux \
+#   tmatrix \
+#   ueberzugpp \
+#   vlc \
+#   wireplumber \
+#   xcolor \
+#   xsel \
+#   zathura-pdf-mupdf \
+#   zathura \
+#   zsh \
+#   zip
+
 # lualine patch (not patchable until lazy is run)
 #   . /home/$USER/.local/share/nvim/lazy/lualine.nvim/lua/lualine/config.lua
 #   | > theme = '16color',
@@ -133,15 +161,6 @@ ln -s $HOME/skps/newlook
 # backupConfs
 # Grub?
 # Rust and rust tools
-
-# (launch dwm last)
-
-# startx
-# launch st
-
-# configure neovim (run Lazy inside the editor somehow)
-#   exit
-# Compile SARA
 # Edit sara into zsh
 # Run sara
 
