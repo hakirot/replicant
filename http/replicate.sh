@@ -20,12 +20,13 @@ PATH=${BINPATH}:$PATH
 
 echo -e "${GREEN}++REPLICATE.sh++${RESET}"
 
-echo -e "${GREEN}Building yay..${RESET}"
+echo -e "${GREEN}Acquiring yay..${RESET}"
+cd $HOME
 sudo pacman --noconfirm -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --clean
-cd ../
+cd $HOME
 rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base packages..${RESET}"
@@ -65,20 +66,19 @@ yay --noconfirm -S \
   unzip
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
-mkdir dls Downloads dox git gmz go lib mnt mzk pix test
+mkdir dls Downloads dox git gmz lib mnt mzk pix test
 git clone https://github.com/hakirot/skps.git
 
 echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot..${RESET}"
-cd git
+cd $HOME/git
 git clone https://github.com/hakirot/suckless-hakirot.git
 
 echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU..${RESET}"
-cd suckless-hakirot
-cd dwm
+cd $HOME/suckless-hakirot/dwm
 sudo make clean install ; make clean
-cd ../st
+cd $HOME/suckless-hakirot/st
 sudo make clean install ; make clean
-cd ../dmenu
+cd $HOME/suckless-hakirot/dmenu
 sudo make clean install ; make clean
 
 echo -e "${GREEN}REPLICANT: Installing Polybar configs..${RESET}"
