@@ -14,6 +14,10 @@ source "qemu" "replicant" {
   qemu_binary       = "/usr/bin/qemu-system-x86_64"
   headless          = false
   accelerator       = "kvm"
+  qemuargs = [
+    ["-monitor", "unix:/tmp/packer-qemu-monitor.sock,server,nowait"],
+  ]
+
 }
 
 build {

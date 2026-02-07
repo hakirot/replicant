@@ -45,6 +45,7 @@ yay --noconfirm -S \
   xorg-xrdb \
   xorg-xset \
   xorgproto \
+  xdotool \
   xwallpaper \
   libxft \
   libxinerama \
@@ -60,19 +61,18 @@ yay --noconfirm -S \
   ncurses \
   dunst \
   tmux \
+  vim \
   neovim \
   unzip \
-  vim \
   zsh
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
 mkdir dls Downloads dox git gmz go lib mnt mzk pix test
 git clone https://github.com/hakirot/skps.git
 
-echo -e "${GREEN}REPLICANT: Cloning SARA projects..${RESET}"
+echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot/SARA repos..${RESET}"
 cd git
 git clone https://github.com/hakirot/suckless-hakirot.git
-git clone https://github.com/hakirot/sara.git
 
 echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU..${RESET}"
 cd suckless-hakirot
@@ -87,6 +87,10 @@ echo -e "${GREEN}REPLICANT: Installing Polybar configs..${RESET}"
 cd $HOME/git/suckless-hakirot/polybar
 chmod +x install.sh
 source install.sh
+
+echo -e "${GREEN}REPLICANT: Cloning SARA..${RESET}"
+cd git
+git clone https://github.com/hakirot/sara.git
 
 echo -e "${GREEN}REPLICANT: Building SARA..${RESET}"
 cd $HOME/git/sara
@@ -107,8 +111,10 @@ rm -f walls.zip
 
 echo -e "${GREEN}REPLICANT: Prepping X scripts..${RESET}"
 mkdir -p ${BINPATH}
-cd BINPATH
+cd ${BINPATH}
 ln -s $HOME/skps/newlook
+#nohup bash -c 'sleep 10; xdotool key super+space' > /dev/null 2>&1 &
+#startx
 
 # xinit
 # xrandr (interactive xrandr?)
@@ -123,6 +129,7 @@ ln -s $HOME/skps/newlook
 #   | > section_separators = { left = '', right = '' },
 #   . Install 16color.lua to /home/username/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
 # oh-my-zsh
+# yay -S zsh-syntax-highlighting
 # backupConfs
 # Grub?
 # Rust and rust tools

@@ -13,12 +13,11 @@ source "qemu" "base" {
   ssh_username = "username"
   ssh_password = "asdf"
   ssh_timeout = "20m"
-  boot_wait = "5s"
+  boot_wait = "120s"
   qemu_binary = "/usr/bin/qemu-system-x86_64"
   headless = false
   accelerator = "kvm"
   boot_command = [
-    "<wait110>",
     "export PACKER_HTTP_IP={{ .HTTPIP}}<enter>",
     "export PACKER_HTTP_PORT={{ .HTTPPort}}<enter>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
@@ -30,7 +29,8 @@ source "qemu" "base" {
 build {
   sources = ["source.qemu.base"]
 
-  provisioner "shell" {
-    inline = ["echo Install script complete"]
+  provisioner "file" {
+    source = "http/bash_profile"
+    destination = "/home/username/.bash_profile"
   }
 }
