@@ -66,6 +66,7 @@ yay --noconfirm -S \
   unzip
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
+cd $HOME
 mkdir dls Downloads dox git gmz lib mnt mzk pix test
 git clone https://github.com/hakirot/skps.git
 
@@ -146,8 +147,9 @@ ln -s $HOME/skps/newlook
 #   wireplumber \
 #   xcolor \
 #   xsel \
-#   zathura-pdf-mupdf \
 #   zathura \
+#   zathura-pdf-mupdf \
+#   yt-dlp \
 #   zsh \
 #   zip
 
@@ -156,9 +158,9 @@ ln -s $HOME/skps/newlook
 #   | > theme = '16color',
 #   | > section_separators = { left = '', right = '' },
 #   . Install 16color.lua to /home/username/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
+
 # oh-my-zsh
 # yay -S zsh-syntax-highlighting
-# backupConfs
 # Grub?
 # Rust and rust tools
 # Edit sara into zsh
