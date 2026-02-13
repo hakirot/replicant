@@ -34,9 +34,10 @@ echo "username ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_username
 
 curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/configure.sh
 curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicate.sh
-mv configure.sh replicate.sh /mnt/home/username/
+curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicant.sh
+mv configure.sh replicate.sh replicant.sh /mnt/home/username/
 cp /mnt/home/username/.bash_profile /mnt/home/username/.bash_profile.bak
-echo "sudo chown username:username ./configure.sh replicate.sh" >> /mnt/home/username/.bash_profile
-echo "chmod +x /home/username/configure.sh replicate.sh" >> /mnt/home/username/.bash_profile
+echo "sudo chown username:username ./configure.sh replicate.sh replicant.sh" >> /mnt/home/username/.bash_profile
+echo "chmod +x /home/username/configure.sh replicate.sh replicant.sh" >> /mnt/home/username/.bash_profile
 echo "/home/username/configure.sh" >> /mnt/home/username/.bash_profile
 shutdown -r now

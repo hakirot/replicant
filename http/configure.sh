@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Configuration file for packer
+# Configuration file for packer only
 
 set -eou pipefail
 
@@ -32,4 +32,5 @@ ls
 #sleep 10
 sudo systemctl status sshd
 sudo systemctl start sshd
-# END OF PACKER CONFIG
+
+# - END OF PACKER CONFIG -

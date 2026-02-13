@@ -17,8 +17,13 @@ PATH=${BINPATH}:$PATH
 #./replicate.sh
 
 #archinstall --config user_configuration.json --creds user_credentials.json --silent
+#   all of install script should be duped here
 
 echo -e "${GREEN}++REPLICATE.sh++${RESET}"
+
+echo -e "${GREEN}Restoring .bash_profile${RESET}"
+rm -f $HOME/.bash_profile
+cp $HOME/.bash_profile.bak $HOME/.bash_profile
 
 echo -e "${GREEN}Acquiring yay..${RESET}"
 cd $HOME
@@ -29,7 +34,7 @@ makepkg -si --noconfirm --clean
 cd $HOME
 rm -rf yay
 
-echo -e "${GREEN}REPLICANT: Installing base packages..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
 yay --noconfirm -S \
   polybar-dwm-git \
   xorg-fonts-encodings \
@@ -75,11 +80,11 @@ cd $HOME/git
 git clone https://github.com/hakirot/suckless-hakirot.git
 
 echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU..${RESET}"
-cd $HOME/suckless-hakirot/dwm
+cd $HOME/git/suckless-hakirot/dwm
 sudo make clean install ; make clean
-cd $HOME/suckless-hakirot/st
+cd $HOME/git/suckless-hakirot/st
 sudo make clean install ; make clean
-cd $HOME/suckless-hakirot/dmenu
+cd $HOME/git/suckless-hakirot/dmenu
 sudo make clean install ; make clean
 
 echo -e "${GREEN}REPLICANT: Installing Polybar configs..${RESET}"
@@ -93,11 +98,11 @@ git clone https://github.com/hakirot/sara.git
 cd $HOME/git/sara
 make
 
-echo -e "${GREEN}REPLICANT: Installing dotfiles..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing initial .xinitrc..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
-cp .tmux.conf .xinitrc $HOME
+cp .xinitrc $HOME
 
 echo -e "${GREEN}REPLICANT: Installing walls..${RESET}"
 cd $HOME/pix
@@ -110,61 +115,9 @@ echo -e "${GREEN}REPLICANT: Prepping X scripts..${RESET}"
 mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s $HOME/skps/newlook
-#nohup bash -c 'sleep 10; xdotool key super+space' > /dev/null 2>&1 &
-#startx
 
-# firewall
-# Neovim config
-# (yay) More packages
-#   cava \
-#   discord \
-#   fastfetch \
-#   figlet \
-#   figlet-fonts \
-#   figlet-fonts-extra \
-#   file \
-#   firefox \
-#   gzip \
-#   heroku-cli-bin \
-#   inotify-tools \
-#   jq \
-#   kitty \
-#   mpd \
-#   nftables \
-#   nodejs \
-#   nodejs-nodemon \
-#   neovim \
-#   packer \
-#   polychromatic \
-#   rmpc \
-#   rtorrent \
-#   ticker \
-#   tldr \
-#   tmux \
-#   tmatrix \
-#   ueberzugpp \
-#   vlc \
-#   wireplumber \
-#   xcolor \
-#   xsel \
-#   zathura \
-#   zathura-pdf-mupdf \
-#   yt-dlp \
-#   zsh \
-#   zip
+echo -e "${GREEN}REPLICANT: Prepping replicant.sh..${RESET}"
+echo "source replicant.sh" >> /home/username/.bash_profile
 
-# lualine patch (not patchable until lazy is run)
-#   . /home/$USER/.local/share/nvim/lazy/lualine.nvim/lua/lualine/config.lua
-#   | > theme = '16color',
-#   | > section_separators = { left = '', right = '' },
-#   . Install 16color.lua to /home/username/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
-
-# oh-my-zsh
-# yay -S zsh-syntax-highlighting
-# Grub?
-# Rust and rust tools
-# Edit sara into zsh
-# Run sara
-
-# --SIM
-#sudo systemctl start sshd
+nohup bash -c 'sleep 20; DISPLAY=:0 xdotool key super+space' > /dev/null 2>&1 &
+startx

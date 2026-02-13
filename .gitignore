@@ -6,3 +6,5 @@ out
 output-sara/
 .TODO
 debug-snapshot.qcow2
+replicant_debug.qcow3
+debug-snapshot.qcow3
