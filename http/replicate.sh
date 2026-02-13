@@ -36,7 +36,22 @@ rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
 yay --noconfirm -S \
+  dunst \
+  libxft \
+  libxinerama \
+  ttf-jetbrains-mono \
+  ttf-jetbrains-mono-nerd \
+  ttf-font-awesome \
+  ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-common \
+  picom-git \
+  python-pywal \
+  make \
+  ncurses \
   polybar-dwm-git \
+  tmux \
+  unzip \
+  vim \
   xorg-fonts-encodings \
   xorg-server \
   xorg-server-common \
@@ -52,23 +67,7 @@ yay --noconfirm -S \
   xorg-xset \
   xorgproto \
   xdotool \
-  xwallpaper \
-  libxft \
-  libxinerama \
-  ttf-jetbrains-mono \
-  ttf-jetbrains-mono-nerd \
-  ttf-font-awesome \
-  ttf-nerd-fonts-symbols \
-  ttf-nerd-fonts-symbols-common \
-  picom-git \
-  python-pywal \
-  xdotool \
-  make \
-  ncurses \
-  dunst \
-  tmux \
-  vim \
-  unzip
+  xwallpaper
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
 cd $HOME
@@ -116,8 +115,15 @@ mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s $HOME/skps/newlook
 
+echo -e "${GREEN}REPLICANT: Installing picom config..${RESET}"
+mkdir -p $HOME/.config/
+cp $HOME/git/suckless-hakirot/picom.conf $HOME/.config/picom.conf
+
 echo -e "${GREEN}REPLICANT: Prepping replicant.sh..${RESET}"
 echo "source replicant.sh" >> /home/username/.bash_profile
 
-nohup bash -c 'sleep 20; DISPLAY=:0 xdotool key super+space' > /dev/null 2>&1 &
+echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
+nohup bash -c ./sub.sh > /dev/null 2>&1 &
+
+echo -e "${GREEN}REPLICANT: Starting X..${RESET}"
 startx

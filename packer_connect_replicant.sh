@@ -13,5 +13,4 @@ qemu-system-x86_64 \
   -drive file=debug-snapshot.qcow3,if=virtio \
   -nic user,hostfwd=tcp::2222-:22
 
-#ssh -p 2222 root@localhost
-
+#ssh -p 2222 username@localhost
