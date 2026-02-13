@@ -39,15 +39,15 @@ yay --noconfirm -S \
   dunst \
   libxft \
   libxinerama \
+  ttf-font-awesome \
   ttf-jetbrains-mono \
   ttf-jetbrains-mono-nerd \
-  ttf-font-awesome \
   ttf-nerd-fonts-symbols \
   ttf-nerd-fonts-symbols-common \
-  picom-git \
-  python-pywal \
   make \
   ncurses \
+  picom-git \
+  python-pywal \
   polybar-dwm-git \
   tmux \
   unzip \
@@ -119,11 +119,13 @@ echo -e "${GREEN}REPLICANT: Installing picom config..${RESET}"
 mkdir -p $HOME/.config/
 cp $HOME/git/suckless-hakirot/picom.conf $HOME/.config/picom.conf
 
-echo -e "${GREEN}REPLICANT: Prepping replicant.sh..${RESET}"
-echo "source replicant.sh" >> /home/username/.bash_profile
+#echo -e "${GREEN}REPLICANT: Prepping replicant.sh..${RESET}"
+#cd $HOME
+#echo "source replicant.sh" >> /home/username/.bash_profile
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
-nohup bash -c ./sub.sh > /dev/null 2>&1 &
+cd $HOME
+nohup bash -c ./sub.sh > sub.out 2>&1 &
 
 echo -e "${GREEN}REPLICANT: Starting X..${RESET}"
 startx

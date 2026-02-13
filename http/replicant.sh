@@ -51,6 +51,7 @@ yay --noconfirm -S \
   zip
 
 # ranger
+# dunstrc
 
 # firewall
 
@@ -58,7 +59,6 @@ yay --noconfirm -S \
 # yay -S zsh-syntax-highlighting
 # Grub?
 # Rust and rust tools
-# Run sara
 
 # change SHELL
 

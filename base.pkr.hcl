@@ -3,6 +3,7 @@
 
 source "qemu" "base" {
   vm_name      = "arch-base"
+  cpus         = 2
   iso_url      = "./archlinux-x86_64.iso"
   iso_checksum = "file:./checksum"
   output_directory = "output-arch-base"

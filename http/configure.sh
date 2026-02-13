@@ -29,9 +29,7 @@ sudo pacman -S openssh --noconfirm
 echo -e "${GREEN}Done.${RESET}"
 cat $HOME/.bash_profile
 ls
-#sleep 10
 sudo systemctl status sshd
-sleep 1
 sudo systemctl start sshd
 
 # - END OF PACKER CONFIG -

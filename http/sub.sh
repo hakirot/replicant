@@ -1,7 +1,6 @@
 #!/bin/bash
-set -eou pipefail
 
-DISPLAY=:0
+export DISPLAY=:0
 
 sleep 20
 xdotool key super+space
