@@ -21,11 +21,12 @@ interopability with polybar
 
 ## INSTALLATION
 
-To run a live installation, one would simply boot into the live arch boot ISO,
-generate their arch install config files (by saving and exiting, NOT running
-archinstall), and then running the following command with their generated
-config files from archinstall.
+To run a live installation, after booting into the live arch boot ISO,
+generate arch install config files by saving and exiting the archinstall menu.
+Do not just run archinstall.
+
+This command will run the production version of this codebase. A prompt for
+continuation will occur after all required artifacts are retrieved, so you
+may inspect the files.
 
     `curl -fsSL https://cachecoyotes.com/replicant | bash`
-  
-Hands off the keyboard until it's done.
