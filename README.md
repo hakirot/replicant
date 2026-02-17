@@ -1,29 +1,31 @@
 # REPLICANT
 
-Provisions a software development workstation for Arch from the initial boot ISO, configuring DWM, tmux,
-zsh, nvim, st, polybar, sara, and others. This is my daily driver config, and
-saves time whenever I build new PCs, which, apparently, is often enough.
+This is an ArchInstall wrapper that provisions a custom software development
+workstation for Arch from the initial boot ISO, configuring DWM, tmux, zsh,
+nvim, st, polybar, sara, and more. This is my terminal-oriented daily driver
+config, and saves time whenever I build new PCs and replace storage devices,
+which, apparently, is often enough.
+
+This repository is for local development of provisioning code, testing the
+install with a QEMU/KVM virtual machine with Packer.
 
 ## FEATURES
 
-- Manually patched (and resolved) DWM provides extra features, mainly
+- Manually patched DWM provides extra features, mainly
 interopability with polybar
 - Complete NeoVim configuration
 - Dynamic system color configuration via pywal.
 - Oh-my-zsh
 - SARA CLI
-- .. and many others. Just read the code.
+- .. and more.
 
 ## INSTALLATION
 
-This repository is for local development of provisioning code, with a QEMU/KVM
-virtual environment and Packer. To run a live installation, you would simply
-boot a machine from a live Arch Linux boot ISO and run the install scripts from
-my website:
+To run a live installation, one would simply boot into the live arch boot ISO,
+generate their arch install config files (by saving and exiting, NOT running
+archinstall), and then running the following command with their generated
+config files from archinstall.
 
-- From the first prompt within the Arch Live Boot Image, configure a web
-connection and run:
-
-    `curl cachecoyotes.com/replicant | bash`
+    `curl -fsSL https://cachecoyotes.com/replicant | bash`
   
-Enjoy.
+Hands off the keyboard until it's done.

@@ -37,6 +37,7 @@ yay --noconfirm -S \
   rtorrent \
   ticker \
   tldr \
+  termdown \
   tmux \
   tmatrix \
   ueberzugpp \
