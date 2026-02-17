@@ -11,10 +11,10 @@ BINPATH=/home/username/.local/bin
 PATH=${BINPATH}:$PATH
 
 # --- Live.sh
-#curl www.cachecoyotes.com/replicant/sara.zip
-#unzip sara.zip
-#chmod -x replicate.sh
-#./replicate.sh
+#curl node/replicant
+#unzip replicant.zip
+#chmod -x install.sh
+#./install.sh
 
 #archinstall --config user_configuration.json --creds user_credentials.json --silent
 #   all of install script should be duped here

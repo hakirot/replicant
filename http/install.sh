@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eou pipefail
 
+# Set user information from arg
+
 # Prompt for default username
 #   Confirm
 
