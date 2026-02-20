@@ -1,5 +1,5 @@
 source "qemu" "replicant" {
-  vm_name           = "SARA"
+  vm_name           = "replicant"
   cpus              = 2
   iso_url           = "./output-arch-base/arch-base"
   disk_image        = true

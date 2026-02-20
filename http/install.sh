@@ -46,6 +46,7 @@ mkdir /mnt/etc/systemd/system/getty@tty1.service.d/
 mv autologin.conf /mnt/etc/systemd/system/getty@tty1.service.d/autologin.conf
 echo "username ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_username
 
+# if --SIM (set configure scripts otherwise skip to replicate.sh)
 mv configure.sh replicate.sh replicant.sh sub.sh /mnt/home/username/
 cp /mnt/home/username/.bash_profile /mnt/home/username/.bash_profile.bak
 echo "sudo chown username:username ./configure.sh replicate.sh replicant.sh sub.sh" >> /mnt/home/username/.bash_profile

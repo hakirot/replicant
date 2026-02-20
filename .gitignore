@@ -9,3 +9,7 @@ debug-snapshot.qcow2
 replicant_debug.qcow3
 debug-snapshot.qcow3
 output-arch-base-bak
+replicant.gpg
+replicant.sha256
+replicant.tar
+replicant/
