@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eou pipefail
 
+USER=$1
+
 # Set user information from arg
 
 # Prompt for default username
@@ -31,14 +33,6 @@ set -eou pipefail
 #curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicate.sh
 #curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicant.sh
 #curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/sub.sh
-# fi
-
-# if [!user_configuration.json || !user_credentials.json]
-#   echo "Missing archinstall configuration files"
-#   echo "Run archinstall to create/save configuration changes, then exit archinstall"
-#   echo "and rerun this replicant install command"
-#   exit
-# fi
 
 pacman -Sy
 pacman -S --noconfirm archinstall archlinux-keyring
@@ -47,12 +41,11 @@ archinstall --config user_configuration.json --creds user_credentials.json --sil
 
 mkdir /mnt/etc/systemd/system/getty@tty1.service.d/
 mv autologin.conf /mnt/etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo "username ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_username
+echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${USER}
 
-# if --SIM (set configure scripts otherwise skip to replicate.sh)
-mv configure.sh replicate.sh replicant.sh sub.sh /mnt/home/username/
-cp /mnt/home/username/.bash_profile /mnt/home/username/.bash_profile.bak
-echo "sudo chown username:username ./configure.sh replicate.sh replicant.sh sub.sh" >> /mnt/home/username/.bash_profile
-echo "chmod +x /home/username/configure.sh replicate.sh replicant.sh sub.sh" >> /mnt/home/username/.bash_profile
-echo "/home/username/configure.sh" >> /mnt/home/username/.bash_profile
+mv replicate.sh replicant.sh sub.sh /mnt/home/${USER}/
+cp /mnt/home/${USER}/.bash_profile /mnt/home/${USER}/.bash_profile.bak
+echo "sudo chown ${USER}:${USER} ${HOME}/replicate.sh ${HOME}/replicant.sh ${HOME}/sub.sh" >> /mnt/home/${USER}/.bash_profile
+echo "chmod +x ${HOME}/replicate.sh ${HOME}/replicant.sh ${HOME}/sub.sh" >> /mnt/home/${USER}/.bash_profile
+echo "${HOME}/replicate.sh" >> /home/username/.bash_profile
 shutdown -r now

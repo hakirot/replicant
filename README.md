@@ -29,4 +29,4 @@ This command will run the production version of this codebase. A prompt for
 continuation will occur after all required artifacts are retrieved, so you
 may inspect the files.
 
-    `curl -fsSL https://cachecoyotes.com/replicant | bash`
+    `sh -c "$(curl -fsSL https://cachecoyotes.com/replicant)"`

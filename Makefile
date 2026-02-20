@@ -10,12 +10,9 @@ NODEUSER=gambit
 NODE=node
 NODETARGETPATH=/home/gambit
 
-output-replicant/replicant: output-arch-base/arch-base
-	packer build replicant.pkr.hcl
-
-output-arch-base/arch-base:
+output-replicant/replicant:
 	./setup.sh
-	packer build base.pkr.hcl
+	packer build replicant.pkr.hcl
 
 archive:
 	mkdir -p $(BUILD_DIR)
