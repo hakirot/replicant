@@ -40,6 +40,9 @@ set -eou pipefail
 #   exit
 # fi
 
+pacman -Sy
+pacman -S --noconfirm archinstall archlinux-keyring
+
 archinstall --config user_configuration.json --creds user_credentials.json --silent
 
 mkdir /mnt/etc/systemd/system/getty@tty1.service.d/

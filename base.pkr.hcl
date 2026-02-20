@@ -19,11 +19,11 @@ source "qemu" "base" {
   headless = false
   accelerator = "kvm"
   boot_command = [
-    "export PACKER_HTTP_IP={{ .HTTPIP}}<enter>",
-    "export PACKER_HTTP_PORT={{ .HTTPPort}}<enter>",
-    "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
-    "chmod +x install.sh<enter>",
-#   "./install.sh<enter>"
+#   "export PACKER_HTTP_IP={{ .HTTPIP}}<enter>",
+#   "export PACKER_HTTP_PORT={{ .HTTPPort}}<enter>",
+#   "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
+#   "chmod +x install.sh<enter>",
+#   "./install.sh --SIM<enter>"
   ]
 }
 

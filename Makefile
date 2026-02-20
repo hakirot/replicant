@@ -10,19 +10,19 @@ NODEUSER=gambit
 NODE=node
 NODETARGETPATH=/home/gambit
 
-archive:
-	mkdir -p $(BUILD_DIR)
-	cp 		$(BUILD_SCRIPTS) $(BUILD_DIR)
-	tar -zcf $(TAR_TARGET) $(BUILD_DIR)
-	gpg --passphrase $(MASHURADO) --batch --yes --symmetric --output $(GPG_TARGET) $(TAR_TARGET)
-	sha256sum $(GPG_TARGET) > $(CHECKSUM_TARGET)
-
 output-replicant/replicant: output-arch-base/arch-base
 	packer build replicant.pkr.hcl
 
 output-arch-base/arch-base:
 	./setup.sh
 	packer build base.pkr.hcl
+
+archive:
+	mkdir -p $(BUILD_DIR)
+	cp 		$(BUILD_SCRIPTS) $(BUILD_DIR)
+	tar -zcf $(TAR_TARGET) $(BUILD_DIR)
+	gpg --passphrase $(MASHURADO) --batch --yes --symmetric --output $(GPG_TARGET) $(TAR_TARGET)
+	sha256sum $(GPG_TARGET) > $(CHECKSUM_TARGET)
 
 deploy: archive
 	rsync --progress $(GPG_TARGET) $(NODEUSER)@$(NODE):$(NODETARGETPATH)
