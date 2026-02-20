@@ -23,21 +23,22 @@ set -eou pipefail
 
 # There will need to be some checking to see if this is a live environment
 
-# --SIM
-curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/user_configuration.json
-curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/user_credentials.json
+# if [--SIM]; do
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/user_configuration.json
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/user_credentials.json
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/autologin.conf
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/configure.sh
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicate.sh
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicant.sh
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/sub.sh
+# fi
 
 archinstall --config user_configuration.json --creds user_credentials.json --silent
 
-curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/autologin.conf
 mkdir /mnt/etc/systemd/system/getty@tty1.service.d/
 mv autologin.conf /mnt/etc/systemd/system/getty@tty1.service.d/autologin.conf
 echo "username ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_username
 
-curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/configure.sh
-curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicate.sh
-curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicant.sh
-curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/sub.sh
 mv configure.sh replicate.sh replicant.sh sub.sh /mnt/home/username/
 cp /mnt/home/username/.bash_profile /mnt/home/username/.bash_profile.bak
 echo "sudo chown username:username ./configure.sh replicate.sh replicant.sh sub.sh" >> /mnt/home/username/.bash_profile
