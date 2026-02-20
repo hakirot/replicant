@@ -1,5 +1,13 @@
-# Makefile #
+
 SHELL := /bin/bash
+BUILD_SCRIPTS=http/install.sh http/autologin.conf http/replicant.sh http/replicate.sh http/sub.sh
+BUILD_DIR=build
+TAR_TARGET=replicant.tar
+GPG_TARGET=replicant.gpg
+CHECKSUM_TARGET=replicant.sha256
+MASHURADO=mashurado
+
+all: replicant archive
 
 replicant: output-arch-base/arch-base
 	packer build replicant.pkr.hcl
@@ -8,5 +16,16 @@ output-arch-base/arch-base:
 	./setup.sh
 	packer build base.pkr.hcl
 
+archive:
+	mkdir $(BUILD_DIR)
+	cp 		$(BUILD_SCRIPTS) $(BUILD_DIR)
+	tar -zcf $(TAR_TARGET) $(BUILD_DIR)
+	gpg --passphrase $(MASHURADO) --batch --yes --symmetric --output $(GPG_TARGET) $(TAR_TARGET)
+	sha256sum $(GPG_TARGET) > $(CHECKSUM_TARGET)
+
+deploy: archive
+	rsync 
+
 clean:
-	rm -rf output-sara
+	rm -rf $(BUILD_DIR)
+	rm -f $(GPG_TARGET) $(TAR_TARGET) $(CHECKSUM_TARGET)

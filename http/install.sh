@@ -33,6 +33,13 @@ set -eou pipefail
 #curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/sub.sh
 # fi
 
+# if [!user_configuration.json || !user_credentials.json]
+#   echo "Missing archinstall configuration files"
+#   echo "Run archinstall to create/save configuration changes, then exit archinstall"
+#   echo "and rerun this replicant install command"
+#   exit
+# fi
+
 archinstall --config user_configuration.json --creds user_credentials.json --silent
 
 mkdir /mnt/etc/systemd/system/getty@tty1.service.d/

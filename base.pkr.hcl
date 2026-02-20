@@ -23,7 +23,7 @@ source "qemu" "base" {
     "export PACKER_HTTP_PORT={{ .HTTPPort}}<enter>",
     "curl -O {{ .HTTPIP }}:{{ .HTTPPort }}/install.sh<enter>",
     "chmod +x install.sh<enter>",
-    "./install.sh<enter>"
+#   "./install.sh<enter>"
   ]
 }
 

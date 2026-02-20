@@ -33,6 +33,7 @@ yay --noconfirm -S \
   packer \
   polychromatic \
   ranger \
+  ripgrep \
   rmpc \
   rtorrent \
   ticker \
