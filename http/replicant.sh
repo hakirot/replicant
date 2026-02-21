@@ -8,6 +8,9 @@ GREEN='\033[0;32m'
 RESET='\033[0m'
 
 echo -e "${GREEN}++REPLICANT.sh++${RESET}"
+xdotool key super+BackSpace
+xdotool type "imv $HOME/pix/walls/tiger"
+xdotool key KP_Enter
 
 echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
 rm -f ${HOME}/.bash_profile
@@ -62,26 +65,15 @@ mkdir -p ${HOME}/.config/ranger
 cd ${HOME}/git/suckless-hakirot/ranger
 cp commands_full.py commands.py rifle.conf rc.conf scope.sh ${HOME}/.config/ranger/
 
+echo -e "${GREEN}REPLICANT: Configuring NEOVIM${RESET}"
+cd ${HOME}
+git clone https://github.com/hakirot/neovim-config.git
+mv neovim-config ${HOME}/.config/nvim
+
 echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
 mkdir -p ${HOME}/.config/dunst
 cd ${HOME}/git/suckless-hakirot/
 cp dunstrc ${HOME}/.config/dunst
-
-# oh-my-zsh
-# Grub?
-# Rust and rust tools
-
-# change SHELL
-#echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
-#chsh -s /usr/bin/zsh ${USER}
-
-# Installing Neovim config
-
-# lualine patch (not patchable until lazy is run)
-#   . /home/$USER/.local/share/nvim/lazy/lualine.nvim/lua/lualine/config.lua
-#   | > theme = '16color',
-#   | > section_separators = { left = '', right = '' },
-#   . Install 16color.lua to /home/${USER}/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
 
 echo -e "${GREEN}REPLICANT: Removing autologin${RESET}"
 sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
@@ -97,8 +89,11 @@ rm -f ${HOME}/replicant.sh ${HOME}/replicate.sh ${HOME}/nftables.conf ${HOME}/su
 echo -e "${GREEN}REPLICANT: Loading TMUX config..${RESET}"
 cp ${HOME}/git/d07f1135/.tmux.conf ${HOME}
 
+echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
+chsh -s /usr/bin/zsh ${USER}
+
 echo -e "${GREEN}REPLICANT: Deploying sleeper finalizer..${RESET}"
 cd ${HOME}
 nohup bash -c ./sub2.sh ${USER} > sub2.out 2>&1 &
 
-tmux -2
+echo -e "${GREEN}REPLICANT: WAITING..${RESET}"

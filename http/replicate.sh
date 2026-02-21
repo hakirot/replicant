@@ -29,20 +29,20 @@ rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
 yay --noconfirm -S \
+  imv \
   libxft \
   libxinerama \
-  ttf-font-awesome \
-  ttf-jetbrains-mono \
-  ttf-jetbrains-mono-nerd \
-  ttf-nerd-fonts-symbols \
-  ttf-nerd-fonts-symbols-common \
   make \
   ncurses \
   nftables \
   picom-git \
   python-pywal \
   polybar-dwm-git \
-  tmux \
+  ttf-font-awesome \
+  ttf-jetbrains-mono \
+  ttf-jetbrains-mono-nerd \
+  ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-common \
   unzip \
   vim \
   xorg-fonts-encodings \
@@ -95,6 +95,11 @@ cd $HOME/git
 git clone https://github.com/hakirot/sara.git
 cd $HOME/git/sara
 make
+
+echo -e "${GREEN}REPLICANT: Creating symlinks for sara, colortest${RESET}"
+cd ${HOME}/.local/bin
+ln -s ${HOME}/git/sara/sara
+ln -s ${HOME}/skps/colortest
 
 echo -e "${GREEN}REPLICANT: Installing initial .xinitrc..${RESET}"
 cd $HOME/git
