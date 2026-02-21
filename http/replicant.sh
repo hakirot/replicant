@@ -8,9 +8,6 @@ GREEN='\033[0;32m'
 RESET='\033[0m'
 
 echo -e "${GREEN}++REPLICANT.sh++${RESET}"
-xdotool key super+BackSpace
-xdotool type "imv $HOME/pix/walls/tiger"
-xdotool key KP_Enter
 
 echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
 rm -f ${HOME}/.bash_profile

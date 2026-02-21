@@ -21,12 +21,10 @@ xdotool key KP_Enter
 
 # rustup
 xdotool key alt+minus
-xdotool type "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
-xdotool key KP_Enter
-
-# even panes
 xdotool key control+j
 xdotool key E
+xdotool type "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+xdotool key KP_Enter
 
 sleep 20
 # lualine patch
