@@ -14,11 +14,11 @@ PATH=${BINPATH}:$PATH
 
 echo -e "${GREEN}++REPLICATE.sh++${RESET}"
 
-echo -e "${GREEN}Restoring .bash_profile${RESET}"
+echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
 rm -f $HOME/.bash_profile
 cp $HOME/.bash_profile.bak $HOME/.bash_profile
 
-echo -e "${GREEN}Acquiring yay..${RESET}"
+echo -e "${GREEN}REPLICANT: Acquiring yay..${RESET}"
 cd $HOME
 sudo pacman --noconfirm -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -38,6 +38,7 @@ yay --noconfirm -S \
   ttf-nerd-fonts-symbols-common \
   make \
   ncurses \
+  nftables \
   picom-git \
   python-pywal \
   polybar-dwm-git \
@@ -60,6 +61,12 @@ yay --noconfirm -S \
   xorgproto \
   xdotool \
   xwallpaper
+
+# firewall
+echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}"
+sudo nft --file $HOME/nftables.conf
+sudo cp $HOME/nftables /etc/
+sudo systemctl enable nftables
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
 cd $HOME

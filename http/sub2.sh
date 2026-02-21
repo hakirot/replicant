@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export DISPLAY=:0
+
+sleep 20
+xdotool key super+space
+sleep 3
+xdotool type cd
+xdotool key KP_Enter
+sleep 1
+xdotool type ./replicant.sh ${USER}
+xdotool key KP_Enter

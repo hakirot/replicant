@@ -1,6 +1,6 @@
 
 SHELL := /bin/bash
-BUILD_SCRIPTS=http/install.sh http/autologin.conf http/replicant.sh http/replicate.sh http/sub.sh http/nftables.conf
+BUILD_SCRIPTS=http/install.sh http/autologin.conf http/replicant.sh http/replicate.sh http/sub.sh http/nftables.conf http/sub2.sh
 BUILD_DIR=replicant
 TAR_TARGET=replicant.tar
 GPG_TARGET=replicant.gpg
