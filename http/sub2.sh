@@ -13,11 +13,13 @@ sleep 1
 # starting neovim for the plugins
 xdotool type nvim
 xdotool key KP_Enter
+sleep 1
 
 # oh-my-zsh
 xdotool key alt+minus
 xdotool type "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
 xdotool key KP_Enter
+sleep 1
 
 # rustup
 xdotool key alt+minus
@@ -36,6 +38,7 @@ xdotool key KP_Enter
 xdotool type "cd ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 xdotool type "patch -i sarax_lualine.diff"
+sleep 1
 
 # Copy in zshrc
 xdotool key alt+minus
@@ -43,6 +46,7 @@ xdotool key control+j
 xdotool key E
 xdotool type "cp $HOME/git/d07f1135/.zshrc $HOME"
 xdotool key KP_Enter
+sleep 1
 
 # mark finish
 xdotool key alt+minus
