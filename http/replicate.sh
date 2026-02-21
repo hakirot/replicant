@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -eou pipefail
 
 RED='\033[0;31m'
@@ -75,7 +75,7 @@ yay --noconfirm -S \
 # firewall
 echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}"
 sudo nft --file $HOME/nftables.conf
-sudo cp $HOME/nftables /etc/
+sudo cp $HOME/nftables.conf /etc/
 sudo systemctl enable nftables
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
@@ -107,7 +107,8 @@ cd $HOME/git/sara
 make
 
 echo -e "${GREEN}REPLICANT: Creating symlinks for sara, colortest${RESET}"
-cd ${HOME}/.local/bin
+mkdir -p ${BINPATH}
+cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
 

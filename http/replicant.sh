@@ -13,9 +13,6 @@ echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
 rm -f ${HOME}/.bash_profile
 cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 
-echo -e "${GREEN}REPLICANT: Sleeping to allow NETWORK TO WAKE UP ${RESET}"
-sleep 8
-
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
   cava \
@@ -80,8 +77,7 @@ sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
 sudo rmdir /etc/systemd/system/getty@tty1.service.d/
 
 echo -e "${GREEN}REPLICANT: Downgrading sudo perm{RESET}"
-sudo rm -f /etc/sudoers.d/00_${USER}
-echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}
+sudo echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}
 
 echo -e "${GREEN}REPLICANT: Cleaning up a bit..${RESET}"
 rm -f ${HOME}/replicant.sh ${HOME}/replicate.sh ${HOME}/nftables.conf ${HOME}/sub.sh

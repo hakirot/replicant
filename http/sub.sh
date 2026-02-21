@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eou pipefail
 
 USER=$1
 
@@ -40,5 +42,5 @@ sleep 1
 xdotool type cd
 xdotool key KP_Enter
 sleep 1
-xdotool type ./replicant.sh ${USER}
+xdotool type "./replicant.sh ${USER}"
 xdotool key KP_Enter
