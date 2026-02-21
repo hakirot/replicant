@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eou pipefail
 
+USER=$1
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 RESET='\033[0m'
@@ -11,9 +13,11 @@ echo -e "${GREEN}Restoring .bash_profile${RESET}"
 rm -f $HOME/.bash_profile
 cp $HOME/.bash_profile.bak $HOME/.bash_profile
 
+echo -e "${GREEN}Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
   cava \
   discord \
+  dunst \
   fastfetch \
   figlet \
   figlet-fonts \
@@ -49,20 +53,28 @@ yay --noconfirm -S \
   zathura \
   zathura-pdf-mupdf \
   yt-dlp \
+  zip \
   zsh \
-  zip
+  zsh-syntax-highlighting
 
-# ranger
-# dunstrc
+echo -e "${GREEN}Configuring ranger${RESET}"
+mkdir -p $HOME/.config/ranger
+cd $HOME/git/suckless-hakirot/ranger
+cp commands_full.py commands.py rifle.conf rc.conf scope.sh $HOME/.config/ranger
+
+echo -e "${GREEN}Configuring dunst${RESET}"
+mkdir -p $HOME/.config/dunst
+cd $HOME/git/suckless-hakirot/
+cp dunstrc $HOME/.config/dunst
 
 # firewall
 
 # oh-my-zsh
-# yay -S zsh-syntax-highlighting
 # Grub?
 # Rust and rust tools
 
 # change SHELL
+chsh -s /usr/bin/zsh ${USER}
 
 # Installing Neovim config
 
@@ -70,17 +82,14 @@ yay --noconfirm -S \
 #   . /home/$USER/.local/share/nvim/lazy/lualine.nvim/lua/lualine/config.lua
 #   | > theme = '16color',
 #   | > section_separators = { left = '', right = '' },
-#   . Install 16color.lua to /home/username/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
+#   . Install 16color.lua to /home/${USER}/.local/share/nvim/lazy/lualine.nvim/lua/lualine/themes/
 
 # Remove autologin
-#sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
-#sudo rmdir /etc/systemd/system/getty@tty1.service.d/
+sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
+sudo rmdir /etc/systemd/system/getty@tty1.service.d/
 
-# Remove/rewrite sudo file for username
-# sudo rm -f /etc/sudoers.d/00_username
-# echo "username ALL=(ALL) ALL" > /etc/sudoers.d/00_username
+# Remove/rewrite sudo file for USER
+sudo rm -f /etc/sudoers.d/00_${USER}
+echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}
 
-#rm -f $HOME/replicant.sh $HOME/replicate.sh
-
-# --SIM
-#sudo systemctl start sshd
+rm -f $HOME/replicant.sh $HOME/replicate.sh

@@ -2,6 +2,7 @@
 set -eou pipefail
 
 USER=$1
+USER_HOME=/mnt/home/${USER}
 
 # Set user information from arg
 
@@ -45,7 +46,7 @@ echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${USER}
 
 mv replicate.sh replicant.sh sub.sh /mnt/home/${USER}/
 cp /mnt/home/${USER}/.bash_profile /mnt/home/${USER}/.bash_profile.bak
-echo "sudo chown ${USER}:${USER} ${HOME}/replicate.sh ${HOME}/replicant.sh ${HOME}/sub.sh" >> /mnt/home/${USER}/.bash_profile
-echo "chmod +x ${HOME}/replicate.sh ${HOME}/replicant.sh ${HOME}/sub.sh" >> /mnt/home/${USER}/.bash_profile
-echo "${HOME}/replicate.sh" >> /home/username/.bash_profile
+echo "sudo chown ${USER}:${USER} replicate.sh replicant.sh sub.sh" >> ${USER_HOME}/.bash_profile
+echo "chmod +x replicate.sh replicant.sh sub.sh" >> ${USER_HOME}/.bash_profile
+echo "./replicate.sh ${USER}" >> ${USER_HOME}/.bash_profile
 shutdown -r now

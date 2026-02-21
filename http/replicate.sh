@@ -4,20 +4,13 @@ set -eou pipefail
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 RESET='\033[0m'
+
+USER=$1
 SHLUB=-sara-
 NODEIP=172.234.250.235
 NODEPORT=64646
-BINPATH=/home/username/.local/bin
+BINPATH=/home/${USER}/.local/bin
 PATH=${BINPATH}:$PATH
-
-# --- Live.sh
-#curl node/replicant
-#unzip replicant.zip
-#chmod -x install.sh
-#./install.sh
-
-#archinstall --config user_configuration.json --creds user_credentials.json --silent
-#   all of install script should be duped here
 
 echo -e "${GREEN}++REPLICATE.sh++${RESET}"
 
@@ -36,7 +29,6 @@ rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
 yay --noconfirm -S \
-  dunst \
   libxft \
   libxinerama \
   ttf-font-awesome \
@@ -119,13 +111,9 @@ echo -e "${GREEN}REPLICANT: Installing picom config..${RESET}"
 mkdir -p $HOME/.config/
 cp $HOME/git/suckless-hakirot/picom.conf $HOME/.config/picom.conf
 
-#echo -e "${GREEN}REPLICANT: Prepping replicant.sh..${RESET}"
-#cd $HOME
-#echo "source replicant.sh" >> /home/username/.bash_profile
-
 echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
 cd $HOME
-nohup bash -c ./sub.sh > sub.out 2>&1 &
+nohup bash -c ./sub.sh ${USER} > sub.out 2>&1 &
 
 echo -e "${GREEN}REPLICANT: Starting X..${RESET}"
 startx

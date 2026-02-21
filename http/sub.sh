@@ -1,5 +1,7 @@
 #!/bin/bash
 
+USER=$1
+
 export DISPLAY=:0
 
 sleep 20
@@ -7,5 +9,6 @@ xdotool key super+space
 sleep 3
 xdotool type cd
 xdotool key KP_Enter
-xdotool type ./replicant.sh
+sleep 1
+xdotool type ./replicant.sh ${USER}
 xdotool key KP_Enter
