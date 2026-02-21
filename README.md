@@ -23,7 +23,10 @@ interopability with polybar
 
 To run a live installation, after booting into the live arch boot ISO,
 generate arch install config files by saving and exiting the archinstall menu.
-Do not just run archinstall.
+Do not just run archinstall. You must configure a non-root user for this
+install. It is also recommended to copy your ISO network config in the network
+options, to prevent a stoppage when more package installations are attempted
+after rebooting into your arch linux installation.
 
 This command will run the production version of this codebase. A prompt for
 continuation will occur after all required artifacts are retrieved, so you

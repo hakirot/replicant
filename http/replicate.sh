@@ -3,6 +3,7 @@ set -eou pipefail
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
 RESET='\033[0m'
 
 USER=$1
@@ -17,6 +18,15 @@ echo -e "${GREEN}++REPLICATE.sh++${RESET}"
 echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
 rm -f $HOME/.bash_profile
 cp $HOME/.bash_profile.bak $HOME/.bash_profile
+
+echo -e "${GREEN}REPLICANT: Sleeping to allow NETWORK TO WAKE UP ${RESET}"
+seconds=10
+while [ $seconds -gt 0 ]; do
+  echo -e "${YELLOW}${seconds}${RESET}"
+  sleep 1
+  seconds=$((seconds - 1))
+done
+
 
 echo -e "${GREEN}REPLICANT: Acquiring yay..${RESET}"
 cd $HOME

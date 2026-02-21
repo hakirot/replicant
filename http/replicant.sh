@@ -13,6 +13,9 @@ echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
 rm -f ${HOME}/.bash_profile
 cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 
+echo -e "${GREEN}REPLICANT: Sleeping to allow NETWORK TO WAKE UP ${RESET}"
+sleep 8
+
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
   cava \
