@@ -136,7 +136,7 @@ cp $HOME/git/suckless-hakirot/picom.conf $HOME/.config/picom.conf
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
 cd $HOME
-nohup bash -c ./sub.sh ${USER} > sub.out 2>&1 &
+nohup bash -c "./sub.sh ${USER} > sub.out 2>&1 &"
 
 echo -e "${GREEN}REPLICANT: Starting X..${RESET}"
 startx

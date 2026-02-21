@@ -57,7 +57,7 @@ yay --noconfirm -S \
   zsh \
   zsh-syntax-highlighting
 
-echo -e "${GREEN}REPLICANT: Configuring ranger${RESET}"
+echo -e "${GREEN}REPLICANT: Configuring RANGER${RESET}"
 mkdir -p ${HOME}/.config/ranger
 cd ${HOME}/git/suckless-hakirot/ranger
 cp commands_full.py commands.py rifle.conf rc.conf scope.sh ${HOME}/.config/ranger/
@@ -90,6 +90,6 @@ chsh -s /usr/bin/zsh ${USER}
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper finalizer..${RESET}"
 cd ${HOME}
-nohup bash -c ./sub2.sh ${USER} > sub2.out 2>&1 &
+nohup bash -c "./sub2.sh ${USER} > sub2.out 2>&1 &"
 
 echo -e "${GREEN}REPLICANT: WAITING..${RESET}"
