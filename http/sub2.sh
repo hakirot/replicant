@@ -20,7 +20,7 @@ sleep 1
 xdotool key alt+minus
 sleep 1
 # move this to separate script
-xdotool type "sh -c \"\$\(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh\)\""
+xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
 sleep 1
 
@@ -31,8 +31,10 @@ xdotool key control+j
 xdotool key E
 xdotool type "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 xdotool key KP_Enter
+sleep 10
+xdotool key KP_Enter
 
-sleep 2
+sleep 1
 # lualine patch
 xdotool key alt+minus
 xdotool key control+j
@@ -42,7 +44,9 @@ xdotool key KP_Enter
 xdotool type "cd ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 xdotool type "patch -i sarax_lualine.diff"
-sleep 1
+
+#sleeping longer for oh-my-zsh
+sleep 20
 
 # Copy in zshrc
 xdotool key alt+minus

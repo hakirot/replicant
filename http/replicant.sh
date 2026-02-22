@@ -30,11 +30,13 @@ yay --noconfirm -S \
   jq \
   kitty \
   mpd \
+  networkmanager \
   nftables \
   nodejs \
   nodejs-nodemon \
   neovim \
   packer \
+  polkit \
   polychromatic \
   ranger \
   ripgrep \
