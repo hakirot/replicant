@@ -42,6 +42,7 @@ yay --noconfirm -S \
   libxinerama \
   make \
   ncurses \
+  networkmanager \
   nftables \
   picom-git \
   python-pywal \

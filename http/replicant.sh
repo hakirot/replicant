@@ -32,7 +32,6 @@ yay --noconfirm -S \
   kitty \
   mpd \
   ncdu \
-  networkmanager \
   nftables \
   nodejs \
   nodejs-nodemon \

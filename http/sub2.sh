@@ -20,8 +20,10 @@ xdotool key alt+minus
 sleep 1
 xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
-sleep 10
-xdotool type "asdf"
+sleep 3
+xdotool key Y
+xdotool key KP_Enter
+sleep 3
 xdotool key KP_Enter
 
 sleep 60
@@ -58,6 +60,7 @@ xdotool key KP_Enter
 xdotool type "cd ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 xdotool type "patch -i sarax_lualine.diff"
+xdotool key KP_Enter
 sleep 1
 xdotool type "./lua/lualine/config.lua"
 xdotool key KP_Enter
@@ -78,7 +81,9 @@ xdotool type "tmux kill-pane"
 xdotool key KP_Enter
 sleep 1
 xdotool type "qa!"
+sleep 60
 xdotool key KP_Enter
+sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
 
