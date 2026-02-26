@@ -13,6 +13,7 @@ cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
+  atac \
   bottom \
   cava \
   discord \

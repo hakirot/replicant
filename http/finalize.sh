@@ -33,7 +33,10 @@ cp $HOME/git/d07f1135/.gitconfig $HOME
 echo -e "${GREEN}FINALIZE.sh: Cloning more projects..${RESET}"
 cd $HOME/git
 git clone git@github.com:hakirot/zmk-config-corneview.git
+git clone git@github.com:hakirot/rust-book.git
 git clone git@github.com:hakirot/site.git
+git clone git@github.com:hakirot/giftbox-arcade.git
+git clone git@github.com:hakirot/readme-renderer.git
 cd site/
 git remote add heroku https://git.heroku.com/boiling-dawn-79173.git
 cd ..
@@ -41,7 +44,8 @@ git clone git@github.com:hakirot/replicant.git
 git clone git@github.com:hakirot/operation-goldhawk.git
 cd operation-goldhawk
 git remote add heroku https://git.heroku.com/operation-goldhawk.git
-cd ../
+cd $HOME/test
+git clone git@github.com:hakirot/C54ND80X.git
 
 echo -e "${GREEN}FINALIZE.sh: Set proper remote urls ..${RESET}"
 cd $HOME/.config/nvim
