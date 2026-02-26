@@ -6,4 +6,4 @@
 [?] chsh also asked for a password for the user
 [?] remove redundant $USER var from scripts after logging in as USER
 
-[ ] networkmanager
+[?] networkmanager
