@@ -39,4 +39,41 @@ echo "/home/username/git/replicant" >> $HOME/.config/pshd/dir
 echo "/home/username/test/c" >> $HOME/.config/pshd/dir
 echo "/home/username/git/zmk-config-corneview" >> $HOME/.config/pshd/dir
 
-# git remote set-url origin <ssh repo name>
+echo -e "${GREEN}FINALIZE.sh: Cloning more projects..${RESET}"
+cd $HOME/git
+git clone git@github.com:hakirot/site.git
+cd site/
+git remote set-url heroku https://git.heroku.com/boiling-dawn-79173.git
+cd ..
+git clone git@github.com:hakirot/replicant.git
+git clone git@github.com:hakirot/operation-goldhawk.git
+cd operation-goldhawk
+git remote set-url heroku https://git.heroku.com/operation-goldhawk.git
+cd ../
+
+cd $HOME/dox
+git clone git@github.com:hakirot/N0735.git
+
+echo -e "${GREEN}FINALIZE.sh: Set proper remote urls ..${RESET}"
+cd $HOME/.config/nvim
+git remote set-url origin gin	git@github.com:hakirot/neovim-config.git
+
+cd $HOME/git/sara/
+git remote set-url origin git@github.com:hakirot/sara
+
+cd $HOME/git/suckless-hakirot/
+git remote set-url origin git@github.com:hakirot/suckless-hakirot
+
+cd $HOME/skps
+git remote set-url origin git@github.com:hakirot/skps.git
+
+cd $HOME/git/d07f1135
+git remote set-url origin git@github.com:hakirot/d07f1135
+
+echo -e "${GREEN}FINALIZE.sh: Decrypting notes..${RESET}"
+gpg --quiet --batch --decrypt N0735/N0735 > out
+tar -xvf out
+rm out
+
+cd $HOME
+SARA

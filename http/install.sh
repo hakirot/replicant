@@ -35,6 +35,7 @@ USER_HOME=/mnt/home/${USER}
 #curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/replicant.sh
 #curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/sub.sh
 #curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/sub2.sh
+#curl -O $PACKER_HTTP_IP:$PACKER_HTTP_PORT/finalize.sh
 
 pacman -Sy
 pacman -S --noconfirm archinstall archlinux-keyring
@@ -45,9 +46,9 @@ mkdir /mnt/etc/systemd/system/getty@tty1.service.d/
 mv autologin.conf /mnt/etc/systemd/system/getty@tty1.service.d/autologin.conf
 echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${USER}
 
-mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf /mnt/home/${USER}/
+mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf finalize.sh /mnt/home/${USER}/
 cp /mnt/home/${USER}/.bash_profile /mnt/home/${USER}/.bash_profile.bak
-echo "sudo chown ${USER}:${USER} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh" >> ${USER_HOME}/.bash_profile
-echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh" >> ${USER_HOME}/.bash_profile
+echo "sudo chown ${USER}:${USER} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh finalize.sh" >> ${USER_HOME}/.bash_profile
+echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh finalize.sh" >> ${USER_HOME}/.bash_profile
 echo "./replicate.sh" >> ${USER_HOME}/.bash_profile
 shutdown -r now

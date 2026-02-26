@@ -24,16 +24,22 @@ yay --noconfirm -S \
   figlet-fonts-extra \
   file \
   firefox \
+  gnu-free-fonts \
   gzip \
   heroku-cli-bin \
   inotify-tools \
   jq \
   kitty \
   mpd \
+  ncdu \
   networkmanager \
   nftables \
   nodejs \
   nodejs-nodemon \
+  noto-fonts \
+  noto-fonts-cjk \
+  noto-fonts-emoji \
+  noto-fonts-extra \
   neovim \
   openssh \
   packer \
@@ -48,14 +54,15 @@ yay --noconfirm -S \
   termdown \
   tmux \
   tmatrix \
+  tree \
   ueberzugpp \
   vlc \
   wireplumber \
   xcolor \
   xsel \
+  yt-dlp \
   zathura \
   zathura-pdf-mupdf \
-  yt-dlp \
   zip \
   zsh \
   zsh-syntax-highlighting
