@@ -42,5 +42,5 @@ sleep 1
 xdotool type cd
 xdotool key KP_Enter
 sleep 1
-xdotool type "./replicant.sh ${USER}"
+xdotool type "./replicant.sh
 xdotool key KP_Enter

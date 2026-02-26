@@ -27,7 +27,6 @@ while [ $seconds -gt 0 ]; do
   seconds=$((seconds - 1))
 done
 
-
 echo -e "${GREEN}REPLICANT: Acquiring yay..${RESET}"
 cd $HOME
 sudo pacman --noconfirm -S --needed git base-devel
@@ -73,6 +72,10 @@ yay --noconfirm -S \
   xwallpaper
 
 # firewall
+echo -e "${GREEN}REPLICANT: Activating NetworkManager${RESET}"
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+
 echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}"
 sudo nft --file $HOME/nftables.conf
 sudo cp $HOME/nftables.conf /etc/
@@ -105,6 +108,7 @@ cd $HOME/git
 git clone https://github.com/hakirot/sara.git
 cd $HOME/git/sara
 make
+mkdir -p $HOME/.config/sara
 
 echo -e "${GREEN}REPLICANT: Creating symlinks for sara, colortest${RESET}"
 mkdir -p ${BINPATH}

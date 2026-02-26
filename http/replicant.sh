@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eou pipefail
 
-USER=$1
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 RESET='\033[0m'
@@ -15,9 +13,11 @@ cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
+  bottom \
   cava \
   discord \
   dunst \
+  dysk \
   fastfetch \
   figlet \
   figlet-fonts \
@@ -35,6 +35,7 @@ yay --noconfirm -S \
   nodejs \
   nodejs-nodemon \
   neovim \
+  openssh \
   packer \
   polkit \
   polychromatic \
@@ -78,8 +79,8 @@ echo -e "${GREEN}REPLICANT: Removing autologin${RESET}"
 sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
 sudo rmdir /etc/systemd/system/getty@tty1.service.d/
 
-echo -e "${GREEN}REPLICANT: Downgrading sudo perm{RESET}"
-sudo echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}
+#echo -e "${GREEN}REPLICANT: Downgrading sudo perm{RESET}"
+#sudo echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}
 
 echo -e "${GREEN}REPLICANT: Cleaning up a bit..${RESET}"
 rm -f ${HOME}/replicant.sh ${HOME}/replicate.sh ${HOME}/nftables.conf ${HOME}/sub.sh
@@ -87,8 +88,8 @@ rm -f ${HOME}/replicant.sh ${HOME}/replicate.sh ${HOME}/nftables.conf ${HOME}/su
 echo -e "${GREEN}REPLICANT: Loading TMUX config..${RESET}"
 cp ${HOME}/git/d07f1135/.tmux.conf ${HOME}
 
-echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
-chsh -s /usr/bin/zsh ${USER}
+#echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
+#chsh -s /usr/bin/zsh ${USER}
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper finalizer..${RESET}"
 cd ${HOME}

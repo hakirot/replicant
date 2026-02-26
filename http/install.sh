@@ -49,5 +49,5 @@ mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf /mnt/home/${USER}/
 cp /mnt/home/${USER}/.bash_profile /mnt/home/${USER}/.bash_profile.bak
 echo "sudo chown ${USER}:${USER} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh" >> ${USER_HOME}/.bash_profile
 echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh" >> ${USER_HOME}/.bash_profile
-echo "./replicate.sh ${USER}" >> ${USER_HOME}/.bash_profile
+echo "./replicate.sh" >> ${USER_HOME}/.bash_profile
 shutdown -r now
