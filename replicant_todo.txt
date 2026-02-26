@@ -1,9 +1,9 @@
-[?] oh-my-zsh command was clearly wrong and should be placed in a script instead
-[?] lualine patch requires more manual intervention
-[?] no idea whats up with treesitter right now
-[?] rustup was fine just needs an enter key
-[?] zshrc needs to be confidently copied after oh-my-zsh or will be overwritten
-[?] chsh also asked for a password for the user
-[?] remove redundant $USER var from scripts after logging in as USER
-
-[?] networkmanager
+[x] oh-my-zsh command was clearly wrong and should be placed in a script instead
+[x] lualine patch requires more manual intervention
+[x] no idea whats up with treesitter right now
+[x] rustup was fine just needs an enter key
+[x] zshrc needs to be confidently copied after oh-my-zsh or will be overwritten
+[x] remove redundant $USER var from scripts after logging in as USER
+[x] networkmanager
+[ ] clone zmk-corneview
+[ ] why is the telescope previewer fucked?

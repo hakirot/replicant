@@ -24,9 +24,6 @@ sleep 3
 xdotool key Y
 xdotool key KP_Enter
 sleep 3
-xdotool key KP_Enter
-
-sleep 60
 
 xdotool type "cp ${HOME}/git/suckless-hakirot/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
 xdotool key KP_Enter
@@ -69,7 +66,7 @@ xdotool type "./lua/lualine/themes/16color.lua"
 xdotool key KP_Enter
 
 #sleeping longer to check progress
-sleep 60
+sleep 1
 
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
@@ -80,8 +77,8 @@ sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
 sleep 1
-xdotool type "qa!"
-sleep 60
+xdotool type ":qa!"
+sleep 1
 xdotool key KP_Enter
 sleep 1
 xdotool type "tmux kill-pane"
