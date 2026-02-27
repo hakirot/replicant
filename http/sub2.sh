@@ -32,7 +32,13 @@ xdotool key KP_Enter
 xdotool type "patch -i oh-my-zsh.diff"
 xdotool key KP_Enter
 sleep 1
+xdotool type "./lib/grep.zsh"
+xdotool key KP_Enter
+sleep 1
 xdotool type "./plugins/git/git.plugin.zsh"
+xdotool key KP_Enter
+sleep 1
+xdotool type "./themes/fwalch.zsh-theme"
 xdotool key KP_Enter
 
 # rustup
