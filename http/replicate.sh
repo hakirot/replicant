@@ -124,7 +124,7 @@ cp .xinitrc $HOME
 
 echo -e "${GREEN}REPLICANT: Installing walls..${RESET}"
 cd $HOME/pix
-echo "curl -k -u download:${SHLUB} -O http://${NODEIP}:${NODEPORT}/walls.zip"
+echo "curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip"
 curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip
 unzip walls.zip
 rm -f walls.zip
