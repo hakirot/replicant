@@ -20,6 +20,7 @@ yay --noconfirm -S \
   dunst \
   dysk \
   fastfetch \
+  ffmpegthumbnailer \
   figlet \
   figlet-fonts \
   figlet-fonts-extra \

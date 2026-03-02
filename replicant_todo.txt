@@ -5,5 +5,9 @@
 [x] zshrc needs to be confidently copied after oh-my-zsh or will be overwritten
 [x] remove redundant $USER var from scripts after logging in as USER
 [x] networkmanager
-[ ] clone zmk-corneview
-[ ] why is the telescope previewer fucked?
+[x] clone zmk-corneview
+[x] why is the telescope previewer fucked?
+
+[ ] pipewire utilities and services [user]
+[ ] bluetooth utilities and services [not user]
+[ ] picom fixes
