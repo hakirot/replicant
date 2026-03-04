@@ -10,7 +10,7 @@
 
 [ ] pipewire utilities and services [user]
 [ ] bluetooth utilities and services [not user]
-[ ] picom fixes
+[x] picom fixes
 [ ] mpd config
 [ ] rmpc config
 [ ] systemctl enable mpd --user
