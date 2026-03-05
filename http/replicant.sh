@@ -26,6 +26,7 @@ yay --noconfirm -S \
   figlet-fonts-extra \
   file \
   firefox \
+  fuse2 \
   gnu-free-fonts \
   gzip \
   heroku-cli-bin \
