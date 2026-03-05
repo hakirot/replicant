@@ -43,6 +43,7 @@ yay --noconfirm -S \
   noto-fonts-emoji \
   noto-fonts-extra \
   neovim \
+  ntfs-3g \
   openssh \
   packer \
   polkit \
