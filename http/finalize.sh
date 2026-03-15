@@ -7,11 +7,21 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RESET='\033[0m'
 
-echo
-cat $HOME/.ssh/hub.pub
-echo
+yay --noconfirm -S \
+  xdg-desktop-portal \
+  xdg-desktop-portal-gtk
+  wine \
 
-read -p "Attach this public key to github, then press 'y': " -n 1 -r
+# order matters
+yay --noconfirm -S
+  protonup-qt-bin \
+  lutris \
+
+echo -e "${RED}GITHUB SSH PUBLIC KEY${RESET}"
+cat $HOME/.ssh/hub.pub
+echo -e "${RED}END${RESET}"
+
+read -p "Press 'y': " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -89,4 +99,4 @@ tar -xvf out
 rm -rf N0735 out
 
 cd $HOME
-SARA
+exec SARA
