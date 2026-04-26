@@ -14,7 +14,7 @@ sleep 3
 # tiger
 xdotool key super+BackSpace
 sleep 1
-xdotool type "imv $HOME/pix/walls/tiger"
+xdotool type "imv $HOME/pix/walls/walls/tiger"
 xdotool key KP_Enter
 sleep 1
 xdotool key super+f

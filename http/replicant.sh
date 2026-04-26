@@ -34,6 +34,7 @@ yay --noconfirm -S \
   jq \
   kitty \
   mpd \
+  mpc \
   ncdu \
   nftables \
   nodejs \
