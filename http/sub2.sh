@@ -60,6 +60,7 @@ xdotool key control+j
 xdotool key E
 xdotool type "cp ${HOME}/git/suckless-hakirot/sarax_lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
+# TODO just copy these in
 xdotool type "cd ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 xdotool type "patch -i sarax_lualine.diff"
