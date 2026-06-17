@@ -2,9 +2,9 @@
 
 This is an ArchInstall wrapper that provisions a custom software development
 workstation for Arch from the initial boot ISO, configuring DWM, tmux, zsh,
-nvim, st, polybar, sara, and more. This is my terminal-oriented daily driver
-config, and saves time whenever I build new PCs and replace storage devices,
-which, apparently, is often enough.
+nvim, st, polybar, sara, dunst,  and more. This is my daily driver config,
+and saves time whenever I build new PCs and replace storage devices, which,
+apparently, is often enough.
 
 This repository is for local development of provisioning code, testing the
 install with a QEMU/KVM virtual machine with Packer.
@@ -32,4 +32,4 @@ This command will run the production version of this codebase. A prompt for
 continuation will occur after all required artifacts are retrieved, so you
 may inspect the files.
 
-    `sh -c "$(curl -fsSL https://cachecoyotes.com/replicant)"`
+    `sh -c "$(curl -fsSL https://hakipaks.org/replicant/start)"`
