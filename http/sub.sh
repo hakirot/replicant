@@ -17,7 +17,7 @@ xdotool key enter
 # tiger :3
 xdotool key super+BackSpace
 sleep 1
-xdotool type "imv $HOME/pix/walls/walls/tiger"
+xdotool type "imv $HOME/pix/walls/walls/tiger_no_touchy.jpeg"
 xdotool key KP_Enter
 sleep 1
 xdotool key super+f
@@ -37,6 +37,10 @@ xdotool key plus
 xdotool key plus
 xdotool key plus
 xdotool key plus
+
+xdotool key j
+xdotool key j
+xdotool key j
 
 xdotool key super+l
 

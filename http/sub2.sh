@@ -111,13 +111,15 @@ sleep 8
 
 # CLEANUP
 
-# new sara config here
-#xdotool type "cd $HOME/git/sara"
-#xdotool key KP_Enter
-# wget https://www.hakipaks.org/replicant/sara
-# ENSURE proper filename
-#xdotool type "make"
-#xdotool key KP_Enter
+xdotool type "cd $HOME/git/sara"
+xdotool key KP_Enter
+wget www.hakipaks.org/sara/replicant --output-document config.h
+xdotool type "sed -i \"s|PATH_ME_PLS|${HOME}/git/sara/sara|g\" config.h"
+xdotool key KP_Enter
+sleep 1
+xdotool type "make"
+xdotool key KP_Enter
+sleep 2
 
 xdotool key control+d
 sleep 1

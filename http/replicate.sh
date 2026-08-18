@@ -113,11 +113,16 @@ cd $HOME/git/sara
 make
 mkdir -p $HOME/.config/sara
 
-echo -e "${GREEN}REPLICANT: Creating symlinks for sara, colortest${RESET}"
+echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
 mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
+ln -s ${HOME}/skps/shutdown.sh
+ln -s ${HOME}/skps/wifi
+ln -s ${HOME}/skps/respawn.sh
+ln -s ${HOME}/skps/kill-session
+ln -s ${HOME}/skps/newlook
 
 echo -e "${GREEN}REPLICANT: Installing initial .xinitrc..${RESET}"
 cd $HOME/git
