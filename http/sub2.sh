@@ -97,23 +97,36 @@ cp $HOME/git/d07f1135/.dircolors $HOME
 xdotool type "tmux"
 xdotool key KP_Enter
 sleep 1
-xdotool type "cd"
+xdotool type "q"
 xdotool key KP_Enter
+sleep 1
 
-#xdotool type "mkdir $HOME/.ssh"
+xdotool type "ln -s $HOME/git/suckless-hakirot/polybar/bar.sh $HOME/.local/bin/bar"
+xdotool key KP_Enter
+sleep 1
+
+xdotool type "bar"
+xdotool key KP_Enter
+sleep 8
+
+# CLEANUP
+
+# new sara config here
+#xdotool type "cd $HOME/git/sara"
 #xdotool key KP_Enter
-#xdotool type "cd $HOME/.ssh"
-#xdotool key KP_Enter
-#xdotool type "ssh-keygen -t rsa -b 4096"
-#xdotool key KP_Enter
-#xdotool type "hub"
-#xdotool key KP_Enter
-#xdotool type "asdf"
-#xdotool key KP_Enter
-#xdotool type "asdf"
-#xdotool key KP_Enter
-#xdotool type "cd"
+# wget https://www.hakipaks.org/replicant/sara
+# ENSURE proper filename
+#xdotool type "make"
 #xdotool key KP_Enter
 
-#xdotool type "./finalize.sh"
-#xdotool key KP_Enter
+xdotool key control+d
+sleep 1
+
+xdotool key control+d
+sleep 1
+
+xdotool key q
+
+xdotool key super+w
+xdotool key super+space
+sleep 1
