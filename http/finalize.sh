@@ -7,15 +7,23 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RESET='\033[0m'
 
-yay --noconfirm -S \
-  xdg-desktop-portal \
-  xdg-desktop-portal-gtk
-  wine \
+# from replicant.sh
+yay --noconfirm -S
+  atac \
+  gimp \
+  heroku-cli-bin \
+  inotify-tools \
+  nodejs \
+  nodejs-nodemon \
+  rtorrent \
+  termdown \
+  ticker \
+  yt-dlp
 
-# order matters
+# order matters for protonup-qt-bin and lutris
 yay --noconfirm -S
   protonup-qt-bin \
-  lutris \
+  lutris
 
 echo -e "${RED}GITHUB SSH PUBLIC KEY${RESET}"
 cat $HOME/.ssh/hub.pub

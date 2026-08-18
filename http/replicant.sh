@@ -13,7 +13,6 @@ cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
-  atac \
   bottom \
   cava \
   discord \
@@ -29,16 +28,12 @@ yay --noconfirm -S \
   fuse2 \
   gnu-free-fonts \
   gzip \
-  heroku-cli-bin \
-  inotify-tools \
   jq \
   kitty \
   mpd \
   mpc \
   ncdu \
   nftables \
-  nodejs \
-  nodejs-nodemon \
   noto-fonts \
   noto-fonts-cjk \
   noto-fonts-emoji \
@@ -52,10 +47,7 @@ yay --noconfirm -S \
   ranger \
   ripgrep \
   rmpc \
-  rtorrent \
-  ticker \
   tldr \
-  termdown \
   tmux \
   tmatrix \
   tree \
@@ -64,7 +56,6 @@ yay --noconfirm -S \
   wireplumber \
   xcolor \
   xsel \
-  yt-dlp \
   zathura \
   zathura-pdf-mupdf \
   zip \

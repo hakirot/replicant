@@ -18,7 +18,7 @@ echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
 rm -f $HOME/.bash_profile
 cp $HOME/.bash_profile.bak $HOME/.bash_profile
 
-echo -e "${GREEN}REPLICANT: Sleeping to allow NETWORK TO WAKE UP ${RESET}"
+echo -e "${GREEN}REPLICANT: 10 Second delay to restore NETWORK${RESET}"
 seconds=10
 while [ $seconds -gt 0 ]; do
   echo -e "${YELLOW}${seconds}${RESET}"

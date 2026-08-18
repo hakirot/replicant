@@ -5,7 +5,7 @@ source "qemu" "replicant" {
   vm_name      = "replicant"
   cpus         = 2
   iso_url      = "./archlinux-x86_64.iso"
-  iso_checksum = "file:./checksum"
+  iso_checksum = "file:./iso_checksum"
   output_directory = "output-replicant"
   disk_size    = "20000"
   format       = "qcow2"
@@ -27,7 +27,7 @@ source "qemu" "replicant" {
 #   "./install.sh username --SIM<enter>"
 #
 # OPTION 2: Pull scripts from production server
-    "sh -c \"$(curl -fsSL https://www.cachecoyotes.com/replicant)\"<enter>"
+    "sh -c \"$(curl -fsSL https://www.hakirot.org/replicant/start)\"<enter>"
   ]
   qemuargs = [
     ["-monitor", "unix:/tmp/packer-qemu-monitor.sock,server,nowait"],
