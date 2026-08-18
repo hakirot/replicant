@@ -1,6 +1,11 @@
 #!/bin/bash
 set -eou pipefail
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+RESET='\033[0m'
+
 USER=$1
 USER_HOME=/mnt/home/${USER}
 
@@ -17,5 +22,16 @@ mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf finalize.sh oh-my-zsh.
 cp /mnt/home/${USER}/.bash_profile /mnt/home/${USER}/.bash_profile.bak
 echo "sudo chown ${USER}:${USER} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh finalize.sh" >> ${USER_HOME}/.bash_profile
 echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh finalize.sh" >> ${USER_HOME}/.bash_profile
-echo "./replicate.sh" >> ${USER_HOME}/.bash_profile
+echo "source ./replicate.sh" >> ${USER_HOME}/.bash_profile
+
+echo -e "${GREEN}ARCH LINUX INSTALLED.${RESET}"
+sleep 1
+echo -e "${GREEN}REBOOTING TO CONTINUE..${RESET}"
+
+seconds=6
+while [ $seconds -gt 0 ]; do
+  echo -e "${YELLOW}${seconds}${RESET}"
+  sleep 1
+  seconds=$((seconds - 1))
+done
 shutdown -r now

@@ -58,9 +58,7 @@ yay --noconfirm -S \
   xsel \
   zathura \
   zathura-pdf-mupdf \
-  zip \
-  zsh \
-  zsh-syntax-highlighting
+  zip
 
 echo -e "${GREEN}REPLICANT: Configuring RANGER${RESET}"
 mkdir -p ${HOME}/.config/ranger
@@ -89,9 +87,6 @@ rm -f ${HOME}/replicant.sh ${HOME}/replicate.sh ${HOME}/nftables.conf ${HOME}/su
 
 echo -e "${GREEN}REPLICANT: Loading TMUX config..${RESET}"
 cp ${HOME}/git/d07f1135/.tmux.conf ${HOME}
-
-#echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
-#chsh -s /usr/bin/zsh ${USER}
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper finalizer..${RESET}"
 cd ${HOME}

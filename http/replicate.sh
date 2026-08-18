@@ -44,7 +44,7 @@ yay --noconfirm -S \
   ncurses \
   networkmanager \
   nftables \
-  picom-git \
+  picom \
   python-pywal \
   polybar-dwm-git \
   ttf-font-awesome \
@@ -69,7 +69,9 @@ yay --noconfirm -S \
   xorg-xset \
   xorgproto \
   xdotool \
-  xwallpaper
+  xwallpaper \
+  zsh \
+  zsh-syntax-highlighting
 
 # firewall
 echo -e "${GREEN}REPLICANT: Activating NetworkManager${RESET}"
@@ -80,6 +82,7 @@ echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}"
 sudo nft --file $HOME/nftables.conf
 sudo cp $HOME/nftables.conf /etc/
 sudo systemctl enable nftables
+sudo systemctl start nftables
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
 cd $HOME
@@ -124,6 +127,8 @@ cp .xinitrc $HOME
 
 echo -e "${GREEN}REPLICANT: Installing walls..${RESET}"
 cd $HOME/pix
+mkdir walls
+cd walls
 echo "curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip"
 curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip
 unzip walls.zip
@@ -140,7 +145,17 @@ cp $HOME/git/suckless-hakirot/picom.conf $HOME/.config/picom.conf
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
 cd $HOME
-nohup bash -c "./sub.sh ${USER} > sub.out 2>&1 &"
+
+echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
+sudo chsh --shell /bin/zsh ${USER}
+touch logout.sh
+echo "#\!/usr/bin/env bash" > logout.sh
+echo "logout" > logout.sh
+chmod +x logout.sh
 
 echo -e "${GREEN}REPLICANT: Starting X..${RESET}"
-startx
+echo "rm -f .zshrc" >> .zshrc
+echo "nohup bash -c \"./sub.sh ${USER} > sub.out 2>&1 &\"" >> .zshrc
+echo "startx" >> .zshrc
+
+source logout.sh

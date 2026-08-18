@@ -72,7 +72,6 @@ sleep 1
 xdotool type "./lua/lualine/themes/16color.lua"
 xdotool key KP_Enter
 
-#sleeping longer to check progress
 sleep 1
 
 xdotool type "tmux kill-pane"
@@ -91,30 +90,30 @@ sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
 
-# Copy in zshrc
+# Copy in zshrc and dircolors
 cp $HOME/git/d07f1135/.zshrc $HOME
+cp $HOME/git/d07f1135/.dircolors $HOME
 
 xdotool type "tmux"
 xdotool key KP_Enter
 sleep 1
-xdotool key q
 xdotool type "cd"
 xdotool key KP_Enter
 
-xdotool type "mkdir $HOME/.ssh"
-xdotool key KP_Enter
-xdotool type "cd $HOME/.ssh"
-xdotool key KP_Enter
-xdotool type "ssh-keygen -t rsa -b 4096"
-xdotool key KP_Enter
-xdotool type "hub"
-xdotool key KP_Enter
-xdotool type "asdf"
-xdotool key KP_Enter
-xdotool type "asdf"
-xdotool key KP_Enter
-xdotool type "cd"
-xdotool key KP_Enter
+#xdotool type "mkdir $HOME/.ssh"
+#xdotool key KP_Enter
+#xdotool type "cd $HOME/.ssh"
+#xdotool key KP_Enter
+#xdotool type "ssh-keygen -t rsa -b 4096"
+#xdotool key KP_Enter
+#xdotool type "hub"
+#xdotool key KP_Enter
+#xdotool type "asdf"
+#xdotool key KP_Enter
+#xdotool type "asdf"
+#xdotool key KP_Enter
+#xdotool type "cd"
+#xdotool key KP_Enter
 
-xdotool type "./finalize.sh"
-xdotool key KP_Enter
+#xdotool type "./finalize.sh"
+#xdotool key KP_Enter
