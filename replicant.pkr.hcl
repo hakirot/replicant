@@ -14,7 +14,7 @@ source "qemu" "replicant" {
   ssh_username = "username"
   ssh_password = "asdf"
   ssh_timeout = "60m"
-  boot_wait = "120s"
+  boot_wait = "180s"
   qemu_binary = "/usr/bin/qemu-system-x86_64"
   headless = false
   accelerator = "kvm"
@@ -27,7 +27,7 @@ source "qemu" "replicant" {
 #   "./install.sh username --SIM<enter>"
 #
 # OPTION 2: Pull scripts from production server
-    "sh -c \"$(curl -fsSL https://www.hakirot.org/replicant/start)\"<enter>"
+    "sh -c \"$(curl -fsSL https://www.hakipaks.org/replicant/start)\"<enter>"
   ]
   qemuargs = [
     ["-monitor", "unix:/tmp/packer-qemu-monitor.sock,server,nowait"],
