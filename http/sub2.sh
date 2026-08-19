@@ -113,7 +113,9 @@ xdotool type "cd $HOME/git/sara"
 xdotool key KP_Enter
 xdotool type "wget www.hakipaks.org/replicant/sara --output-document config.h"
 xdotool key KP_Enter
+xdotool type "waiting.."
 sleep 8
+xdotool key control+u
 xdotool type "sed -i \"s|PATH_ME_PLS|${HOME}/git/sara/sara|g\" config.h"
 xdotool key KP_Enter
 sleep 1
@@ -143,6 +145,8 @@ xdotool key q
 xdotool key super+w
 xdotool key super+space
 sleep 1
+xdotool key alt+z
+xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
 sleep 1

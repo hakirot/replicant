@@ -26,7 +26,7 @@ echo "source ./replicate.sh" >> ${USER_HOME}/.bash_profile
 
 echo -e "${GREEN}ARCH LINUX INSTALLED.${RESET}"
 sleep 1
-echo -e "${GREEN}REBOOTING TO CONTINUE..${RESET}"
+echo -e "${GREEN}REBOOTING INTO ARCH..${RESET}"
 
 seconds=6
 while [ $seconds -gt 0 ]; do

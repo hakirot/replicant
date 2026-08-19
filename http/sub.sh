@@ -10,12 +10,14 @@ sleep 15
 
 xdotool key super+space
 
+sleep 3
+
 # zsh init menu
 xdotool key q
 xdotool key KP_Enter
 
 sleep 3
-xdotool type "newlook $HOME/pix/walls/walls/tiger"
+xdotool type "$HOME/skps/newlook $HOME/pix/walls/walls/tiger"
 xdotool key KP_Enter
 sleep 4
 xdotool key KP_Enter
@@ -23,6 +25,13 @@ xdotool key KP_Enter
 xdotool key control+d
 xdotool key super+space
 sleep 2
+
+# zsh init menu
+xdotool key q
+xdotool key KP_Enter
+
+xdotool key alt+z
+xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
 

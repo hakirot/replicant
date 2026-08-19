@@ -87,7 +87,7 @@ sudo systemctl start nftables
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
 cd $HOME
-mkdir dls Downloads dox git gmz lib mnt mzk pix test
+mkdir dls Downloads dox git gmz lib mnt mzk pix
 git clone https://github.com/hakirot/skps.git
 
 echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot..${RESET}"
@@ -150,7 +150,7 @@ cd $HOME
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
 
-echo -e "${GREEN}Preparing switch to zsh..${RESET}"
+echo -e "${GREEN}Preparing graphical switch..${RESET}"
 sleep 1
 touch logout.sh
 echo "#\!/usr/bin/env bash" > logout.sh
