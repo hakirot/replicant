@@ -121,10 +121,13 @@ xdotool key KP_Enter
 sleep 1
 xdotool type "make clean"
 xdotool key KP_Enter
-sleep 2
+sleep 1
 xdotool type "make"
 xdotool key KP_Enter
 sleep 2
+xdotool type "make clean"
+xdotool key KP_Enter
+sleep 1
 
 xdotool type "newlook"
 xdotool key KP_Enter
@@ -135,12 +138,18 @@ xdotool key KP_Enter
 xdotool key control+d
 sleep 1
 
+# CLEANUP
+rm -f $HOME/finalize.sh \
+  $HOME/nohup.out \
+  $HOME/logout.sh \
+  $HOME/sub.out \
+  $HOME/sub2.out \
+  $HOME/oh-my-zsh.sh
+
 xdotool key control+d
 sleep 1
 
 xdotool key q
-
-# CLEANUP
 
 xdotool key super+w
 xdotool key super+space
