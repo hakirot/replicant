@@ -107,7 +107,7 @@ cd $HOME/git/suckless-hakirot/polybar
 chmod +x install.sh
 source install.sh
 
-echo -e "${GREEN}REPLICANT: SARA..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing SARA..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/sara.git
 cd $HOME/git/sara
@@ -161,13 +161,18 @@ chmod +x logout.sh
 
 sleep 1
 echo "rm -f .zshrc" >> .zshrc
+sleep 1
 echo "sleep 1" >> .zshrc
+sleep 1
 echo "nohup bash -c \"./sub.sh ${USER} > sub.out 2>&1 &\"" >> .zshrc
+sleep 1
 echo "sleep 1" >> .zshrc
+sleep 1
 echo "startx" >> .zshrc
 
-echo -e "${GREEN}REPLICANT: GET READY..${RESET}"
-echo -e "${RED}HANDS OFF!!${RESET}"
+echo -e "${GREEN}REPLICANT: GET READY ..${RESET}"
+sleep 1
+echo -e "${RED}HANDS OFF !!${RESET}"
 
 seconds=5
 while [ $seconds -gt 0 ]; do

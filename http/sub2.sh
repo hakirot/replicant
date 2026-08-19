@@ -21,7 +21,6 @@ sleep 1
 xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
 sleep 3
-xdotool key Y
 xdotool key KP_Enter
 sleep 3
 
@@ -108,6 +107,7 @@ sleep 1
 xdotool type "bar"
 xdotool key KP_Enter
 sleep 8
+xdotool key KP_Enter
 
 xdotool type "cd $HOME/git/sara"
 xdotool key KP_Enter
@@ -117,6 +117,9 @@ sleep 8
 xdotool type "sed -i \"s|PATH_ME_PLS|${HOME}/git/sara/sara|g\" config.h"
 xdotool key KP_Enter
 sleep 1
+xdotool type "make clean"
+xdotool key KP_Enter
+sleep 2
 xdotool type "make"
 xdotool key KP_Enter
 sleep 2
@@ -133,6 +136,8 @@ xdotool key q
 
 xdotool key super+w
 xdotool key super+space
+sleep 1
+xdotool key alt+z
 xdotool key alt+z
 sleep 1
 

@@ -40,7 +40,6 @@ xdotool key plus
 
 xdotool key j
 xdotool key j
-xdotool key j
 
 xdotool key super+l
 
