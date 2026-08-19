@@ -124,6 +124,12 @@ xdotool type "make"
 xdotool key KP_Enter
 sleep 2
 
+xdotool type "newlook"
+xdotool key KP_Enter
+sleep 5
+xdotool key KP_Enter
+xdotool key KP_Enter
+
 xdotool key control+d
 sleep 1
 
@@ -140,4 +146,3 @@ sleep 1
 xdotool key alt+z
 xdotool key alt+z
 sleep 1
-

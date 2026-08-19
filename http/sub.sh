@@ -9,6 +9,11 @@ export DISPLAY=:0
 sleep 15
 
 xdotool key super+space
+
+# zsh init menu
+xdotool key q
+xdotool key KP_Enter
+
 sleep 3
 xdotool type "newlook $HOME/pix/walls/walls/tiger"
 xdotool key KP_Enter
@@ -20,9 +25,6 @@ xdotool key super+space
 sleep 2
 xdotool key alt+z
 xdotool key alt+z
-
-xdotool key q
-xdotool key KP_Enter
 
 # tiger style :3
 xdotool key super+BackSpace
