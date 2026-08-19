@@ -10,11 +10,21 @@ sleep 15
 
 xdotool key super+space
 sleep 3
+xdotool type "newlook $HOME/pix/walls/walls/tiger"
+xdotool key KP_Enter
+sleep 4
+xdotool key KP_Enter
+xdotool key KP_Enter
+xdotool key control+d
+xdotool key super+space
+sleep 2
+xdotool key alt+z
+xdotool key alt+z
 
 xdotool key q
-xdotool key enter
+xdotool key KP_Enter
 
-# tiger :3
+# tiger style :3
 xdotool key super+BackSpace
 sleep 1
 xdotool type "imv $HOME/pix/walls/walls/tiger_no_touchy.jpeg"

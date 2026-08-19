@@ -48,7 +48,7 @@ xdotool key control+j
 xdotool key E
 xdotool type "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 xdotool key KP_Enter
-sleep 10
+sleep 8
 xdotool key KP_Enter
 sleep 1
 
