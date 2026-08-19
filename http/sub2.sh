@@ -109,11 +109,11 @@ xdotool type "bar"
 xdotool key KP_Enter
 sleep 8
 
-# CLEANUP
-
 xdotool type "cd $HOME/git/sara"
 xdotool key KP_Enter
-wget www.hakipaks.org/sara/replicant --output-document config.h
+xdotool type "wget www.hakipaks.org/replicant/sara --output-document config.h"
+xdotool key KP_Enter
+sleep 8
 xdotool type "sed -i \"s|PATH_ME_PLS|${HOME}/git/sara/sara|g\" config.h"
 xdotool key KP_Enter
 sleep 1
@@ -129,6 +129,10 @@ sleep 1
 
 xdotool key q
 
+# CLEANUP
+
 xdotool key super+w
 xdotool key super+space
+xdotool key alt+z
 sleep 1
+

@@ -54,6 +54,7 @@ yay --noconfirm -S \
   ttf-nerd-fonts-symbols-common \
   unzip \
   vim \
+  wget \
   xorg-fonts-encodings \
   xorg-server \
   xorg-server-common \
@@ -130,7 +131,7 @@ git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
 cp .xinitrc $HOME
 
-echo -e "${GREEN}REPLICANT: Installing walls..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing wallpapers..${RESET}"
 cd $HOME/pix
 mkdir walls
 cd walls
@@ -138,11 +139,6 @@ echo "curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip"
 curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip
 unzip walls.zip
 rm -f walls.zip
-
-echo -e "${GREEN}REPLICANT: Prepping X scripts..${RESET}"
-mkdir -p ${BINPATH}
-cd ${BINPATH}
-ln -s $HOME/skps/newlook
 
 echo -e "${GREEN}REPLICANT: Installing picom config..${RESET}"
 mkdir -p $HOME/.config/
@@ -153,14 +149,31 @@ cd $HOME
 
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
+
+echo -e "${GREEN}Preparing switch to zsh..${RESET}"
+sleep 1
 touch logout.sh
 echo "#\!/usr/bin/env bash" > logout.sh
+sleep 1
 echo "logout" > logout.sh
+sleep 1
 chmod +x logout.sh
 
-echo -e "${GREEN}REPLICANT: Starting X..${RESET}"
+sleep 1
 echo "rm -f .zshrc" >> .zshrc
+echo "sleep 1" >> .zshrc
 echo "nohup bash -c \"./sub.sh ${USER} > sub.out 2>&1 &\"" >> .zshrc
+echo "sleep 1" >> .zshrc
 echo "startx" >> .zshrc
+
+echo -e "${GREEN}REPLICANT: GET READY..${RESET}"
+echo -e "${RED}HANDS OFF!!${RESET}"
+
+seconds=5
+while [ $seconds -gt 0 ]; do
+  echo -e "${YELLOW}${seconds}${RESET}"
+  sleep 1
+  seconds=$((seconds - 1))
+done
 
 source logout.sh
