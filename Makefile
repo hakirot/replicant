@@ -1,7 +1,5 @@
 
 SHELL := /bin/bash
-BUILD_SCRIPTS=http/install.sh http/autologin.conf http/replicant.sh http/replicate.sh http/sub.sh http/nftables.conf http/sub2.sh http/oh-my-zsh.sh http/finalize.sh
-BUILD_DIR=replicant
 TAR_TARGET=replicant.tar.gz
 SIGNATURE_TARGET=replicant.tar.gz.sig
 CHECKSUM_TARGET=replicant.sha256
@@ -31,4 +29,4 @@ deploy: archive sign
 
 clean:
 	rm -rf $(BUILD_DIR)
-	rm -f $(TAR_TARGET) $(TAR_TARGET) $(CHECKSUM_TARGET)
+	rm -f $(TAR_TARGET) $(SIGNATURE_TARGET) $(CHECKSUM_TARGET)
