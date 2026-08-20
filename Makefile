@@ -1,5 +1,7 @@
 
 SHELL := /bin/bash
+BUILD_SCRIPTS=http/skadoo.sh http/autologin.conf http/replicant.sh http/replicate.sh http/sub.sh http/nftables.conf http/sub2.sh http/oh-my-zsh.sh http/finalize.sh
+BUILD_DIR=replicant
 TAR_TARGET=replicant.tar.gz
 SIGNATURE_TARGET=replicant.tar.gz.sig
 CHECKSUM_TARGET=replicant.sha256
