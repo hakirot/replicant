@@ -4,12 +4,12 @@ sha256sums.txt
 output*/
 out
 output-sara/
-.TODO
 debug-snapshot.qcow2
 replicant_debug.qcow3
 debug-snapshot.qcow3
 output-arch-base-bak
 replicant.gpg
 replicant.sha256
-replicant.tar
+replicant.tar.gz
 replicant/
+replicant.tar.gz.asc
