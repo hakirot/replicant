@@ -3,7 +3,7 @@ SHELL := /bin/bash
 BUILD_SCRIPTS=http/install.sh http/autologin.conf http/replicant.sh http/replicate.sh http/sub.sh http/nftables.conf http/sub2.sh http/oh-my-zsh.sh http/finalize.sh
 BUILD_DIR=replicant
 TAR_TARGET=replicant.tar.gz
-SIGNATURE_TARGET=replicant.tar.gz.asc
+SIGNATURE_TARGET=replicant.tar.gz.sig
 CHECKSUM_TARGET=replicant.sha256
 MASHURADO=mashurado
 NODEUSER=gambit
@@ -21,12 +21,13 @@ archive:
 	sha256sum $(TAR_TARGET) > $(CHECKSUM_TARGET)
 
 sign: archive
-	gpg --clearsign $(TAR_TARGET)
+	gpg --detach-sign $(TAR_TARGET)
 
-deploy: archive
+deploy: archive sign
 	rsync --progress $(TAR_TARGET) $(NODEUSER)@$(NODE):$(NODETARGETPATH)
 	rsync --progress $(CHECKSUM_TARGET) $(NODEUSER)@$(NODE):$(NODETARGETPATH)
 	rsync --progress $(SIGNATURE_TARGET) $(NODEUSER)@$(NODE):$(NODETARGETPATH)
+	cat $(CHECKSUM_TARGET)
 
 clean:
 	rm -rf $(BUILD_DIR)
