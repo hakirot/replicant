@@ -30,11 +30,6 @@ sleep 2
 xdotool key q
 xdotool key KP_Enter
 
-xdotool key alt+z
-xdotool key alt+z
-xdotool key alt+z
-xdotool key alt+z
-
 # tiger style :3
 xdotool key super+BackSpace
 sleep 1
@@ -63,6 +58,11 @@ xdotool key j
 xdotool key j
 
 xdotool key super+l
+
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
 
 sleep 1
 

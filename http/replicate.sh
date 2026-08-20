@@ -104,8 +104,8 @@ sudo make clean install ; make clean
 
 echo -e "${GREEN}REPLICANT: Installing Polybar configs..${RESET}"
 cd $HOME/git/suckless-hakirot/polybar
-chmod +x install.sh
-source install.sh
+chmod +x skadoo.sh
+source skadoo.sh
 
 echo -e "${GREEN}REPLICANT: Installing SARA..${RESET}"
 cd $HOME/git
