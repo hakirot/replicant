@@ -151,9 +151,8 @@ xdotool key q
 
 xdotool key super+w
 xdotool key super+space
-sleep 1
+sleep .5
 xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
-sleep 1

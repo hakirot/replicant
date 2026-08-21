@@ -9,7 +9,6 @@ replicant_debug.qcow3
 debug-snapshot.qcow3
 output-arch-base-bak
 replicant.gpg
-replicant.sha256
 replicant.tar.gz
 replicant/
 replicant.tar.gz.asc

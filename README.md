@@ -7,7 +7,7 @@ and saves time whenever I build new PCs and replace storage devices, which,
 apparently, is often enough.
 
 This repository is for local development of provisioning code, testing the
-install with a QEMU/KVM virtual machine with Packer.
+install with a QEMU/KVM virtual machine within Packer.
 
 ## FEATURES
 

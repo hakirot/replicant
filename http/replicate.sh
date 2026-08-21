@@ -150,7 +150,7 @@ cd $HOME
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
 
-echo -e "${GREEN}Preparing graphical switch..${RESET}"
+echo -e "${GREEN}Preparing to switch to graphical environment..${RESET}"
 sleep 1
 touch logout.sh
 echo "#\!/usr/bin/env bash" > logout.sh

@@ -64,8 +64,6 @@ xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
 
-sleep 1
-
 xdotool type cd
 xdotool key KP_Enter
 sleep 1
