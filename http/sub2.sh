@@ -106,7 +106,9 @@ sleep 1
 
 xdotool type "bar"
 xdotool key KP_Enter
+xdotool type "waiting.."
 sleep 8
+xdotool key control+u
 xdotool key KP_Enter
 
 xdotool type "cd $HOME/git/sara"
