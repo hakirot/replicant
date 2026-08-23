@@ -176,4 +176,3 @@ rm -f $HOME/finalize.sh \
   $HOME/sub2.out \
   $HOME/oh-my-zsh.sh
 
-sudo echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}
