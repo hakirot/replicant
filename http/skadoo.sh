@@ -13,7 +13,6 @@ pacman -Sy
 pacman -S --noconfirm archinstall archlinux-keyring
 
 archinstall --config user_configuration.json --creds user_credentials.json --silent
-echo -e "${GREEN}REPLICANT: ARCH LINUX INSTALLED.${RESET}"
 
 echo -e "${GREEN}REPLICANT: Configuring autologin and permissions for ${USER} ..${RESET}"
 mkdir /mnt/etc/systemd/system/getty@tty1.service.d/
@@ -28,7 +27,7 @@ echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh" >> ${USER_
 echo "source ./replicate.sh" >> ${USER_HOME}/.bash_profile
 
 sleep 1
-echo -e "${GREEN}REPLICANT: REBOOTING INTO ARCH..${RESET}"
+echo -e "${GREEN}REPLICANT: Rebooting into Arch ..${RESET}"
 
 seconds=6
 while [ $seconds -gt 0 ]; do
