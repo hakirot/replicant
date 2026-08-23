@@ -6,7 +6,8 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RESET='\033[0m'
 
-SHLUB=-sara-
+USR=91a4c72a
+PW=93930bedb
 NODEIP=172.234.250.235
 NODEPORT=64646
 BINPATH=/home/${USER}/.local/bin
@@ -141,8 +142,8 @@ echo -e "${GREEN}REPLICANT: Fetching wallpapers..${RESET}"
 cd $HOME/pix
 mkdir walls
 cd walls
-echo "curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip"
-curl -k -u download:${SHLUB} -O https://${NODEIP}:${NODEPORT}/walls.zip
+echo "curl -k -u download:${PW} -O https://${NODEIP}:${NODEPORT}/walls.zip"
+curl -k -u ${USR}:${PW} -O https://${NODEIP}:${NODEPORT}/walls.zip
 unzip walls.zip
 rm -f walls.zip
 
