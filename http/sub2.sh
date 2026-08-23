@@ -134,6 +134,33 @@ sleep 5
 xdotool key KP_Enter
 xdotool key KP_Enter
 
+xdotool type "sudo su - root"
+xdotool type "vim /etc/sudoers.d/00"
+xdotool key KP_Tab
+xdotool key KP_Enter
+sleep 1
+xdotool key KP_Enter
+xdotool key KP_Enter
+xdotool key f
+xdotool key N
+xdotool key d
+xdotool key t
+xdotool key A
+xdotool key period
+xdotool key KP_Enter
+xdotool key KP_Enter
+sleep .5
+xdotool key colon
+xdotool key w
+xdotool key exclam
+xdotool key KP_Enter
+sleep .5
+xdotool key colon
+xdotool key q
+xdotool key KP_Enter
+xdotool key KP_Enter
+sleep .5
+
 xdotool key control+d
 sleep 1
 
@@ -159,6 +186,7 @@ cd ${HOME}
 mv ${HOME}/skps ${HOME}/skps.bak
 
 mkdir ${HOME}/skps
+
 cp ${HOME}/skps.bak/colortest \
    ${HOME}/skps.bak/shutdown.sh \
    ${HOME}/skps.bak/wifi \
@@ -166,6 +194,8 @@ cp ${HOME}/skps.bak/colortest \
    ${HOME}/skps.bak/kill-session.sh \
    ${HOME}/skps.bak/newlook \
    ${HOME}/skps/
+
+cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/ \
 
 # CLEANUP
 rm -f $HOME/finalize.sh \
