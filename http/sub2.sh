@@ -128,12 +128,7 @@ xdotool type "make"
 xdotool key KP_Enter
 sleep 2
 
-xdotool type "newlook"
-xdotool key KP_Enter
-sleep 5
-xdotool key KP_Enter
-xdotool key KP_Enter
-
+# Restore sensible sudo user rule
 xdotool type "sudo su - root"
 xdotool key KP_Enter
 xdotool type "vim /etc/sudoers.d/00"
@@ -161,9 +156,14 @@ xdotool key q
 xdotool key KP_Enter
 xdotool key KP_Enter
 sleep .5
-
 xdotool key control+d
 sleep 1
+
+xdotool type "newlook"
+xdotool key KP_Enter
+sleep 5
+xdotool key KP_Enter
+xdotool key KP_Enter
 
 xdotool key control+d
 sleep 1
