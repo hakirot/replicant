@@ -39,21 +39,22 @@ xdotool key KP_Enter
 sleep 1
 xdotool type "./themes/fwalch.zsh-theme"
 xdotool key KP_Enter
+sleep 1
 
 # rustup
 # ------ SCREEN 3 ------
-xdotool key alt+minus
-sleep 1
-xdotool key control+j
-xdotool key E
-xdotool type "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
-xdotool key KP_Enter
-sleep 8
-xdotool key KP_Enter
-sleep 1
+#xdotool key alt+minus
+#sleep 1
+#xdotool key control+j
+#xdotool key E
+#xdotool type "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+#xdotool key KP_Enter
+#sleep 8
+#xdotool key KP_Enter
+#sleep 1
 
 # lualine patch
-# ------ SCREEN 4 ------
+# ------ SCREEN 3 ------
 xdotool key alt+minus
 xdotool key control+j
 xdotool key E
@@ -71,10 +72,6 @@ sleep 1
 xdotool type "./lua/lualine/themes/16color.lua"
 xdotool key KP_Enter
 
-sleep 1
-
-xdotool type "tmux kill-pane"
-xdotool key KP_Enter
 sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
@@ -157,7 +154,7 @@ xdotool key KP_Enter
 xdotool key KP_Enter
 sleep .5
 xdotool key control+d
-sleep 1
+sleep .25
 
 xdotool type "newlook"
 xdotool key KP_Enter
@@ -181,6 +178,8 @@ xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
 
+nohup notify-send "Replicant:" "Done" &
+
 # Clear replicant completion message and set sara to default
 cd ${HOME}/git/sara/
 mv config.h config.h.replicant
@@ -202,13 +201,10 @@ cp ${HOME}/skps.bak/colortest \
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
 
 # CLEANUP
-rm -f $HOME/finalize.sh \
-  $HOME/nohup.out \
+rm -f $HOME/nohup.out \
   $HOME/logout.sh \
   $HOME/sub.out \
   $HOME/sub2.sh \
   $HOME/sub2.out \
   $HOME/oh-my-zsh.sh
   $HOME/skps.bak
-
-nohup notify-send "REPLICANT" "System Ready" &

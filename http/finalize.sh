@@ -84,6 +84,18 @@ git remote set-url origin git@github.com:hakirot/d07f1135
 echo -e "${GREEN}FINALIZE.sh: Configuring PSHD ..${RESET}"
 mkdir -p $HOME/.config/pshd
 
+# rustup
+# ------ SCREEN 3 ------
+#xdotool key alt+minus
+#sleep 1
+#xdotool key control+j
+#xdotool key E
+#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#xdotool key KP_Enter
+#sleep 8
+#xdotool key KP_Enter
+#sleep 1
+
 echo "/home/username/.config/nvim" > $HOME/.config/pshd/dir
 echo "/home/username/git/suckless-hakirot" >> $HOME/.config/pshd/dir
 echo "/home/username/pix/walls" >> $HOME/.config/pshd/dir
@@ -107,4 +119,4 @@ tar -xvf out
 rm -rf N0735 out
 
 cd $HOME
-exec SARA
+exec sara
