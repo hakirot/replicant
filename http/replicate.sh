@@ -131,7 +131,7 @@ git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
 cp .xinitrc $HOME
 
-echo -e "${GREEN}REPLICANT: Installing wallpapers..${RESET}"
+echo -e "${GREEN}REPLICANT: Fetching wallpapers..${RESET}"
 cd $HOME/pix
 mkdir walls
 cd walls
@@ -151,6 +151,7 @@ echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
 
 echo -e "${GREEN}Preparing to switch to graphical environment..${RESET}"
+sed -i "/newlook/c\~\/.local\/bin\/newlook\ ~/pix/walls/walls/please_wait.png &" ${HOME}/.xinitrc
 sleep 1
 touch logout.sh
 echo "#\!/usr/bin/env bash" > logout.sh

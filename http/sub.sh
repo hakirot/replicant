@@ -7,6 +7,7 @@ USER=$1
 export DISPLAY=:0
 
 sleep 15
+sed -i "/newlook/c\~\/.local\/bin\/newlook\ &" ${HOME}/.xinitrc
 
 xdotool key super+space
 
