@@ -23,7 +23,7 @@ xdotool key KP_Enter
 #sleep 1
 xdotool key KP_Enter
 xdotool key KP_Enter
-xdotool key control+d
+xdotool key super+q
 xdotool key super+space
 sleep 2
 
