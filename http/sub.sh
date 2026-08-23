@@ -11,16 +11,17 @@ sed -i "/newlook/c\~\/.local\/bin\/newlook\ &" ${HOME}/.xinitrc
 
 xdotool key super+space
 
-sleep 3
+sleep 2
 
 # zsh init menu
 xdotool key q
 xdotool key KP_Enter
+xdotool key control+l
 
 sleep 3
-xdotool type "$HOME/skps/newlook $HOME/pix/walls/walls/tiger"
+xdotool type "nohup $HOME/skps/newlook $HOME/pix/walls/walls/tiger &"
 xdotool key KP_Enter
-sleep 4
+sleep 1
 xdotool key KP_Enter
 xdotool key KP_Enter
 xdotool key control+d
@@ -30,6 +31,7 @@ sleep 2
 # zsh init menu
 xdotool key q
 xdotool key KP_Enter
+xdotool key control+l
 
 # tiger style :3
 xdotool key super+BackSpace

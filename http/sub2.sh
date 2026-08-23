@@ -137,15 +137,6 @@ xdotool key KP_Enter
 xdotool key control+d
 sleep 1
 
-# CLEANUP
-rm -f $HOME/finalize.sh \
-  $HOME/nohup.out \
-  $HOME/logout.sh \
-  $HOME/sub.out \
-  $HOME/sub2.sh \
-  $HOME/sub2.out \
-  $HOME/oh-my-zsh.sh
-
 xdotool key control+d
 sleep 1
 
@@ -158,3 +149,30 @@ xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
+
+# Clear replicant completion message and set sara to default
+cd ${HOME}/git/sara/
+mv config.h config.h.replicant
+make
+cd ${HOME}
+
+mv ${HOME}/skps ${HOME}/skps.bak
+
+mkdir ${HOME}/skps
+mv ${HOME}/skps.bak/colortest \
+   ${HOME}/skps.bak/shutdown.sh \
+   ${HOME}/skps.bak/wifi \
+   ${HOME}/skps.bak/respawn.sh \
+   ${HOME}/skps.bak/kill-session \
+   ${HOME}/skps.bak/newlook \ 
+   ${HOME}/skps/
+
+# CLEANUP
+rm -f $HOME/finalize.sh \
+  $HOME/nohup.out \
+  $HOME/logout.sh \
+  $HOME/sub.out \
+  $HOME/sub2.sh \
+  $HOME/sub2.out \
+  $HOME/oh-my-zsh.sh
+
