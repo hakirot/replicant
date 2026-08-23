@@ -159,12 +159,12 @@ cd ${HOME}
 mv ${HOME}/skps ${HOME}/skps.bak
 
 mkdir ${HOME}/skps
-mv ${HOME}/skps.bak/colortest \
+cp ${HOME}/skps.bak/colortest \
    ${HOME}/skps.bak/shutdown.sh \
    ${HOME}/skps.bak/wifi \
    ${HOME}/skps.bak/respawn.sh \
-   ${HOME}/skps.bak/kill-session \
-   ${HOME}/skps.bak/newlook \ 
+   ${HOME}/skps.bak/kill-session.sh \
+   ${HOME}/skps.bak/newlook \
    ${HOME}/skps/
 
 # CLEANUP
@@ -176,3 +176,4 @@ rm -f $HOME/finalize.sh \
   $HOME/sub2.out \
   $HOME/oh-my-zsh.sh
 
+sudo echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}

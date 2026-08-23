@@ -18,10 +18,9 @@ xdotool key q
 xdotool key KP_Enter
 xdotool key control+l
 
-sleep 3
 xdotool type "nohup $HOME/skps/newlook $HOME/pix/walls/walls/tiger &"
 xdotool key KP_Enter
-sleep 1
+#sleep 1
 xdotool key KP_Enter
 xdotool key KP_Enter
 xdotool key control+d
