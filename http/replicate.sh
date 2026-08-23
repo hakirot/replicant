@@ -117,8 +117,8 @@ mkdir -p $HOME/.config/sara
 
 echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
 mkdir -p ${HOME}/.config/dunst
-cd ${HOME}/git/suckless-hakirot/
-cp dunstrc ${HOME}/.config/dunst
+cd ${HOME}/.config/dunst
+ln -s ${HOME}/git/suckless-hakirot/dunst/dunstrc
 
 echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
 mkdir -p ${BINPATH}
@@ -148,7 +148,8 @@ rm -f walls.zip
 
 echo -e "${GREEN}REPLICANT: Installing picom config..${RESET}"
 mkdir -p $HOME/.config/
-cp $HOME/git/suckless-hakirot/picom.conf $HOME/.config/picom.conf
+cd $HOME/.config/
+ln -s $HOME/git/suckless-hakirot/picom.conf
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
 cd $HOME
