@@ -27,7 +27,7 @@ source "qemu" "replicant" {
 #   "./install.sh username --SIM<enter>"
 #
 # OPTION 2: Pull scripts from production server
-    "sh -c \"$(curl -fsSL https://www.hakipaks.org/replicant/start)\"<enter>"
+    "curl --proto '=https' -s -fsSL https://www.hakipaks.org/replicant/start | sh<enter>"
   ]
   qemuargs = [
     ["-monitor", "unix:/tmp/packer-qemu-monitor.sock,server,nowait"],
