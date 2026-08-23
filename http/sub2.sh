@@ -199,7 +199,7 @@ cp ${HOME}/skps.bak/colortest \
    ${HOME}/skps.bak/newlook \
    ${HOME}/skps/
 
-cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/ \
+cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
 
 # CLEANUP
 rm -f $HOME/finalize.sh \
@@ -209,4 +209,6 @@ rm -f $HOME/finalize.sh \
   $HOME/sub2.sh \
   $HOME/sub2.out \
   $HOME/oh-my-zsh.sh
+  $HOME/skps.bak
 
+nohup notify-send "REPLICANT" "System Ready" &
