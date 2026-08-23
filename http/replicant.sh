@@ -16,7 +16,6 @@ yay --noconfirm -S \
   bottom \
   cava \
   discord \
-  dunst \
   dysk \
   fastfetch \
   ffmpegthumbnailer \
@@ -69,11 +68,6 @@ echo -e "${GREEN}REPLICANT: Configuring NEOVIM${RESET}"
 cd ${HOME}
 git clone https://github.com/hakirot/neovim-config.git
 mv neovim-config ${HOME}/.config/nvim
-
-echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
-mkdir -p ${HOME}/.config/dunst
-cd ${HOME}/git/suckless-hakirot/
-cp dunstrc ${HOME}/.config/dunst
 
 echo -e "${GREEN}REPLICANT: Removing autologin${RESET}"
 sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf

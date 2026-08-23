@@ -37,6 +37,7 @@ rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
 yay --noconfirm -S \
+  dunst \
   imv \
   libxft \
   libxinerama \
@@ -113,6 +114,11 @@ git clone https://github.com/hakirot/sara.git
 cd $HOME/git/sara
 make
 mkdir -p $HOME/.config/sara
+
+echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
+mkdir -p ${HOME}/.config/dunst
+cd ${HOME}/git/suckless-hakirot/
+cp dunstrc ${HOME}/.config/dunst
 
 echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
 mkdir -p ${BINPATH}

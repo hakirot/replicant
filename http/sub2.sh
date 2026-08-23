@@ -41,6 +41,9 @@ xdotool type "./themes/fwalch.zsh-theme"
 xdotool key KP_Enter
 sleep 1
 
+xdotool key alt+k
+xdotool key KP_Enter
+xdotool key alt+j
 # rustup
 # ------ SCREEN 3 ------
 #xdotool key alt+minus
@@ -55,9 +58,9 @@ sleep 1
 
 # lualine patch
 # ------ SCREEN 3 ------
-xdotool key alt+minus
-xdotool key control+j
-xdotool key E
+#xdotool key alt+minus
+#xdotool key control+j
+#xdotool key E
 xdotool type "cp ${HOME}/git/suckless-hakirot/sarax_lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 # TODO just copy these in
@@ -72,9 +75,9 @@ sleep 1
 xdotool type "./lua/lualine/themes/16color.lua"
 xdotool key KP_Enter
 
-sleep 1
-xdotool type "tmux kill-pane"
-xdotool key KP_Enter
+#sleep 1
+#xdotool type "tmux kill-pane"
+#xdotool key KP_Enter
 sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
@@ -178,7 +181,7 @@ xdotool key alt+z
 xdotool key alt+z
 xdotool key alt+z
 
-nohup notify-send "Replicant:" "Done" &
+nohup notify-send "Replicant" "Done" &
 
 # Clear replicant completion message and set sara to default
 cd ${HOME}/git/sara/
