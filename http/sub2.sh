@@ -24,7 +24,6 @@ xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
 sleep 3
 xdotool key KP_Enter
-sleep 3
 
 nohup notify-send "Replicant" "Applying oh-my-zsh patches .." &
 xdotool type "cp ${HOME}/git/suckless-hakirot/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"

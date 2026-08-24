@@ -66,7 +66,6 @@ xdotool key super+j
 xdotool key super+j
 xdotool key super+j
 xdotool key super+j
-xdotool key super+j
 
 xdotool key plus
 xdotool key plus
