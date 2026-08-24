@@ -22,10 +22,6 @@ nohup notify-send "Replicant" "Launching terminal" &
 # Restore .xinitrc
 sed -i "/reskin/c\~\/.local\/bin\/reskin\ &" ${HOME}/.xinitrc
 
-xdotool key super+space
-
-sleep 2
-
 nohup pkill -9 dunst &
 
 # zsh init menu
