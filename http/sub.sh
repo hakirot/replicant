@@ -7,17 +7,17 @@ USER=$1
 export DISPLAY=:0
 
 sleep 5
-nohup notify-send "Replicant" "ten seconds .." &
+nohup notify-send --expire-time 1000 "Replicant" "ten seconds .." &
 sleep 5
-nohup notify-send "Replicant" "five seconds .." &
+nohup notify-send --expire-time 1000 "Replicant" "five seconds .." &
 sleep 2
-nohup notify-send "Replicant" "three .." &
+nohup notify-send --expire-time 1000 "Replicant" "three .." &
 sleep 1
-nohup notify-send "Replicant" "two .." &
+nohup notify-send --expire-time 1000 "Replicant" "two .." &
 sleep 1
-nohup notify-send "Replicant" "one .." &
+nohup notify-send --expire-time 1000 "Replicant" "one .." &
 sleep 1
-nohup notify-send "Replicant" "Launching terminal" &
+nohup notify-send --expire-time 1000 "Replicant" "Launching terminal" &
 
 # Restore .xinitrc
 sed -i "/reskin/c\~\/.local\/bin\/reskin\ &" ${HOME}/.xinitrc
@@ -76,7 +76,7 @@ xdotool key plus
 xdotool key j
 xdotool key j
 
-nohup notify-send "Replicant" "No touchy" &
+nohup notify-send --expire-time 1000 "Replicant" "No touchy" &
 
 xdotool key super+l
 

@@ -10,13 +10,13 @@ xdotool type cd
 xdotool key KP_Enter
 sleep 1
 
-nohup notify-send "Replicant" "Installing neovim plugins .." &
+nohup notify-send --expire-time 1000 "Replicant" "Installing neovim plugins .." &
 # starting neovim for the plugins
 xdotool type nvim
 xdotool key KP_Enter
 
 # oh-my-zsh
-nohup notify-send "Replicant" "Installing oh-my-zsh .." &
+nohup notify-send --expire-time 1000 "Replicant" "Installing oh-my-zsh .." &
 # ------ SCREEN 2 ------
 xdotool key alt+minus
 sleep 1
@@ -25,7 +25,7 @@ xdotool key KP_Enter
 sleep 3
 xdotool key KP_Enter
 
-nohup notify-send "Replicant" "Applying oh-my-zsh patches .." &
+nohup notify-send --expire-time 1000 "Replicant" "Applying oh-my-zsh patches .." &
 xdotool type "cp ${HOME}/git/suckless-hakirot/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
 xdotool key KP_Enter
 xdotool type "cd ${HOME}/.oh-my-zsh/"
@@ -59,7 +59,7 @@ xdotool key alt+j
 #sleep 1
 
 # lualine patch
-nohup notify-send "Replicant" "Applying neovim patches .." &
+nohup notify-send --expire-time 1000 "Replicant" "Applying neovim patches .." &
 # ------ SCREEN 3 ------
 #xdotool key alt+minus
 #xdotool key control+j
@@ -114,7 +114,7 @@ sleep .5
 xdotool key control+u
 xdotool key KP_Enter
 
-nohup notify-send "Replicant" "Fetching custom SARA configs .." &
+nohup notify-send --expire-time 1000 "Replicant" "Fetching custom SARA configs .." &
 xdotool type "cd $HOME/git/sara"
 xdotool key KP_Enter
 xdotool type "wget www.hakipaks.org/replicant/sara --output-document config.h"
@@ -133,7 +133,7 @@ xdotool key KP_Enter
 sleep 2
 
 # Restore sensible sudo user rule
-nohup notify-send "Replicant" "Enforcing sudo pw for ${USER} .." &
+nohup notify-send --expire-time 1000 "Replicant" "Enforcing sudo pw for ${USER} .." &
 xdotool type "sudo su - root"
 xdotool key KP_Enter
 xdotool type "vim /etc/sudoers.d/00"
@@ -192,7 +192,7 @@ git checkout ./dunstrc
 sleep 1
 nohup dunst &
 sleep 1
-nohup notify-send "Replicant" "Done" &
+nohup notify-send --expire-time 10000 "Replicant" "Done" &
 
 # Clear replicant completion message and set sara to default
 cd ${HOME}/git/sara/
