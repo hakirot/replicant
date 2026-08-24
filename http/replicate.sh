@@ -39,6 +39,8 @@ rm -rf yay
 echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
 yay --noconfirm -S \
   dunst \
+  gdk-pixbuf2 \
+  glib2 \
   imv \
   libxft \
   libxinerama \
