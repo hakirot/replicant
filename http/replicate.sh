@@ -38,6 +38,7 @@ rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
 yay --noconfirm -S \
+  cairo \
   dunst \
   gdk-pixbuf2 \
   glib2 \
@@ -48,6 +49,7 @@ yay --noconfirm -S \
   ncurses \
   networkmanager \
   nftables \
+  pango \
   picom \
   python-pywal \
   polybar-dwm-git \
