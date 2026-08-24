@@ -11,7 +11,7 @@ source "qemu" "replicant" {
   format       = "qcow2"
   http_directory = "http"
   memory       = 4096
-  ssh_username = "username"
+  ssh_username = "hakirot"
   ssh_password = "asdf"
   ssh_timeout = "60m"
 # boot_wait = "180s"
@@ -62,6 +62,6 @@ build {
 
   provisioner "file" {
     source = "http/bash_profile"
-    destination = "/home/username/.bash_profile.packer.bak"
+    destination = "/home/hakirot/.bash_profile.packer.bak"
   }
 }

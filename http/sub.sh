@@ -20,7 +20,7 @@ sleep 1
 nohup notify-send "Replicant" "Launching terminal" &
 
 # Restore .xinitrc
-sed -i "/newlook/c\~\/.local\/bin\/newlook\ &" ${HOME}/.xinitrc
+sed -i "/reskin/c\~\/.local\/bin\/reskin\ &" ${HOME}/.xinitrc
 
 xdotool key super+space
 
@@ -39,7 +39,7 @@ xdotool key KP_Enter
 xdotool type "patch -i tiger_dunst.patch"
 xdotool key KP_Enter
 
-xdotool type "nohup $HOME/skps/newlook $HOME/pix/walls/walls/tiger &"
+xdotool type "nohup $HOME/skps/reskin $HOME/pix/walls/walls/tiger &"
 xdotool key KP_Enter
 xdotool key KP_Enter
 xdotool key KP_Enter

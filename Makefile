@@ -16,7 +16,7 @@ output-replicant/replicant:
 
 archive:
 	mkdir -p $(BUILD_DIR)
-	cp 		$(BUILD_SCRIPTS) $(BUILD_DIR)
+	cp $(BUILD_SCRIPTS) $(BUILD_DIR)
 	tar -zcf $(TAR_TARGET) $(BUILD_DIR)
 	sha256sum $(TAR_TARGET) > $(CHECKSUM_TARGET)
 

@@ -164,7 +164,7 @@ sleep .5
 xdotool key control+d
 sleep .25
 
-xdotool type "newlook"
+xdotool type "reskin"
 xdotool key KP_Enter
 sleep 5
 xdotool key KP_Enter
@@ -209,7 +209,7 @@ cp ${HOME}/skps.bak/colortest \
    ${HOME}/skps.bak/wifi \
    ${HOME}/skps.bak/respawn.sh \
    ${HOME}/skps.bak/kill-session.sh \
-   ${HOME}/skps.bak/newlook \
+   ${HOME}/skps.bak/reskin \
    ${HOME}/skps/
 
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
@@ -225,4 +225,5 @@ rm -f $HOME/nohup.out \
   $HOME/skps.bak \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
-  $HOME/nftables.conf \
+  $HOME/nftables.conf
+

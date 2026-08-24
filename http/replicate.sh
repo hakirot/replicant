@@ -130,7 +130,7 @@ ln -s ${HOME}/skps/shutdown.sh
 ln -s ${HOME}/skps/wifi
 ln -s ${HOME}/skps/respawn.sh
 ln -s ${HOME}/skps/kill-session.sh ${HOME}/.local/bin/kill-session
-ln -s ${HOME}/skps/newlook
+ln -s ${HOME}/skps/reskin
 
 echo -e "${GREEN}REPLICANT: Installing initial .xinitrc..${RESET}"
 cd $HOME/git
@@ -159,7 +159,7 @@ echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
 
 echo -e "${GREEN}Preparing to switch to graphical environment..${RESET}"
-sed -i "/newlook/c\~\/.local\/bin\/newlook\ ~/pix/walls/walls/please_wait.png &" ${HOME}/.xinitrc
+sed -i "/reskin/c\~\/.local\/bin\/reskin\ ~/pix/walls/walls/please_wait.png &" ${HOME}/.xinitrc
 sleep 1
 touch logout.sh
 echo "#\!/usr/bin/env bash" > logout.sh
