@@ -10,11 +10,13 @@ RESET='\033[0m'
 # from replicant.sh
 yay --noconfirm -S
   atac \
+  discord \
   gimp \
   heroku-cli-bin \
   inotify-tools \
   nodejs \
   nodejs-nodemon \
+  polychromatic \
   rtorrent \
   termdown \
   ticker \

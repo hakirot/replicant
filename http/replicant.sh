@@ -29,6 +29,7 @@ yay --noconfirm -S \
   gnu-free-fonts \
   gzip \
   jq \
+  libnotify \
   kitty \
   mpd \
   mpc \
