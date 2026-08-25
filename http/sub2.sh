@@ -215,14 +215,14 @@ cp ${HOME}/skps.bak/colortest \
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
 
 # CLEANUP
-rm -f $HOME/nohup.out \
+rm -f $HOME/skps.bak \
+  $HOME/nohup.out \
   $HOME/logout.sh \
   $HOME/sub.sh \
   $HOME/sub.out \
   $HOME/sub2.sh \
   $HOME/sub2.out \
   $HOME/oh-my-zsh.sh \
-  $HOME/skps.bak \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
   $HOME/nftables.conf
