@@ -43,6 +43,7 @@ yay --noconfirm -S \
   gdk-pixbuf2 \
   glib2 \
   imv \
+  libnotify \
   libxft \
   libxinerama \
   make \
