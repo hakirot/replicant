@@ -7,15 +7,15 @@ USER=$1
 export DISPLAY=:0
 
 sleep 5
-nohup notify-send --expire-time 1000 "Replicant" "ten seconds .." &
+nohup notify-send --expire-time 1000 "Please wait" "ten seconds .." &
 sleep 5
-nohup notify-send --expire-time 1000 "Replicant" "five seconds .." &
+nohup notify-send --expire-time 1000 "Please wait" "five seconds .." &
 sleep 2
-nohup notify-send --expire-time 1000 "Replicant" "three .." &
+nohup notify-send --expire-time 1000 "Please wait" "three" &
 sleep 1
-nohup notify-send --expire-time 1000 "Replicant" "two .." &
+nohup notify-send --expire-time 1000 "Please wait" "two" &
 sleep 1
-nohup notify-send --expire-time 1000 "Replicant" "one .." &
+nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Replicant" "Launching terminal" &
 

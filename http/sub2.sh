@@ -219,10 +219,27 @@ cp ${HOME}/skps.bak/colortest \
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
 
 mv $HOME/git/suckless-hakirot $HOME/git/suckless
-rm -rf $HOME/git/suckless-hakirot/.git
+rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
 rm -rf $HOME/git/sara/.git
 rm -rf $HOME/.config/nvim/.git
+
+cd $HOME/git/sara
+mv config.final config.h
+sed -i "s|HOME_DIR_PLS|${HOME}|g" config.final
+sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h # not required for sara 0.9.2
+make
+
+mkdir -p $HOME/.config/mpd
+mkdir -p $HOME/.config/rmpc
+mkdir -p $HOME/.config/rmpc/themes
+
+cp $HOME/git/suckless/mpd/mpd.conf $HOME/.config/mpd/
+cp $HOME/git/suckless/mpd/config.ron $HOME/.config/rmpc/
+cp $HOME/git/suckless/mpd/replicant.ron $HOME/.config/rmpc/themes
+
+systemctl enable mpd --user
+systemctl start mpd --user
 
 # CLEANUP
 rm -rf $HOME/skps.bak \
@@ -237,6 +254,3 @@ rm -rf $HOME/skps.bak \
   $HOME/replicate.sh \
   $HOME/nftables.conf
 
-cd $HOME/git/sara
-mv config.final config.h
-make
