@@ -140,11 +140,11 @@ mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
-ln -s ${HOME}/skps/powerdown
 ln -s ${HOME}/skps/wifi
 ln -s ${HOME}/skps/respawn.sh
 ln -s ${HOME}/skps/kill-session.sh ${HOME}/.local/bin/kill-session
 ln -s ${HOME}/skps/reskin
+ln -s ${HOME}/skps/sudo_askpass
 
 echo -e "${GREEN}REPLICANT: Installing initial .xinitrc..${RESET}"
 cd $HOME/git

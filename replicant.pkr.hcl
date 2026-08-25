@@ -13,7 +13,7 @@ source "qemu" "replicant" {
   memory       = 4096
   ssh_username = "hakirot"
   ssh_password = "asdf"
-  ssh_timeout = "60m"
+  ssh_timeout = "120m"
 # boot_wait = "180s"
   boot_wait = "40s"
   qemu_binary = "/usr/bin/qemu-system-x86_64"

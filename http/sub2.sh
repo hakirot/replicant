@@ -212,6 +212,7 @@ cp ${HOME}/skps.bak/colortest \
    ${HOME}/skps.bak/respawn.sh \
    ${HOME}/skps.bak/kill-session.sh \
    ${HOME}/skps.bak/reskin \
+   ${HOME}/skps.bak/sudo_askpass \
    ${HOME}/skps/
 
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
