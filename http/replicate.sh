@@ -121,7 +121,8 @@ cd $HOME/git/sara
 make
 mkdir -p $HOME/.config/sara
 
-echo "$HOME/pix/walls" > $HOME/.config/sara/pshd
+echo "$HOME/.config" > $HOME/.config/sara/pshd
+echo "$HOME/pix/walls" >> $HOME/.config/sara/pshd
 echo "$HOME/skps/custom_walz" >> $HOME/.config/sara/pshd
 echo "$HOME/git/sara" >> $HOME/.config/sara/pshd
 echo "$HOME/git/suckless" >> $HOME/.config/sara/pshd

@@ -188,8 +188,6 @@ xdotool key super+space
 sleep .5
 xdotool key alt+z
 xdotool key alt+z
-xdotool key alt+z
-xdotool key alt+z
 
 nohup pkill -9 dunst &
 cd $HOME/git/suckless-hakirot/dunst
