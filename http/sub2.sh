@@ -215,7 +215,7 @@ cp ${HOME}/skps.bak/colortest \
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
 
 # CLEANUP
-rm -f $HOME/skps.bak \
+rm -rf $HOME/skps.bak \
   $HOME/nohup.out \
   $HOME/logout.sh \
   $HOME/sub.sh \
