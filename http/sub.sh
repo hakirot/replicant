@@ -30,7 +30,7 @@ xdotool key KP_Enter
 xdotool key control+l
 
 # dunst patch
-xdotool type "cd $HOME/git/suckless-hakirot/dunst"
+xdotool type "cd $HOME/git/suckless/dunst"
 xdotool key KP_Enter
 xdotool type "patch -i tiger_dunst.patch"
 xdotool key KP_Enter

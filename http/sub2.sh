@@ -26,7 +26,7 @@ sleep 3
 xdotool key KP_Enter
 
 nohup notify-send --expire-time 1000 "Replicant" "Applying oh-my-zsh patches .." &
-xdotool type "cp ${HOME}/git/suckless-hakirot/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
+xdotool type "cp ${HOME}/git/suckless/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
 xdotool key KP_Enter
 xdotool type "cd ${HOME}/.oh-my-zsh/"
 xdotool key KP_Enter
@@ -64,7 +64,7 @@ nohup notify-send --expire-time 1000 "Replicant" "Applying neovim patches .." &
 #xdotool key alt+minus
 #xdotool key control+j
 #xdotool key E
-xdotool type "cp ${HOME}/git/suckless-hakirot/sarax_lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim"
+xdotool type "cp ${HOME}/git/suckless/sarax_lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 # TODO just copy these in
 xdotool type "cd ${HOME}/.local/share/nvim/lazy/lualine.nvim"
@@ -103,7 +103,7 @@ xdotool type "q"
 xdotool key KP_Enter
 sleep 1
 
-xdotool type "ln -s $HOME/git/suckless-hakirot/polybar/bar.sh $HOME/.local/bin/bar"
+xdotool type "ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar"
 xdotool key KP_Enter
 sleep .5
 
@@ -190,7 +190,7 @@ xdotool key alt+z
 xdotool key alt+z
 
 nohup pkill -9 dunst &
-cd $HOME/git/suckless-hakirot/dunst
+cd $HOME/git/suckless/dunst
 git checkout ./dunstrc
 sleep 1
 nohup dunst &
@@ -216,7 +216,6 @@ cp ${HOME}/skps.bak/colortest \
 
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
 
-mv $HOME/git/suckless-hakirot $HOME/git/suckless
 rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
 rm -rf $HOME/git/sara/.git
@@ -251,4 +250,5 @@ rm -rf $HOME/skps.bak \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
   $HOME/nftables.conf
+  $HOME/.host.zsh
 

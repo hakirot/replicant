@@ -100,17 +100,18 @@ git clone https://github.com/hakirot/skps.git
 echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/suckless-hakirot.git
+mv suckless-hakirot suckless
 
 echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU..${RESET}"
-cd $HOME/git/suckless-hakirot/dwm
+cd $HOME/git/suckless/dwm
 sudo make clean install ; make clean
-cd $HOME/git/suckless-hakirot/st
+cd $HOME/git/suckless/st
 sudo make clean install ; make clean
-cd $HOME/git/suckless-hakirot/dmenu
+cd $HOME/git/suckless/dmenu
 sudo make clean install ; make clean
 
 echo -e "${GREEN}REPLICANT: Installing Polybar configs..${RESET}"
-cd $HOME/git/suckless-hakirot/polybar
+cd $HOME/git/suckless/polybar
 chmod +x install.sh
 source install.sh
 
@@ -132,14 +133,14 @@ echo "$HOME/skps" >> $HOME/.config/sara/pshd
 echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
 mkdir -p ${HOME}/.config/dunst
 cd ${HOME}/.config/dunst
-ln -s ${HOME}/git/suckless-hakirot/dunst/dunstrc
+ln -s ${HOME}/git/suckless/dunst/dunstrc
 
 echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
 mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
-ln -s ${HOME}/skps/shutdown
+ln -s ${HOME}/skps/powerdown
 ln -s ${HOME}/skps/wifi
 ln -s ${HOME}/skps/respawn.sh
 ln -s ${HOME}/skps/kill-session.sh ${HOME}/.local/bin/kill-session
@@ -163,7 +164,7 @@ rm -f walls.zip
 echo -e "${GREEN}REPLICANT: Installing picom config..${RESET}"
 mkdir -p $HOME/.config/
 cd $HOME/.config/
-ln -s $HOME/git/suckless-hakirot/picom.conf
+ln -s $HOME/git/suckless/picom.conf
 
 echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
 cd $HOME

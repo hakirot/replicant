@@ -62,7 +62,7 @@ yay --noconfirm -S \
 nohup notify-send --expire-time 1000 "Replicant" "Configuring RANGER .." &
 echo -e "${GREEN}REPLICANT: Configuring RANGER${RESET}"
 mkdir -p ${HOME}/.config/ranger
-cd ${HOME}/git/suckless-hakirot/ranger
+cd ${HOME}/git/suckless/ranger
 cp commands_full.py commands.py rifle.conf rc.conf scope.sh ${HOME}/.config/ranger/
 
 nohup notify-send --expire-time 1000 "Replicant" "Configuring NEOVIM .." &

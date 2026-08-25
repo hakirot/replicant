@@ -74,7 +74,7 @@ git remote set-url origin git@github.com:hakirot/neovim-config.git
 cd $HOME/git/sara/
 git remote set-url origin git@github.com:hakirot/sara
 
-cd $HOME/git/suckless-hakirot/
+cd $HOME/git/suckless/
 git remote set-url origin git@github.com:hakirot/suckless-hakirot
 
 cd $HOME/skps
