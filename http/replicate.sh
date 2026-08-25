@@ -128,7 +128,7 @@ echo "$HOME/skps/custom_walz" >> $HOME/.config/sara/pshd
 echo "$HOME/git/sara" >> $HOME/.config/sara/pshd
 echo "$HOME/git/suckless" >> $HOME/.config/sara/pshd
 echo "$HOME/git/d07f1135" >> $HOME/.config/sara/pshd
-echo "$HOME/skps" >> $HOME/.config/sara/pshd
+echo "$HOME/.local/bin" >> $HOME/.config/sara/pshd
 
 echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
 mkdir -p ${HOME}/.config/dunst
