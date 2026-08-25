@@ -214,6 +214,12 @@ cp ${HOME}/skps.bak/colortest \
 
 cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
 
+mv $HOME/git/suckless-hakirot $HOME/git/suckless
+rm -rf $HOME/git/suckless-hakirot/.git
+rm -rf $HOME/git/d07f1135/.git
+rm -rf $HOME/git/sara/.git
+rm -rf $HOME/.config/nvim/.git
+
 # CLEANUP
 rm -rf $HOME/skps.bak \
   $HOME/nohup.out \
