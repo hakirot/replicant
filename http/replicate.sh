@@ -121,6 +121,13 @@ cd $HOME/git/sara
 make
 mkdir -p $HOME/.config/sara
 
+echo "$HOME/pix/walls" > $HOME/.config/sara/pshd
+echo "$HOME/skps/custom_walz" >> $HOME/.config/sara/pshd
+echo "$HOME/git/sara" >> $HOME/.config/sara/pshd
+echo "$HOME/git/suckless" >> $HOME/.config/sara/pshd
+echo "$HOME/git/d07f1135" >> $HOME/.config/sara/pshd
+echo "$HOME/skps" >> $HOME/.config/sara/pshd
+
 echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
 mkdir -p ${HOME}/.config/dunst
 cd ${HOME}/.config/dunst
@@ -131,7 +138,7 @@ mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
-ln -s ${HOME}/skps/shutdown.sh
+ln -s ${HOME}/skps/shutdown
 ln -s ${HOME}/skps/wifi
 ln -s ${HOME}/skps/respawn.sh
 ln -s ${HOME}/skps/kill-session.sh ${HOME}/.local/bin/kill-session

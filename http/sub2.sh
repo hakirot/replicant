@@ -120,7 +120,12 @@ xdotool key KP_Enter
 xdotool type "wget www.hakipaks.org/replicant/sara --output-document config.h"
 xdotool key KP_Enter
 xdotool type "waiting.."
-sleep 8
+sleep 4
+xdotool key control+u
+xdotool type "wget www.hakipaks.org/replicant/sarafinal --output-document config.final"
+xdotool key KP_Enter
+xdotool type "waiting.."
+sleep 4
 xdotool key control+u
 xdotool type "sed -i \"s|PATH_ME_PLS|${HOME}/git/sara/sara|g\" config.h"
 xdotool key KP_Enter
@@ -194,7 +199,6 @@ nohup dunst &
 sleep 1
 nohup notify-send --expire-time 10000 "Replicant" "Done" &
 
-# Clear replicant completion message and set sara to default
 cd ${HOME}/git/sara/
 mv config.h config.h.replicant
 make
@@ -233,3 +237,6 @@ rm -rf $HOME/skps.bak \
   $HOME/replicate.sh \
   $HOME/nftables.conf
 
+cd $HOME/git/sara
+mv config.final config.h
+make
