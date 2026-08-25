@@ -17,7 +17,6 @@ echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
   bottom \
   cava \
-  discord \
   dysk \
   fastfetch \
   ffmpegthumbnailer \
@@ -44,7 +43,6 @@ yay --noconfirm -S \
   openssh \
   packer \
   polkit \
-  polychromatic \
   ranger \
   ripgrep \
   rmpc \
