@@ -8,5 +8,4 @@ debug-snapshot.qcow3
 replicant.gpg
 replicant.tar.gz
 replicant/
-replicant.tar.gz.sig
 archive/replicant.tar.gz
