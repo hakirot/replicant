@@ -1,5 +1,7 @@
 # REPLICANT
 
-This the dev repo for [Replicant](https://www.hakipaks.com/replicant), a build archive for a lightweight desktop in Arch.
+This is the dev repo for [Replicant](https://www.hakipaks.com/replicant): a build archive for a lightweight desktop in Arch.
 
-The test build is run in packer via make. Runs a fully automated install.
+This dev repo runs an autonomous build through Packer. The Packer QEMU is required, as well as a provider for the qemu-system-x86_64 binary.
+
+Clone the repo and observe an Arch Linux desktop environment get built via make
