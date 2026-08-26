@@ -7,10 +7,8 @@ USER=$1
 export DISPLAY=:0
 
 sleep 5
-nohup notify-send --expire-time 1000 "Please wait" "ten" &
-sleep 5
-nohup notify-send --expire-time 1000 "Please wait" "five" &
-sleep 2
+nohup notify-send --expire-time 1000 "Please wait" "ten seconds" &
+sleep 7
 nohup notify-send --expire-time 1000 "Please wait" "three" &
 sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "two" &
