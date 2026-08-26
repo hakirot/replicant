@@ -35,7 +35,7 @@ xdotool key KP_Enter
 xdotool type "patch -i tiger_dunst.patch"
 xdotool key KP_Enter
 
-xdotool type "nohup $HOME/skps/reskin $HOME/pix/walls/walls/tiger &"
+xdotool type "nohup $HOME/skps/reskin $HOME/pix/walls/walls/tiger 2>&1 >/dev/null &"
 xdotool key KP_Enter
 xdotool key KP_Enter
 xdotool key KP_Enter
@@ -43,8 +43,8 @@ xdotool key super+q
 xdotool key super+space
 
 nohup dunst &
-sleep 2
 
+sleep 1
 # zsh init menu
 xdotool key q
 xdotool key KP_Enter
@@ -52,7 +52,7 @@ xdotool key control+l
 
 # tiger style :3
 xdotool key super+BackSpace
-sleep 1
+sleep .5
 xdotool type "imv $HOME/pix/walls/walls/tiger_no_touchy.jpeg"
 xdotool key KP_Enter
 sleep 1
