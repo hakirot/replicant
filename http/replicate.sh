@@ -140,6 +140,8 @@ mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
+ln -s ${HOME}/skps/dunst_restart.sh
+ln -s ${HOME}/skps/song-notify.sh
 ln -s ${HOME}/skps/wifi
 ln -s ${HOME}/skps/respawn.sh
 ln -s ${HOME}/skps/kill-session.sh ${HOME}/.local/bin/kill-session
