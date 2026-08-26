@@ -1,16 +1,12 @@
 archlinux-x86_64.iso
 checksum
 sha256sums.txt
-output*/
-out
-output-sara/
+output-replicant/
 debug-snapshot.qcow2
 replicant_debug.qcow3
 debug-snapshot.qcow3
-output-arch-base-bak
 replicant.gpg
 replicant.tar.gz
 replicant/
-replicant.tar.gz.asc
 replicant.tar.gz.sig
 archive/replicant.tar.gz
