@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# To remotely shut off the machine
+# system_powerdown
+
+socat -,echo=0 UNIX-CONNECT:/tmp/replicant-monitor.sock
