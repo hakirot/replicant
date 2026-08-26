@@ -6,8 +6,7 @@ qemu-system-x86_64 \
   -smp 2                                                         \
   -hda ../output-replicant/replicant                             \
   -boot d                                                        \
-  -netdev user,id=net0,net=192.168.0.0/24,dhcpstart=192.168.0.9  \
-  -device virtio-net-pci,netdev=net0                             \
+  -netdev user,id=net0,hostfwd=tcp:127.0.0.1:2222-:22            \
+  -device virtio-net-pci,netdev=net0
   -vga qxl                                                       \
-  -monitor unix:/tmp/replicant-monitor.sock,server=on,wait=off   \
-  -device AC97
+  -monitor unix:/tmp/replicant-monitor.sock,server=on,wait=off
