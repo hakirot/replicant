@@ -101,7 +101,7 @@ mkdir -p $HOME/.config/pshd
 echo "/home/username/.config/nvim" > $HOME/.config/pshd/dir
 echo "/home/username/git/suckless-hakirot" >> $HOME/.config/pshd/dir
 echo "/home/username/pix/walls" >> $HOME/.config/pshd/dir
-echo "/home/username/skps/custom_walz" >> $HOME/.config/pshd/dir
+echo "/home/username/skps/themes" >> $HOME/.config/pshd/dir
 echo "/home/username/.config" >> $HOME/.config/pshd/dir
 echo "/home/username/git/site" >> $HOME/.config/pshd/dir
 echo "/home/username/git/sara" >> $HOME/.config/pshd/dir

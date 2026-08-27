@@ -27,7 +27,7 @@ while [ $seconds -gt 0 ]; do
   seconds=$((seconds - 1))
 done
 
-echo -e "${GREEN}REPLICANT: Acquiring yay..${RESET}"
+echo -e "${GREEN}REPLICANT: Acquiring yay ..${RESET}"
 cd $HOME
 sudo pacman --noconfirm -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -36,7 +36,7 @@ makepkg -si --noconfirm --clean
 cd $HOME
 rm -rf yay
 
-echo -e "${GREEN}REPLICANT: Installing base environment packages..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing base environment packages ..${RESET}"
 yay --noconfirm -S \
   cairo \
   dunst \
@@ -92,17 +92,17 @@ sudo cp $HOME/nftables.conf /etc/
 sudo systemctl enable nftables
 sudo systemctl start nftables
 
-echo -e "${GREEN}REPLICANT: Provisioning home directories..${RESET}"
+echo -e "${GREEN}REPLICANT: Provisioning home directories ..${RESET}"
 cd $HOME
 mkdir dls Downloads dox git gmz lib mnt mzk pix
 git clone https://github.com/hakirot/skps.git
 
-echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot..${RESET}"
+echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot ..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/suckless-hakirot.git
 mv suckless-hakirot suckless
 
-echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU..${RESET}"
+echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU ..${RESET}"
 cd $HOME/git/suckless/dwm
 sudo make clean install ; make clean
 cd $HOME/git/suckless/st
@@ -110,25 +110,25 @@ sudo make clean install ; make clean
 cd $HOME/git/suckless/dmenu
 sudo make clean install ; make clean
 
-echo -e "${GREEN}REPLICANT: Installing Polybar configs..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing Polybar configs ..${RESET}"
 cd $HOME/git/suckless/polybar
 chmod +x install.sh
 source install.sh
 
-echo -e "${GREEN}REPLICANT: Installing SARA..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing SARA ..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/sara.git
 cd $HOME/git/sara
 make
 mkdir -p $HOME/.config/sara
 
+echo "$HOME/.local/bin" >> $HOME/.config/sara/pshd
 echo "$HOME/.config" > $HOME/.config/sara/pshd
 echo "$HOME/pix/walls" >> $HOME/.config/sara/pshd
-echo "$HOME/skps/custom_walz" >> $HOME/.config/sara/pshd
-echo "$HOME/git/sara" >> $HOME/.config/sara/pshd
+echo "$HOME/skps/themes" >> $HOME/.config/sara/pshd
 echo "$HOME/git/suckless" >> $HOME/.config/sara/pshd
 echo "$HOME/git/d07f1135" >> $HOME/.config/sara/pshd
-echo "$HOME/.local/bin" >> $HOME/.config/sara/pshd
+echo "$HOME/git/sara" >> $HOME/.config/sara/pshd
 
 echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
 mkdir -p ${HOME}/.config/dunst
@@ -149,34 +149,33 @@ ln -s ${HOME}/skps/reskin
 sed -i "s|suckess-hakirot|suckless|g" reskin
 ln -s ${HOME}/skps/sudo_askpass
 
-echo -e "${GREEN}REPLICANT: Installing initial .xinitrc..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing initial .xinitrc ..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
 cp .xinitrc $HOME
 
-echo -e "${GREEN}REPLICANT: Fetching wallpapers..${RESET}"
+echo -e "${GREEN}REPLICANT: Fetching wallpapers and themes ..${RESET}"
 cd $HOME/pix
-mkdir walls
-cd walls
-echo "curl -k -u download:${PW} -O https://${NODEIP}:${NODEPORT}/walls.zip"
 curl -k -u ${USR}:${PW} -O https://${NODEIP}:${NODEPORT}/walls.zip
 unzip walls.zip
+rm -rf $HOME/skps/themes
+mv themes $HOME/skps/themes
 rm -f walls.zip
 
-echo -e "${GREEN}REPLICANT: Installing picom config..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing picom config ..${RESET}"
 mkdir -p $HOME/.config/
 cd $HOME/.config/
 ln -s $HOME/git/suckless/picom.conf
 
-echo -e "${GREEN}REPLICANT: Deploying sleeper script..${RESET}"
+echo -e "${GREEN}REPLICANT: Deploying sleeper script ..${RESET}"
 cd $HOME
 
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
 
-echo -e "${GREEN}Preparing to switch to graphical environment..${RESET}"
-sed -i "/reskin/c\~\/.local\/bin\/reskin\ ~/pix/walls/walls/please_wait.png &" ${HOME}/.xinitrc
+echo -e "${GREEN}Preparing to switch to graphical environment ..${RESET}"
+sed -i "/reskin/c\~\/.local\/bin\/reskin\ ~/pix/walls/please_wait.png &" ${HOME}/.xinitrc
 sleep 1
 touch logout.sh
 echo "#\!/usr/bin/env bash" > logout.sh

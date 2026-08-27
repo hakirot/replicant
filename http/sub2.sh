@@ -215,7 +215,7 @@ cp ${HOME}/skps.bak/colortest \
    ${HOME}/skps.bak/sudo_askpass \
    ${HOME}/skps/
 
-cp -r ${HOME}/skps.bak/custom_walz ${HOME}/skps/
+cp -r ${HOME}/skps.bak/themes ${HOME}/skps/
 
 rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
