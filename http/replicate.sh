@@ -117,8 +117,10 @@ source install.sh
 
 echo -e "${GREEN}REPLICANT: Installing SARA ..${RESET}"
 cd $HOME/git
-git clone https://github.com/hakirot/sara.git
-cd $HOME/git/sara
+curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz
+curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz.sig
+gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv 5E0041A715B872CDE3B2CE3365BDF6CF53412D61
+gpg --verify sara-latest.tar.gz.sig sara-latest.tar.gz
 make
 mkdir -p $HOME/.config/sara
 
