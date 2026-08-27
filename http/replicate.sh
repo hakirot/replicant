@@ -146,6 +146,7 @@ ln -s ${HOME}/skps/wifi
 ln -s ${HOME}/skps/respawn.sh
 ln -s ${HOME}/skps/kill-session.sh ${HOME}/.local/bin/kill-session
 ln -s ${HOME}/skps/reskin
+sed -i s|suckess-hakirot|suckless|g reskin"
 ln -s ${HOME}/skps/sudo_askpass
 
 echo -e "${GREEN}REPLICANT: Installing initial .xinitrc..${RESET}"
