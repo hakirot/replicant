@@ -121,6 +121,10 @@ curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz
 curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz.sig
 gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv 5E0041A715B872CDE3B2CE3365BDF6CF53412D61
 gpg --verify sara-latest.tar.gz.sig sara-latest.tar.gz
+tar -xf sara-latest.tar.gz
+rm -rf sara-latest.tar.gz sara-latest.tar.gz.sig
+mv sara* sara
+cd sara
 make
 mkdir -p $HOME/.config/sara
 
