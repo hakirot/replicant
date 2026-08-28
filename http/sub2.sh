@@ -250,6 +250,6 @@ rm -rf $HOME/skps.bak \
   $HOME/oh-my-zsh.sh \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
-  $HOME/nftables.conf
+  $HOME/nftables.conf \
   $HOME/.host.zsh
 
