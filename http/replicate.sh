@@ -51,6 +51,7 @@ yay --noconfirm -S \
   networkmanager \
   nftables \
   pango \
+  perl-image-exiftool \
   picom \
   python-pywal \
   polybar-dwm-git \
