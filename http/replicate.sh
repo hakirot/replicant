@@ -92,16 +92,16 @@ sudo cp $HOME/nftables.conf /etc/
 sudo systemctl enable nftables
 sudo systemctl start nftables
 
-echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot ..${RESET}"
-cd $HOME/git
-git clone https://github.com/hakirot/suckless-hakirot.git
-mv suckless-hakirot suckless
-
 echo -e "${GREEN}REPLICANT: Provisioning home directories ..${RESET}"
 cd ${HOME}
 mkdir dls Downloads dox git gmz lib mnt mzk pix
 git clone https://github.com/hakirot/skps.git
 sed -i "s|suckess-hakirot|suckless|g" ${HOME}/skps/reskin
+
+echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot ..${RESET}"
+cd $HOME/git
+git clone https://github.com/hakirot/suckless-hakirot.git
+mv suckless-hakirot suckless
 
 echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU ..${RESET}"
 cd $HOME/git/suckless/dwm
