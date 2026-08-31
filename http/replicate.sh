@@ -36,6 +36,8 @@ makepkg -si --noconfirm --clean
 cd $HOME
 rm -rf yay
 
+touch DEBUG0
+
 echo -e "${GREEN}REPLICANT: Installing base environment packages ..${RESET}"
 yay --noconfirm -S \
   cairo \
@@ -82,16 +84,22 @@ yay --noconfirm -S \
   zsh \
   zsh-syntax-highlighting
 
+touch DEBUG1
+
 # firewall
 echo -e "${GREEN}REPLICANT: Activating NetworkManager${RESET}"
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
+
+touch DEBUG2
 
 echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}"
 sudo nft --file $HOME/nftables.conf
 sudo cp $HOME/nftables.conf /etc/
 sudo systemctl enable nftables
 sudo systemctl start nftables
+
+touch DEBUG3
 
 echo -e "${GREEN}REPLICANT: Provisioning home directories ..${RESET}"
 cd ${HOME}
