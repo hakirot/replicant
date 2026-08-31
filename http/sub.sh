@@ -17,17 +17,21 @@ nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Replicant" "Launching terminal" &
 
-# Restore .xinitrc
-sed -i "/reskin/c\~\/.local\/bin\/reskin\ &" ${HOME}/.xinitrc
-
-nohup pkill -9 dunst &
-
 # zsh init menu
 xdotool key q
 sleep 1
 xdotool key KP_Enter
 sleep 1
-xdotool key control+l
+xdotool key control+d
+
+# Restore .xinitrc
+sed -i "/reskin/c\~\/.local\/bin\/reskin\ &" ${HOME}/.xinitrc
+
+nohup pkill -9 dunst &
+
+xdotool key super+space
+sleep 1
+xdotool key q
 sleep 1
 
 # dunst patch
