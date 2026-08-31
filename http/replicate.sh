@@ -55,7 +55,7 @@ yay --noconfirm -S \
   pango \
   perl-image-exiftool \
   picom \
-  python-pywal \
+  python-pywal16 \
   polybar-dwm-git \
   ttf-font-awesome \
   ttf-jetbrains-mono \
