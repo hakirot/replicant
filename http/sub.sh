@@ -50,8 +50,8 @@ xdotool key KP_Enter
 xdotool key KP_Enter
 xdotool key KP_Enter
 xdotool key super+q
-xdotool key super+space
 sleep 1
+xdotool key super+space
 
 nohup dunst &
 sleep 1
