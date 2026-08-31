@@ -23,6 +23,7 @@ sleep 1
 xdotool key KP_Enter
 sleep 1
 xdotool key control+d
+xdotool key super+q
 
 # Restore .xinitrc
 sed -i "/reskin/c\~\/.local\/bin\/reskin\ &" ${HOME}/.xinitrc
@@ -33,6 +34,9 @@ xdotool key super+space
 sleep 1
 xdotool key q
 sleep 1
+xdotool key q
+sleep 1
+xdotool key KP_Enter
 
 # dunst patch
 xdotool type "cd $HOME/git/suckless/dunst"
