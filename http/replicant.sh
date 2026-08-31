@@ -48,7 +48,6 @@ yay --noconfirm -S \
   rmpc \
   tldr \
   tmux \
-  tmatrix \
   tree \
   ueberzugpp \
   vlc \

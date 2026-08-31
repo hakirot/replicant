@@ -24,14 +24,18 @@ nohup pkill -9 dunst &
 
 # zsh init menu
 xdotool key q
+sleep 1
 xdotool key KP_Enter
+sleep 1
 xdotool key control+l
+sleep 1
 
 # dunst patch
 xdotool type "cd $HOME/git/suckless/dunst"
 xdotool key KP_Enter
 xdotool type "patch -i tiger_dunst.patch"
 xdotool key KP_Enter
+sleep 1
 
 xdotool type "nohup $HOME/skps/reskin $HOME/pix/walls/tiger 2>&1 >/dev/null &"
 xdotool key KP_Enter
@@ -39,14 +43,16 @@ xdotool key KP_Enter
 xdotool key KP_Enter
 xdotool key super+q
 xdotool key super+space
+sleep 1
 
 nohup dunst &
-
 sleep 1
+
 # zsh init menu
 xdotool key q
 xdotool key KP_Enter
 xdotool key control+l
+sleep 1
 
 # tiger style :3
 xdotool key super+BackSpace
@@ -60,6 +66,7 @@ xdotool key super+j
 xdotool key super+j
 xdotool key super+j
 xdotool key super+j
+sleep 1
 
 xdotool key plus
 xdotool key plus
@@ -70,11 +77,14 @@ xdotool key plus
 xdotool key plus
 xdotool key plus
 xdotool key plus
+sleep 1
 
 xdotool key j
 xdotool key j
+sleep 1
 
 nohup notify-send --expire-time 1000 "Replicant" "No touchy" &
+sleep 1
 
 xdotool key super+l
 
