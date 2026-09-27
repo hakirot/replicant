@@ -10,9 +10,6 @@ USR=91a4c72a
 PW=93930bedb
 NODEIP=172.234.250.235
 NODEPORT=64646
-
-mkdir -p ${BINPATH}
-
 BINPATH=/home/${USER}/.local/bin
 PATH=${BINPATH}:$PATH
 
@@ -132,6 +129,7 @@ rm -rf sara-latest.tar.gz sara-latest.tar.gz.sig
 mv sara* sara
 cd sara
 touch $HOME/DEBUGX
+mkdir -p ${BINPATH}
 make 2>&1 > log
 touch $HOME/DEBUGY
 mkdir -p $HOME/.config/sara
