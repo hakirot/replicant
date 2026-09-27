@@ -10,6 +10,9 @@ USR=91a4c72a
 PW=93930bedb
 NODEIP=172.234.250.235
 NODEPORT=64646
+
+mkdir -p ${BINPATH}
+
 BINPATH=/home/${USER}/.local/bin
 PATH=${BINPATH}:$PATH
 
@@ -147,7 +150,6 @@ cd ${HOME}/.config/dunst
 ln -s ${HOME}/git/suckless/dunst/dunstrc
 
 echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
-mkdir -p ${BINPATH}
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
