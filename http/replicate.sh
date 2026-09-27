@@ -128,8 +128,9 @@ tar -xf sara-latest.tar.gz
 rm -rf sara-latest.tar.gz sara-latest.tar.gz.sig
 mv sara* sara
 cd sara
-make
-touch DEBUGX
+touch $HOME/DEBUGX
+make 2>&1 > log
+touch $HOME/DEBUGY
 mkdir -p $HOME/.config/sara
 
 echo "$HOME/.local/bin" > $HOME/.config/sara/pshd
