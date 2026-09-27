@@ -130,7 +130,7 @@ mv sara* sara
 cd sara
 touch $HOME/DEBUGX
 mkdir -p ${BINPATH}
-make 2>&1 > log
+make &> log
 touch $HOME/DEBUGY
 mkdir -p $HOME/.config/sara
 
