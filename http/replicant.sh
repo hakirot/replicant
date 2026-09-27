@@ -43,7 +43,6 @@ yay --noconfirm -S \
   openssh \
   packer \
   polkit \
-  ranger \
   ripgrep \
   rmpc \
   tldr \
