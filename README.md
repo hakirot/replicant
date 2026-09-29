@@ -19,4 +19,4 @@ The dev build reaches a timeout after 120 minutes to provide time for test inspe
 
 See the included bin/ directory for some convenient scripts to run the completed build outside of packer
 
-To run the live release of this project and build this desktop on live/host hardware, visit [hakipaks](https://hakipaks.org/replicant)
+To run the live release of this project and build this desktop on live/host hardware, visit [hakipaks.org](https://hakipaks.org/replicant)
