@@ -1,20 +1,22 @@
 # REPLICANT
 
-This is the dev repo for [Replicant](https://www.hakipaks.com/replicant), a build archive for a lightweight desktop in Arch.
+This is the dev repo for [Replicant](https://www.hakipaks.org/replicant), a build archive for a lightweight desktop in Arch.
 
-This dev repo runs an autonomous build through Packer. The Packer QEMU plugin is required, as well as a provider for the qemu-system-x86_64 binary. Clone the repo and observe an Arch Linux desktop environment build via make
+This dev repo runs an autonomous build through Packer. The Packer QEMU plugin is required, as well as a provider for the qemu-system-x86_64 binary. Clone this repo, install dependencies, and run make to observe the Arch Linux desktop environment build completely autonomously
 
-The full setup and workflow on Arch would be
+The development setup and workflow on Arch Linux would be
 
+    pacman -S packer qemu-full
     git clone https://github.com/hakirot/replicant.git
     cd replicant
-    pacman -S packer qemu-full
     packer plugins install github.com/hashicorp/qemu
     make
     
 
-The build reaches a timeout after 120 minutes, to provide time for inspection. To save the image, run this from a terminal inside the virtual machine, build will complete.
+The dev build reaches a timeout after 120 minutes to provide time for test inspection. To save the image as a virtual disk, packer simply waits for an SSH connection, therefore run this from a terminal inside the virtual guest machine to complete the build.
 
     sudo systemctl start sshd
 
-See the bin/ directory for running the machine outside of packer
+See the included bin/ directory for some convenient scripts to run the completed build outside of packer
+
+To run the live release of this project and build this desktop on live/host hardware, visit [hakipaks](https://hakipaks.org/replicant)
