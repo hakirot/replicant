@@ -216,7 +216,6 @@ mv ${HOME}/skps ${HOME}/skps.bak
 mkdir ${HOME}/skps
 
 cp ${HOME}/skps.bak/colortest \
-   ${HOME}/skps.bak/shutdown.sh \
    ${HOME}/skps.bak/wifi \
    ${HOME}/skps.bak/respawn.sh \
    ${HOME}/skps.bak/kill-session.sh \
