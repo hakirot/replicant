@@ -206,6 +206,8 @@ source install.sh
 
 nohup notify-send --expire-time 10000 "Replicant" "Done" &
 
+nohup bar 2>&1 >/dev/null &
+
 cd ${HOME}/git/sara/
 mv config.h config.h.replicant
 make
