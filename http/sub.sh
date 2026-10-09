@@ -51,12 +51,8 @@ sleep 1
 xdotool key super+space
 nohup dunst &
 sleep 1
-
-# zsh init menu
-#xdotool key q
-#xdotool key KP_Enter
 xdotool key control+l
-sleep 1
+sleep .5
 
 # tiger style :3
 xdotool key super+BackSpace
@@ -88,11 +84,6 @@ xdotool key j
 nohup notify-send --expire-time 1000 "Replicant" "No touchy" &
 
 xdotool key super+l
-
-xdotool key alt+z
-xdotool key alt+z
-xdotool key alt+z
-xdotool key alt+z
 
 xdotool type cd
 xdotool key KP_Enter

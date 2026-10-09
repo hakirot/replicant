@@ -48,24 +48,9 @@ sleep 1
 xdotool key alt+k
 xdotool key KP_Enter
 xdotool key alt+j
-# rustup
-# ------ SCREEN 3 ------
-#xdotool key alt+minus
-#sleep 1
-#xdotool key control+j
-#xdotool key E
-#xdotool type "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
-#xdotool key KP_Enter
-#sleep 8
-#xdotool key KP_Enter
-#sleep 1
 
 # lualine patch
 nohup notify-send --expire-time 1000 "Replicant" "Applying neovim patches .." &
-# ------ SCREEN 3 ------
-#xdotool key alt+minus
-#xdotool key control+j
-#xdotool key E
 xdotool type "cp ${HOME}/git/suckless/sarax_lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 # TODO just copy these in
@@ -80,15 +65,12 @@ sleep 1
 xdotool type "./lua/lualine/themes/16color.lua"
 xdotool key KP_Enter
 
-#sleep 1
-#xdotool type "tmux kill-pane"
-#xdotool key KP_Enter
 sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
 sleep 1
 xdotool type ":qa!"
-sleep 1
+sleep .25
 xdotool key KP_Enter
 sleep 1
 xdotool type "tmux kill-pane"
@@ -105,39 +87,15 @@ xdotool type "q"
 xdotool key KP_Enter
 sleep 1
 
-xdotool type "ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar"
-xdotool key KP_Enter
-sleep .5
-
-#xdotool type "bar"
-#xdotool key KP_Enter
-#xdotool type "waiting.."
-#sleep 8
-xdotool key control+u
-xdotool key KP_Enter
+ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar
 
 nohup notify-send --expire-time 1000 "Replicant" "Fetching custom SARA configs .." &
-xdotool type "cd $HOME/git/sara"
-xdotool key KP_Enter
-xdotool type "wget www.hakipaks.org/replicant/sara --output-document config.h"
-xdotool key KP_Enter
-xdotool type "waiting.."
-sleep 4
-xdotool key control+u
-xdotool type "wget www.hakipaks.org/replicant/sarafinal --output-document config.final"
-xdotool key KP_Enter
-xdotool type "waiting.."
-sleep 4
-xdotool key control+u
-xdotool type "sed -i \"s|PATH_ME_PLS|${HOME}/git/sara/sara|g\" config.h"
-xdotool key KP_Enter
-sleep 1
-xdotool type "make clean"
-xdotool key KP_Enter
-sleep 1
+cd $HOME/git/sara
+wget www.hakipaks.org/replicant/sara --output-document config.h
+sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
+wget www.hakipaks.org/replicant/sarafinal --output-document config.final
+make clean
 xdotool type "make"
-xdotool key KP_Enter
-sleep 2
 
 # Restore sensible sudo user rule
 nohup notify-send --expire-time 1000 "Replicant" "Enforcing sudo pw for ${USER} .." &
@@ -178,10 +136,10 @@ xdotool key KP_Enter
 xdotool key KP_Enter
 
 xdotool key control+d
-sleep 1
+sleep .5
 
 xdotool key control+d
-sleep 1
+sleep .5
 
 xdotool key q
 
