@@ -179,8 +179,8 @@ cd $HOME/.config/
 ln -s $HOME/git/suckless/picom.conf
 
 GPU_INSTALL=0
-lspci | grep -i nvidia
-if [ $? -eq 0 ]; then
+lspci | grep -i nvidia && GPU_INSTALL=1
+if [ $GPU_INSTALL -eq 1 ]; then
   echo -e "${GREEN}REPLICANT: NVIDIA GPU DETECTED..${RESET}"
   echo -e "${GREEN}REPLICANT: INSTALLING NVIDIA DRIVERS..${RESET}"
 
@@ -192,12 +192,11 @@ if [ $? -eq 0 ]; then
   GPU_INSTALL=1
 fi
 
-lspci | grep -i amd
-if [ $? -eq 0 ]; then
+lspci | grep -i amd && GPU_INSTALL=2
+if [ GPU_INSTALL -eq 2 ]; then
   echo "implement AMD"
   GPU_INSTALL=1
 fi
-
 
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}

@@ -6,6 +6,7 @@ export DISPLAY=:0
 sleep 3
 xdotool type tmux
 xdotool key KP_Enter
+sleep 1
 xdotool type cd
 xdotool key KP_Enter
 sleep 1
