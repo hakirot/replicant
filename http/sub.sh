@@ -23,6 +23,8 @@ sleep 0.25
 xdotool key KP_Enter
 sleep 1
 xdotool key control+d
+sleep 1
+xdotool key control+d
 xdotool key super+q
 
 # Restore .xinitrc
