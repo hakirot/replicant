@@ -70,8 +70,9 @@ xdotool key KP_Enter
 sleep 1
 xdotool key super+f
 
-xdotool key super+h
+#xdotool key super+h
 
+sleep 1
 xdotool key super+j
 xdotool key super+j
 xdotool key super+j

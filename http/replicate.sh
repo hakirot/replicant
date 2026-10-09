@@ -38,49 +38,50 @@ rm -rf yay
 
 echo -e "${GREEN}REPLICANT: Installing base environment packages ..${RESET}"
 yay --noconfirm -S \
-  cairo \
-  dunst \
-  gdk-pixbuf2 \
-  glib2 \
-  imv \
-  libnotify \
-  libxft \
-  libxinerama \
-  make \
-  ncurses \
-  networkmanager \
-  nftables \
-  pango \
+  cairo            \
+  dunst            \
+  gdk-pixbuf2      \
+  glib2            \
+  imv              \
+  libnotify        \
+  libxft           \
+  libxinerama      \
+  linux-headers    \
+  make             \
+  ncurses          \
+  networkmanager   \
+  nftables         \
+  pango            \
   perl-image-exiftool \
-  picom \
-  python-pywal16 \
-  polybar-dwm-git \
-  ranger \
+  picom            \
+  python-pywal16   \
+  polybar-dwm-git  \
+  ranger           \
   ttf-font-awesome \
   ttf-jetbrains-mono \
   ttf-jetbrains-mono-nerd \
   ttf-nerd-fonts-symbols \
   ttf-nerd-fonts-symbols-common \
-  unzip \
-  vim \
-  wget \
+  unzip            \
+  vim              \
+  wget             \
   xorg-fonts-encodings \
-  xorg-server \
+  xorg-server      \
   xorg-server-common \
-  xorg-setxkbmap \
-  xorg-xauth \
-  xorg-xev \
-  xorg-xinit \
-  xorg-xkbcomp \
-  xorg-xmodmap \
-  xorg-xprop \
-  xorg-xrandr \
-  xorg-xrdb \
-  xorg-xset \
-  xorgproto \
-  xdotool \
-  xwallpaper \
-  zsh \
+  xorg-setxkbmap   \
+  xorg-xauth       \
+  xorg-xev         \
+  xorg-xinit       \
+  xorg-xkbcomp     \
+  xorg-xmodmap     \
+  xorg-xprop       \
+  xorg-xrandr      \
+  xorg-xrdb        \
+  xorg-xset        \
+  xorgproto        \
+  xdotool          \
+  xwallpaper       \
+  zsh              \
   zsh-syntax-highlighting
 
 # firewall
@@ -128,10 +129,8 @@ tar -xf sara-latest.tar.gz
 rm -rf sara-latest.tar.gz sara-latest.tar.gz.sig
 mv sara* sara
 cd sara
-touch $HOME/DEBUGX
 mkdir -p ${BINPATH}
 make &> log
-touch $HOME/DEBUGY
 mkdir -p $HOME/.config/sara
 
 echo "$HOME/.local/bin" > $HOME/.config/sara/pshd
@@ -179,32 +178,64 @@ mkdir -p $HOME/.config/
 cd $HOME/.config/
 ln -s $HOME/git/suckless/picom.conf
 
-echo -e "${GREEN}REPLICANT: Deploying sleeper script ..${RESET}"
-cd $HOME
+GPU_INSTALL=0
+lspci | grep -i nvidia
+if [ $? -eq 0 ]; then
+  echo -e "${GREEN}REPLICANT: NVIDIA GPU DETECTED..${RESET}"
+  echo -e "${GREEN}REPLICANT: INSTALLING NVIDIA DRIVERS..${RESET}"
+
+  yay --noconfirm -S \
+    nvidia-open-dkms \
+    nvidia-settings  \
+    nvidia-utils
+
+  GPU_INSTALL=1
+fi
+
+lspci | grep -i amd
+if [ $? -eq 0 ]; then
+  echo "implement AMD"
+  GPU_INSTALL=1
+fi
+
 
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
 
 echo -e "${GREEN}Preparing to switch to graphical environment ..${RESET}"
+cd $HOME
 sed -i "/reskin/c\~\/.local\/bin\/reskin\ ~/pix/walls/please_wait.png &" ${HOME}/.xinitrc
-sleep 1
-touch logout.sh
-echo "#\!/usr/bin/env bash" > logout.sh
-sleep 1
-echo "logout" > logout.sh
-sleep 1
-chmod +x logout.sh
-
 sleep 1
 echo "rm -f .zshrc" >> .zshrc
 sleep 1
 echo "sleep 1" >> .zshrc
 sleep 1
+
+echo -e "${GREEN}REPLICANT: Deploying sleeper subroutine ..${RESET}"
 echo "nohup bash -c \"./sub.sh ${USER} > sub.out 2>&1 &\"" >> .zshrc
 sleep 1
 echo "sleep 1" >> .zshrc
 sleep 1
 echo "startx" >> .zshrc
+
+if [ $GPU_INSTALL -eq 1 ]; then
+  echo -e "${GREEN}REPLICANT: Rebooting to load GPU ..${RESET}"
+  seconds=3
+  while [ $seconds -gt 0 ]; do
+    echo -e "${YELLOW}${seconds}${RESET}"
+    sleep 1
+    seconds=$((seconds - 1))
+  done
+  reboot
+else
+  touch logout.sh
+  echo "#\!/usr/bin/env bash" > logout.sh
+  sleep 1
+  echo "logout" > logout.sh
+  sleep 1
+  chmod +x logout.sh
+  sleep 1
+fi
 
 echo -e "${GREEN}REPLICANT: GET READY ..${RESET}"
 sleep 1
