@@ -196,6 +196,14 @@ git checkout ./dunstrc
 sleep 1
 nohup dunst &
 sleep 1
+
+
+echo -e "${GREEN}REPLICANT: Installing Polybar configs ..${RESET}"
+cd $HOME/git/suckless/polybar
+mv install.sh.fresh install.sh
+chmod +x install.sh
+source install.sh
+
 nohup notify-send --expire-time 10000 "Replicant" "Done" &
 
 cd ${HOME}/git/sara/

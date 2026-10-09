@@ -77,8 +77,6 @@ xdotool key super+j
 xdotool key super+j
 xdotool key super+j
 xdotool key super+j
-sleep 1
-
 xdotool key plus
 xdotool key plus
 xdotool key plus

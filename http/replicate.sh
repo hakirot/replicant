@@ -114,11 +114,6 @@ sudo make clean install ; make clean
 cd $HOME/git/suckless/dmenu
 sudo make clean install ; make clean
 
-echo -e "${GREEN}REPLICANT: Installing Polybar configs ..${RESET}"
-cd $HOME/git/suckless/polybar
-chmod +x install.sh
-source install.sh
-
 echo -e "${GREEN}REPLICANT: Installing SARA ..${RESET}"
 cd $HOME/git
 curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz
@@ -188,8 +183,6 @@ if [ $GPU_INSTALL -eq 1 ]; then
     nvidia-open-dkms \
     nvidia-settings  \
     nvidia-utils
-
-  GPU_INSTALL=1
 fi
 
 lspci | grep -i amd && GPU_INSTALL=2
