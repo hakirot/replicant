@@ -15,6 +15,10 @@ cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 nohup notify-send --expire-time 1000 "Replicant" "Installing more packages .." &
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
+  adwaita-cursors \
+  adwaita-fonts \
+  adwaita-icon-theme \
+  adwaita-icon-theme-legacy \
   bottom \
   cava \
   dysk \
@@ -25,6 +29,7 @@ yay --noconfirm -S \
   figlet-fonts-extra \
   file \
   firefox \
+  fontconfig \
   fuse2 \
   gnu-free-fonts \
   gzip \
@@ -48,9 +53,15 @@ yay --noconfirm -S \
   tldr \
   tmux \
   tree \
+  ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-common \
+  ttf-nerd-fonts-symbols-mono \
+  ttf-noto-nerd \
   ueberzugpp \
   vlc \
   wireplumber \
+  woff2 \
+  woff2-font-awesome \
   xcolor \
   xsel \
   zathura \
