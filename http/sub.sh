@@ -45,18 +45,18 @@ xdotool type "patch -i tiger_dunst.patch"
 xdotool key KP_Enter
 nohup $HOME/skps/reskin $HOME/pix/walls/tiger 2>&1 >/dev/null &
 sleep 1
+nohup dunst &
 
 xdotool key super+q
 sleep 1
 xdotool key super+space
-nohup dunst &
 sleep 1
-xdotool key control+l
-sleep .5
+#xdotool key control+l
+#sleep .25
 
 # tiger style :3
 xdotool key super+BackSpace
-sleep .5
+sleep .25
 xdotool type "imv $HOME/pix/walls/tiger_no_touchy.jpeg"
 xdotool key KP_Enter
 sleep 1
@@ -84,6 +84,11 @@ xdotool key j
 nohup notify-send --expire-time 1000 "Replicant" "No touchy" &
 
 xdotool key super+l
+
+xdotool key alt+x
+xdotool key alt+x
+xdotool key alt+x
+xdotool key alt+x
 
 xdotool type cd
 xdotool key KP_Enter

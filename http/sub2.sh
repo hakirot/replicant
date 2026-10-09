@@ -21,6 +21,8 @@ nohup notify-send --expire-time 1000 "Replicant" "Installing oh-my-zsh .." &
 # ------ SCREEN 2 ------
 xdotool key alt+minus
 sleep 1
+xdotool key q
+xdotool key KP_Enter
 xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
 sleep 10
