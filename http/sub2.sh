@@ -236,7 +236,6 @@ rm -rf $HOME/.config/nvim/.git
 cd $HOME/git/sara
 mv config.final config.h
 sed -i "s|HOME_DIR_PLS|${HOME}|g" config.final
-sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h # not required for sara 0.9.2
 make
 
 mkdir -p $HOME/.config/mpd
