@@ -88,7 +88,6 @@ xdotool key KP_Enter
 # Copy in zshrc and dircolors
 cp $HOME/git/d07f1135/.zshrc ${HOME}
 cp $HOME/git/d07f1135/.dircolors ${HOME}
-PATH=$HOME/.local/bin:$PATH
 
 xdotool type "tmux"
 xdotool key KP_Enter
@@ -103,6 +102,7 @@ wget www.hakipaks.org/replicant/sara --output-document config.h
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
 wget www.hakipaks.org/replicant/sarafinal --output-document config.final
+PATH=$HOME/.local/bin:$PATH
 make clean
 make
 

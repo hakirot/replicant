@@ -25,8 +25,8 @@ yay --noconfirm -S \
   fastfetch \
   ffmpegthumbnailer \
   figlet \
-#aur figlet-fonts \
-#aur figlet-fonts-extra \
+  figlet-fonts \
+  figlet-fonts-extra \
   file \
   firefox \
   fontconfig \
@@ -67,6 +67,8 @@ yay --noconfirm -S \
   zathura \
   zathura-pdf-mupdf \
   zip
+
+sleep 10
 
 nohup notify-send --expire-time 1000 "Replicant" "Configuring RANGER .." &
 echo -e "${GREEN}REPLICANT: Configuring RANGER${RESET}"
