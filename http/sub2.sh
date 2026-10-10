@@ -201,7 +201,6 @@ rm -rf $HOME/skps.bak \
   $HOME/sub.sh \
   $HOME/sub.out \
   $HOME/sub2.sh \
-# $HOME/sub2.out \
   $HOME/oh-my-zsh.sh \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
@@ -213,3 +212,5 @@ rm -rf $HOME/git/d07f1135/.git
 rm -rf $HOME/git/sara/.git
 rm -rf $HOME/skps/.git
 rm -rf $HOME/.config/nvim/.git
+
+#  rm -f $HOME/sub2.out \

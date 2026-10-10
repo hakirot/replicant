@@ -25,8 +25,6 @@ yay --noconfirm -S \
   fastfetch \
   ffmpegthumbnailer \
   figlet \
-  figlet-fonts \
-  figlet-fonts-extra \
   file \
   firefox \
   fontconfig \
@@ -67,6 +65,9 @@ yay --noconfirm -S \
   zathura \
   zathura-pdf-mupdf \
   zip
+
+# figlet-fonts
+# figlet-fonts-extra
 
 sleep 10
 
