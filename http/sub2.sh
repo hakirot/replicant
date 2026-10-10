@@ -32,7 +32,7 @@ xdotool key q
 xdotool key KP_Enter
 xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
-sleep 10
+sleep 20
 xdotool key KP_Enter
 xdotool key KP_Enter
 
