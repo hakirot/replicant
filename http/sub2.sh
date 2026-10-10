@@ -13,6 +13,7 @@ sleep 3
 xdotool type tmux
 xdotool key KP_Enter
 sleep 1
+xdotool key KP_Enter
 xdotool type cd
 xdotool key KP_Enter
 sleep 1
@@ -87,6 +88,7 @@ xdotool key KP_Enter
 # Copy in zshrc and dircolors
 cp $HOME/git/d07f1135/.zshrc ${HOME}
 cp $HOME/git/d07f1135/.dircolors ${HOME}
+PATH=$HOME/.local/bin:$PATH
 
 xdotool type "tmux"
 xdotool key KP_Enter

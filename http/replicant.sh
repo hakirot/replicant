@@ -25,8 +25,8 @@ yay --noconfirm -S \
   fastfetch \
   ffmpegthumbnailer \
   figlet \
-  figlet-fonts \
-  figlet-fonts-extra \
+#aur figlet-fonts \
+#aur figlet-fonts-extra \
   file \
   firefox \
   fontconfig \
@@ -84,9 +84,6 @@ nohup notify-send --expire-time 1000 "Replicant" "Removing autologin config .." 
 echo -e "${GREEN}REPLICANT: Removing autologin config${RESET}"
 sudo rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
 sudo rmdir /etc/systemd/system/getty@tty1.service.d/
-
-#echo -e "${GREEN}REPLICANT: Downgrading sudo perm{RESET}"
-#sudo echo "${USER} ALL=(ALL) ALL" > /etc/sudoers.d/00_${USER}
 
 nohup notify-send --expire-time 1000 "Replicant" "Installing TMUX config .." &
 echo -e "${GREEN}REPLICANT: Installing TMUX config ..${RESET}"
