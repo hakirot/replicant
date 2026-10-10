@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eou pipefail
+
 export DISPLAY=:0
 
 # ------ SCREEN 1 ------
@@ -92,13 +94,21 @@ sleep 1
 ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar
 
 nohup notify-send --expire-time 1000 "Replicant" "Fetching custom SARA configs .." &
+echo "ECHO ONE"
 cd $HOME/git/sara
+echo "ECHO TWO"
 wget www.hakipaks.org/replicant/sara --output-document config.h
+echo "ECHO THREE"
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
+echo "ECHO FOUR"
 sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
+echo "ECHO FIVE"
 wget www.hakipaks.org/replicant/sarafinal --output-document config.final
+echo "ECHO SIX"
 make clean
+echo "ECHO SEVEN"
 make
+echo "ECHO EIGHT"
 
 # Restore sensible sudo user rule
 nohup notify-send --expire-time 1000 "Replicant" "Enforcing sudo pw for ${USER} .." &
@@ -141,10 +151,8 @@ xdotool key KP_Enter
 
 xdotool key control+d
 sleep .5
-
 xdotool key control+d
 sleep .5
-
 xdotool key q
 
 xdotool key super+w
@@ -160,7 +168,6 @@ sleep 1
 nohup dunst &
 sleep 1
 
-
 echo -e "${GREEN}REPLICANT: Installing Polybar configs ..${RESET}"
 cd $HOME/git/suckless/polybar
 mv install.sh.fresh install.sh
@@ -171,21 +178,12 @@ nohup notify-send --expire-time 10000 "Replicant" "Done" &
 
 nohup /home/${USER}/git/suckless/polybar/bar.sh
 
-cd ${HOME}/git/sara/
-mv config.h config.h.replicant
-make
-cd ${HOME}
-
-rm -rf $HOME/git/suckless/.git
-rm -rf $HOME/git/d07f1135/.git
-rm -rf $HOME/git/sara/.git
-rm -rf $HOME/skps/.git
-rm -rf $HOME/.config/nvim/.git
-
 cd $HOME/git/sara
+mv config.h config.h.replicant
 cp config.final config.h
 sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
+make clean
 make
 
 mkdir -p $HOME/.config/mpd
@@ -196,6 +194,7 @@ cp $HOME/git/suckless/mpd/mpd.conf $HOME/.config/mpd/
 cp $HOME/git/suckless/mpd/config.ron $HOME/.config/rmpc/
 cp $HOME/git/suckless/mpd/replicant.ron $HOME/.config/rmpc/themes
 
+systemctl enable pipewire --user
 systemctl enable mpd --user
 systemctl start mpd --user
 
@@ -206,10 +205,15 @@ rm -rf $HOME/skps.bak \
   $HOME/sub.sh \
   $HOME/sub.out \
   $HOME/sub2.sh \
-  $HOME/sub2.out \
+# $HOME/sub2.out \
   $HOME/oh-my-zsh.sh \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
   $HOME/nftables.conf \
   $HOME/.host.zsh
 
+rm -rf $HOME/git/suckless/.git
+rm -rf $HOME/git/d07f1135/.git
+rm -rf $HOME/git/sara/.git
+rm -rf $HOME/skps/.git
+rm -rf $HOME/.config/nvim/.git

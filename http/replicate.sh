@@ -145,7 +145,7 @@ echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
-ln -s ${HOME}/skps/dunst_restart.sh
+ln -s ${HOME}/skps/dunst_restart
 ln -s ${HOME}/skps/song-notify.sh
 ln -s ${HOME}/skps/wifi
 ln -s ${HOME}/skps/respawn.sh
