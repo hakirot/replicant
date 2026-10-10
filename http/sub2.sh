@@ -78,10 +78,6 @@ sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
 
-# Copy in zshrc and dircolors
-cp $HOME/git/d07f1135/.zshrc $HOME
-cp $HOME/git/d07f1135/.dircolors $HOME
-
 xdotool type "tmux"
 xdotool key KP_Enter
 sleep 1
@@ -169,26 +165,12 @@ source install.sh
 
 nohup notify-send --expire-time 10000 "Replicant" "Done" &
 
-nohup bar 2>&1 >/dev/null &
+nohup /home/${USER}/git/suckless/polybar/bar.sh
 
 cd ${HOME}/git/sara/
 mv config.h config.h.replicant
 make
 cd ${HOME}
-
-mv ${HOME}/skps ${HOME}/skps.bak
-
-mkdir ${HOME}/skps
-
-cp ${HOME}/skps.bak/colortest \
-   ${HOME}/skps.bak/wifi \
-   ${HOME}/skps.bak/respawn.sh \
-   ${HOME}/skps.bak/kill-session.sh \
-   ${HOME}/skps.bak/reskin \
-   ${HOME}/skps.bak/sudo_askpass \
-   ${HOME}/skps/
-
-cp -r ${HOME}/skps.bak/themes ${HOME}/skps/
 
 rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
@@ -196,7 +178,7 @@ rm -rf $HOME/git/sara/.git
 rm -rf $HOME/.config/nvim/.git
 
 cd $HOME/git/sara
-mv config.final config.h
+cp config.final config.h
 sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 make
