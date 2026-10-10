@@ -34,6 +34,8 @@ nohup pkill -9 dunst &
 
 xdotool key super+space
 sleep 1
+xdotool key 0
+xdotool key KP_Enter
 
 # dunst patch
 xdotool type "cd $HOME/git/suckless/dunst"

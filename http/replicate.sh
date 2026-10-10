@@ -239,4 +239,7 @@ while [ $seconds -gt 0 ]; do
   seconds=$((seconds - 1))
 done
 
+touch ${HOME}/.zshrc
+echo "# Comment" > ${HOME}/.zshrc
+
 source logout.sh
