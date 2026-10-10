@@ -95,14 +95,16 @@ nohup notify-send --expire-time 1000 "Replicant" "Fetching custom SARA configs .
 cd $HOME/git/sara
 wget www.hakipaks.org/replicant/sara --output-document config.h
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
+sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
 wget www.hakipaks.org/replicant/sarafinal --output-document config.final
 make clean
-xdotool type "make"
+make
 
 # Restore sensible sudo user rule
 nohup notify-send --expire-time 1000 "Replicant" "Enforcing sudo pw for ${USER} .." &
 xdotool type "sudo su - root"
 xdotool key KP_Enter
+sleep .25
 xdotool type "vim /etc/sudoers.d/00"
 xdotool key KP_Tab
 xdotool key KP_Enter
@@ -195,7 +197,8 @@ rm -rf $HOME/.config/nvim/.git
 
 cd $HOME/git/sara
 mv config.final config.h
-sed -i "s|HOME_DIR_PLS|${HOME}|g" config.final
+sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
+sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 make
 
 mkdir -p $HOME/.config/mpd
