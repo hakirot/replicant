@@ -44,6 +44,9 @@ archive-test:
 	mv $(TAR_TARGET_TEST) $(ARCHIVE_DIR_TEST)
 	gpg --detach-sign $(ARCHIVE_DIR_TEST)/$(TAR_TARGET_TEST)
 
+sign-test: archive-test
+	gpg --detach-sign $(ARCHIVE_DIR_TEST)/$(TAR_TARGET_TEST)
+
 deploy-test: archive-test
 	rsync --progress $(ARCHIVE_DIR_TEST)/$(TAR_TARGET_TEST) 			$(NODEUSER)@$(NODE):$(NODETARGETPATH)
 	rsync --progress $(ARCHIVE_DIR_TEST)/$(CHECKSUM_TARGET_TEST)  $(NODEUSER)@$(NODE):$(NODETARGETPATH)

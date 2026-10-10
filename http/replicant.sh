@@ -66,11 +66,6 @@ yay --noconfirm -S \
   zathura-pdf-mupdf \
   zip
 
-# figlet-fonts
-# figlet-fonts-extra
-
-sleep 10
-
 nohup notify-send --expire-time 1000 "Replicant" "Configuring RANGER .." &
 echo -e "${GREEN}REPLICANT: Configuring RANGER${RESET}"
 mkdir -p ${HOME}/.config/ranger

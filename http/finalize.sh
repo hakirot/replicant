@@ -11,6 +11,8 @@ RESET='\033[0m'
 yay --noconfirm -S
   atac \
   discord \
+  figlet-fonts \
+  figlet-fonts-extra \
   gimp \
   heroku-cli-bin \
   inotify-tools \

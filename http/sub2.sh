@@ -213,4 +213,7 @@ rm -rf $HOME/git/sara/.git
 rm -rf $HOME/skps/.git
 rm -rf $HOME/.config/nvim/.git
 
-#  rm -f $HOME/sub2.out \
+rm -f $HOME/pix/walls/please_wait.png \
+      $HOME/pix/walls/tiger_no_touchy.jpeg
+
+rm -f $HOME/sub2.out
