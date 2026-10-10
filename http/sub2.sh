@@ -2,6 +2,10 @@
 
 set -eou pipefail
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+RESET='\033[0m'
+
 export DISPLAY=:0
 
 # ------ SCREEN 1 ------
@@ -91,24 +95,14 @@ xdotool type "q"
 xdotool key KP_Enter
 sleep 1
 
-ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar
-
 nohup notify-send --expire-time 1000 "Replicant" "Fetching custom SARA configs .." &
-echo "ECHO ONE"
 cd $HOME/git/sara
-echo "ECHO TWO"
 wget www.hakipaks.org/replicant/sara --output-document config.h
-echo "ECHO THREE"
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
-echo "ECHO FOUR"
 sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
-echo "ECHO FIVE"
 wget www.hakipaks.org/replicant/sarafinal --output-document config.final
-echo "ECHO SIX"
 make clean
-echo "ECHO SEVEN"
 make
-echo "ECHO EIGHT"
 
 # Restore sensible sudo user rule
 nohup notify-send --expire-time 1000 "Replicant" "Enforcing sudo pw for ${USER} .." &
@@ -173,10 +167,10 @@ cd $HOME/git/suckless/polybar
 mv install.sh.fresh install.sh
 chmod +x install.sh
 source install.sh
+ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar
+nohup /home/${USER}/git/suckless/polybar/bar.sh
 
 nohup notify-send --expire-time 10000 "Replicant" "Done" &
-
-nohup /home/${USER}/git/suckless/polybar/bar.sh
 
 cd $HOME/git/sara
 mv config.h config.h.replicant
