@@ -49,7 +49,7 @@ nohup dunst &
 xdotool key super+q
 sleep 1
 xdotool key super+space
-sleep 1
+sleep 0.5
 #xdotool key control+l
 #sleep .25
 
@@ -91,6 +91,6 @@ xdotool key alt+x
 
 xdotool type cd
 xdotool key KP_Enter
-sleep 1
+sleep .25
 xdotool type "./replicant.sh"
 xdotool key KP_Enter

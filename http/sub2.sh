@@ -78,6 +78,10 @@ sleep 1
 xdotool type "tmux kill-pane"
 xdotool key KP_Enter
 
+# Copy in zshrc and dircolors
+cp $HOME/git/d07f1135/.zshrc ${HOME}
+cp $HOME/git/d07f1135/.dircolors ${HOME}
+
 xdotool type "tmux"
 xdotool key KP_Enter
 sleep 1
@@ -175,6 +179,7 @@ cd ${HOME}
 rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
 rm -rf $HOME/git/sara/.git
+rm -rf $HOME/skps/.git
 rm -rf $HOME/.config/nvim/.git
 
 cd $HOME/git/sara

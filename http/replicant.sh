@@ -97,8 +97,4 @@ echo -e "${GREEN}REPLICANT: Deploying final stage ..${RESET}"
 cd ${HOME}
 nohup bash -c "./sub2.sh ${USER} > sub2.out 2>&1 &"
 
-# Copy in zshrc and dircolors
-cp $HOME/git/d07f1135/.zshrc ${HOME}
-cp $HOME/git/d07f1135/.dircolors ${HOME}
-
 echo -e "${GREEN}REPLICANT: WAITING..${RESET}"
