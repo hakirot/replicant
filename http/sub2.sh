@@ -16,12 +16,15 @@ xdotool key KP_Enter
 sleep 1
 xdotool key KP_Enter
 xdotool type "cd"
+sleep .25
 xdotool key KP_Enter
 sleep 1
 
 nohup notify-send --expire-time 1000 "Replicant" "Installing neovim plugins .." &
+sleep 1
 # starting neovim for the plugins
-xdotool type nvim
+xdotool key KP_Enter
+xdotool type "nvim"
 xdotool key KP_Enter
 
 # oh-my-zsh
