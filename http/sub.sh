@@ -26,14 +26,12 @@ sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "two" &
 sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "one" &
-sleep 1
-nohup notify-send --expire-time 1000 "Replicant" "Launching terminal" &
 
 # zsh init menu
 xdotool key 0
 sleep 1
 xdotool key KP_Enter
-sleep 10
+sleep 1
 xdotool key control+d
 sleep 1
 xdotool key control+d
