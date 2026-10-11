@@ -92,8 +92,8 @@ cp $HOME/git/d07f1135/.dircolors ${HOME}
 
 xdotool type "tmux"
 xdotool key KP_Enter
-sleep 1
-xdotool type "q"
+sleep 30
+xdotool key q
 xdotool key KP_Enter
 sleep 1
 

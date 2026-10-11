@@ -211,7 +211,7 @@ sleep 1
 echo "startx" >> .zshrc
 
 if [ $GPU_INSTALL -eq 1 ]; then
-  echo -e "${GREEN}REPLICANT: Rebooting to load GPU ..${RESET}"
+  echo -e "${GREEN}REPLICANT: Rebooting ..${RESET}"
   seconds=3
   while [ $seconds -gt 0 ]; do
     echo -e "${YELLOW}${seconds}${RESET}"

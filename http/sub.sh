@@ -19,9 +19,9 @@ nohup notify-send --expire-time 1000 "Replicant" "Launching terminal" &
 
 # zsh init menu
 xdotool key 0
-sleep 10
-xdotool key KP_Enter
 sleep 1
+xdotool key KP_Enter
+sleep 10
 xdotool key control+d
 sleep 1
 xdotool key control+d
