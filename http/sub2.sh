@@ -10,11 +10,12 @@ export DISPLAY=:0
 
 # ------ SCREEN 1 ------
 sleep 3
-xdotool type tmux
+xdotool key KP_Enter
+xdotool type "tmux"
 xdotool key KP_Enter
 sleep 1
 xdotool key KP_Enter
-xdotool type cd
+xdotool type "cd"
 xdotool key KP_Enter
 sleep 1
 
