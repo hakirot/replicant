@@ -173,23 +173,23 @@ mkdir -p $HOME/.config/
 cd $HOME/.config/
 ln -s $HOME/git/suckless/picom.conf
 
-GPU_INSTALL=0
-lspci | grep -i nvidia && GPU_INSTALL=1
-if [ $GPU_INSTALL -eq 1 ]; then
-  echo -e "${GREEN}REPLICANT: NVIDIA GPU DETECTED..${RESET}"
-  echo -e "${GREEN}REPLICANT: INSTALLING NVIDIA DRIVERS..${RESET}"
-
-  yay --noconfirm -S \
-    nvidia-open-dkms \
-    nvidia-settings  \
-    nvidia-utils
-fi
-
-lspci | grep -i amd && GPU_INSTALL=2
-if [ GPU_INSTALL -eq 2 ]; then
-  echo "implement AMD"
-  GPU_INSTALL=1
-fi
+#GPU_INSTALL=0
+#lspci | grep -i nvidia && GPU_INSTALL=1
+#if [ $GPU_INSTALL -eq 1 ]; then
+#  echo -e "${GREEN}REPLICANT: NVIDIA GPU DETECTED..${RESET}"
+#  echo -e "${GREEN}REPLICANT: INSTALLING NVIDIA DRIVERS..${RESET}"
+#
+#  yay --noconfirm -S \
+#    nvidia-open-dkms \
+#    nvidia-settings  \
+#    nvidia-utils
+#fi
+#
+#lspci | grep -i amd && GPU_INSTALL=2
+#if [ GPU_INSTALL -eq 2 ]; then
+#  echo "implement AMD"
+#  GPU_INSTALL=1
+#fi
 
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
@@ -241,6 +241,5 @@ while [ $seconds -gt 0 ]; do
 done
 
 touch ${HOME}/.zshrc
-echo "# Comment" > ${HOME}/.zshrc
 
 source logout.sh

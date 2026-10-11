@@ -34,12 +34,14 @@ xdotool key alt+minus
 sleep 1
 xdotool key q
 xdotool key KP_Enter
+rm -f $HOME/.zshrc
 xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
 sleep 30
 xdotool key KP_Enter
 xdotool key KP_Enter
 sleep 1
+cp $HOME/git/d07f1135/.zshrc $HOME
 
 nohup notify-send --expire-time 1000 "Replicant" "Applying zsh config patches .." &
 xdotool type "cp ${HOME}/git/suckless/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
@@ -96,7 +98,7 @@ cp $HOME/git/d07f1135/.dircolors ${HOME}
 
 xdotool type "tmux"
 xdotool key KP_Enter
-sleep 5
+sleep 1
 xdotool key q
 xdotool key KP_Enter
 sleep 1
@@ -146,7 +148,7 @@ sleep .25
 
 xdotool type "reskin"
 xdotool key KP_Enter
-sleep 5
+sleep 3
 xdotool key KP_Enter
 xdotool key KP_Enter
 
