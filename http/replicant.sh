@@ -49,7 +49,6 @@ yay --noconfirm -S \
   ripgrep \
   rmpc \
   tldr \
-  tmux \
   tree \
   ttf-nerd-fonts-symbols \
   ttf-nerd-fonts-symbols-common \

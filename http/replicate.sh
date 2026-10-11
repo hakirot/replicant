@@ -57,6 +57,7 @@ yay --noconfirm -S \
   python-pywal16   \
   polybar-dwm-git  \
   ranger           \
+  tmux             \
   ttf-font-awesome \
   ttf-jetbrains-mono \
   ttf-jetbrains-mono-nerd \

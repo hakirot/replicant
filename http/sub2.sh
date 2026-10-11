@@ -32,9 +32,10 @@ xdotool key q
 xdotool key KP_Enter
 xdotool type "./oh-my-zsh.sh"
 xdotool key KP_Enter
-sleep 20
+sleep 30
 xdotool key KP_Enter
 xdotool key KP_Enter
+sleep 30
 
 nohup notify-send --expire-time 1000 "Replicant" "Applying zsh config patches .." &
 xdotool type "cp ${HOME}/git/suckless/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
