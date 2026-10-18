@@ -172,23 +172,23 @@ mkdir -p $HOME/.config/
 cd $HOME/.config/
 ln -s $HOME/git/suckless/picom.conf
 
-GPU_INSTALL=0
-lspci | grep -i nvidia && GPU_INSTALL=1
-if [ $GPU_INSTALL -eq 1 ]; then
-  echo -e "${GREEN}REPLICANT: NVIDIA GPU DETECTED..${RESET}"
-  echo -e "${GREEN}REPLICANT: INSTALLING NVIDIA DRIVERS..${RESET}"
+#GPU_INSTALL=0
+#lspci | grep -i nvidia && GPU_INSTALL=1
+#if [ $GPU_INSTALL -eq 1 ]; then
+#  echo -e "${GREEN}REPLICANT: NVIDIA GPU DETECTED..${RESET}"
+#  echo -e "${GREEN}REPLICANT: INSTALLING NVIDIA DRIVERS..${RESET}"
+#
+#  yay --noconfirm -S \
+#    nvidia-open-dkms \
+#    nvidia-settings  \
+#    nvidia-utils
+#fi
 
-  yay --noconfirm -S \
-    nvidia-open-dkms \
-    nvidia-settings  \
-    nvidia-utils
-fi
-
-lspci | grep -i amd && GPU_INSTALL=2
-if [ GPU_INSTALL -eq 2 ]; then
-  echo "implement AMD"
-  GPU_INSTALL=1
-fi
+#lspci | grep -i amd && GPU_INSTALL=2
+#if [ GPU_INSTALL -eq 2 ]; then
+#  echo "implement AMD"
+#  GPU_INSTALL=1
+#fi
 
 echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
@@ -209,24 +209,24 @@ echo "sleep 1" >> .zshrc
 sleep 1
 echo "startx" >> .zshrc
 
-if [ $GPU_INSTALL -eq 1 ]; then
-  echo -e "${GREEN}REPLICANT: Rebooting to load GPU ..${RESET}"
-  seconds=3
-  while [ $seconds -gt 0 ]; do
-    echo -e "${YELLOW}${seconds}${RESET}"
-    sleep 1
-    seconds=$((seconds - 1))
-  done
-  reboot
-else
-  touch logout.sh
-  echo "#\!/usr/bin/env bash" > logout.sh
-  sleep 1
-  echo "logout" > logout.sh
-  sleep 1
-  chmod +x logout.sh
-  sleep 1
-fi
+#if [ $GPU_INSTALL -eq 1 ]; then
+#  echo -e "${GREEN}REPLICANT: Rebooting to load GPU ..${RESET}"
+#  seconds=3
+#  while [ $seconds -gt 0 ]; do
+#    echo -e "${YELLOW}${seconds}${RESET}"
+#    sleep 1
+#    seconds=$((seconds - 1))
+#  done
+#  reboot
+#else
+#  touch logout.sh
+#  echo "#\!/usr/bin/env bash" > logout.sh
+#  sleep 1
+#  echo "logout" > logout.sh
+#  sleep 1
+#  chmod +x logout.sh
+#  sleep 1
+#fi
 
 echo -e "${GREEN}REPLICANT: GET READY ..${RESET}"
 sleep 1
