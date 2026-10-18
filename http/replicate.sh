@@ -240,6 +240,6 @@ while [ $seconds -gt 0 ]; do
 done
 
 touch ${HOME}/.zshrc
-echo "# Comment" > ${HOME}/.zshrc
+#echo "# Comment" > ${HOME}/.zshrc
 
 source logout.sh
