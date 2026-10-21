@@ -33,7 +33,7 @@ endbar() {
     sleep .25
   done
   rm -f ${CONTROL_PIPE}
-  # Run post ops
+  touch ${HOME}/replicant_completed
 }
 
 echo "+replicate.sh: prepares desktop environment" > ${CONTROL_PIPE}
@@ -296,13 +296,13 @@ echo "99" > ${CONTROL_PIPE}
 #  done
 #  reboot
 #else
-#  touch logout.sh
-#  echo "#\!/usr/bin/env bash" > logout.sh
-#  sleep 1
-#  echo "logout" > logout.sh
-#  sleep 1
-#  chmod +x logout.sh
-#  sleep 1
+touch logout.sh
+echo "#\!/usr/bin/env bash" > logout.sh
+sleep 1
+echo "logout" > logout.sh
+sleep 1
+chmod +x logout.sh
+sleep 1
 #fi
 
 echo "100" > ${CONTROL_PIPE}
