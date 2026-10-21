@@ -26,17 +26,19 @@ endbar() {
 }
 
 if [ -z ${CONTROL_PIPE+x} ] ; then
-  CONTROL_PIPE="/tmp/load_pipe"
+  control_pipe="/tmp/load_pipe"
 fi
 
 echo "10" > $CONTROL_PIPE
+echo "Please hold while ArchInstall does it's thing"
 
 USER=${username}
 MOUNT_HOME=/mnt/home/${USER}
 echo "Installing Arch for ${USER}" > $CONTROL_PIPE
 #archinstall --config user_configuration.json --creds user_credentials.json --silent
-archinstall --config user_configuration.json --creds user_credentials.json 2>&1 > /tmp/replicant_log
+archinstall --config user_configuration.json --creds user_credentials.json --silent 2>&1 > /tmp/replicant_log
 
+echo "logging"
 echo "90" > $CONTROL_PIPE
 echo "+REPLICANT: ARCHINSTALL COMPLETE" > $CONTROL_PIPE
 
