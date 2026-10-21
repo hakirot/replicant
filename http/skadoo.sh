@@ -26,19 +26,19 @@ endbar() {
 }
 
 if [ -z ${CONTROL_PIPE+x} ] ; then
-  control_pipe="/tmp/load_pipe"
+  CONTROL_PIPE="/tmp/load_pipe"
 fi
 
-echo "10" > $CONTROL_PIPE
-echo "Please hold while ArchInstall does it's thing"
+echo "5" > $CONTROL_PIPE
+echo "ArchInstall will appear to pause after this countdown while sorting your mirrorlist .." > $CONTROL_PIPE
+echo > $CONTROL_PIPE
 
 USER=${username}
 MOUNT_HOME=/mnt/home/${USER}
 echo "Installing Arch for ${USER}" > $CONTROL_PIPE
 #archinstall --config user_configuration.json --creds user_credentials.json --silent
-archinstall --config user_configuration.json --creds user_credentials.json --silent 2>&1 > /tmp/replicant_log
+archinstall --config user_configuration.json --creds user_credentials.json --silent 2>&1 > /tmp/skadoosh_log
 
-echo "logging"
 echo "90" > $CONTROL_PIPE
 echo "+REPLICANT: ARCHINSTALL COMPLETE" > $CONTROL_PIPE
 
@@ -57,7 +57,16 @@ echo "98" > $CONTROL_PIPE
 echo -e "${GREEN}REPLICANT: Configuring build file ownership for ${USER} ..${RESET}"
 echo "sudo chown ${USER}:${USER} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
 echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
-echo "source ./replicate.sh" >> ${MOUNT_HOME}/.bash_profile
+
+echo -e "${GREEN}REPLICANT: Facilitating replicant reboot automation ..${RESET}"
+cp -r ${HOME}/ncurses-loading-bar /mnt/home/${USER}/
+echo "cd ncurses-loading-bar" >> ${MOUNT_HOME}/.bash_profile
+echo "make clean" >> ${MOUNT_HOME}/.bash_profile
+echo "make" >> ${MOUNT_HOME}/.bash_profile
+echo "cp ./loading-bar /home/${USER}" >> ${MOUNT_HOME}/.bash_profile
+echo "cd /home/${USER}" >> ${MOUNT_HOME}/.bash_profile
+echo "./loading-bar -d -E replicate.sh -H \"replicate.sh: pre-environment run\" -C \"ENVIRONMENT READY\" -l /home/${USER}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
+
 
 sleep 1
 echo "99" > $CONTROL_PIPE
@@ -71,6 +80,7 @@ while [ $seconds -gt 0 ]; do
 done
 
 echo "100" > $CONTROL_PIPE
-endbar
 
+cp /tmp/skadoosh_log /mnt/home/${USER}
+endbar
 shutdown -r now
