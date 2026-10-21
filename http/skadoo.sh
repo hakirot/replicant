@@ -31,29 +31,28 @@ if [ -z ${CONTROL_PIPE+x} ] ; then
 fi
 
 echo "5" > $CONTROL_PIPE
-echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+echo "ArchInstall pauses at 5...4...3...2...1 while it sorts mirrors, retain composure .. it shall continue .." > $CONTROL_PIPE
 echo > $CONTROL_PIPE
 sleep 1
-echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
-echo > $CONTROL_PIPE
-sleep 1
-echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
-echo > $CONTROL_PIPE
-sleep 1
-echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
-echo > $CONTROL_PIPE
-sleep 1
-echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
-echo > $CONTROL_PIPE
+#echo "ArchInstall pauses at 5...4...3...2...1 while it sorts mirrors, retain composure .. it shall continue .." > $CONTROL_PIPE
+#echo > $CONTROL_PIPE
+#echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+#echo > $CONTROL_PIPE
+#sleep 1
+#echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+#echo > $CONTROL_PIPE
+#sleep 1
+#echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+#echo > $CONTROL_PIPE
 
 USER=${username}
 MOUNT_HOME=/mnt/home/${USER}
-echo "Installing Arch for ${USER}" > $CONTROL_PIPE
+echo "Installing Arch for ${USER}" | tee -a $CONTROL_PIPE
 #archinstall --config user_configuration.json --creds user_credentials.json --silent
 archinstall --config user_configuration.json --creds user_credentials.json --silent 2>&1 > /tmp/skadoosh_log
 
 echo "90" > $CONTROL_PIPE
-echo "+REPLICANT: ARCHINSTALL COMPLETE" > $CONTROL_PIPE
+echo "+REPLICANT: ARCHINSTALL COMPLETE" | tee -a $CONTROL_PIPE
 
 echo -e "${GREEN}REPLICANT: Configuring autologin ${USER} ..${RESET}"
 mkdir /mnt/etc/systemd/system/getty@tty1.service.d/
