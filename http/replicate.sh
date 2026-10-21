@@ -36,9 +36,7 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
-echo "+replicate.sh: prepares desktop environment" > ${CONTROL_PIPE}
-echo "Installing lightweight desktop environment" > ${CONTROL_PIPE}
-echo -e "${GREEN}++REPLICATE.sh++${RESET}"
+echo "Replicant.sh installs and preps lightweight desktop environment" | tee -a ${CONTROL_PIPE}
 echo "1" > ${CONTROL_PIPE}
 
 echo "Awaiting for network restoration .." > ${CONTROL_PIPE}
@@ -58,19 +56,17 @@ if [ "$attempts" -eq "0" ]; then
   echo "-CRIT: REPLICANT: No network connection. Configure internet connection then retry by pressing Control+d" > ${CONTROL_PIPE}
   exit
 fi
-echo "Network Restored" > ${CONTROL_PIPE}
+echo "Network Restored" | tee -a ${CONTROL_PIPE}
 echo "5" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
-echo "Restoring .bash_profile" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}" | tee -a ${CONTROL_PIPE}
 echo "5" > ${CONTROL_PIPE}
 rm -f $HOME/.bash_profile
 cp $HOME/.bash_profile.bak $HOME/.bash_profile
 echo "Bash profile restored" > ${CONTROL_PIPE}
 echo "6" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Acquiring yay ..${RESET}"
-echo "Building yay package manager .." > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Acquiring yay ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd $HOME
 sudo pacman --noconfirm -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -80,8 +76,7 @@ cd $HOME
 rm -rf yay
 echo "15" > ${CONTROL_PIPE}
 
-echo "Acquiring more xorg packages, fonts, zsh, vim, etc .." > ${CONTROL_PIPE}
-echo -e "${GREEN}REPLICANT: Installing base environment packages ..${RESET}"
+echo -e "${GREEN}REPLICANT: Installing base environment packages (xorg packages, fonts, zsh, vim, etc)${RESET}" | tee -a  ${CONTROL_PIPE} 
 yay --noconfirm -S \
   cairo            \
   dunst            \
@@ -132,13 +127,12 @@ yay --noconfirm -S \
 echo "60" > ${CONTROL_PIPE}
 
 # firewall
-echo "Activating NetworkManager" > ${CONTROL_PIPE}
-echo -e "${GREEN}REPLICANT: Activating NetworkManager${RESET}"
+echo -e "${GREEN}REPLICANT: Activating NetworkManager${RESET}" | tee -a ${CONTROL_PIPE}
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 echo "65" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}"
+echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}" | tee -a ${CONTROL_PIPE}
 echo "Activating your firewall" > ${CONTROL_PIPE}
 sudo nft --file $HOME/nftables.conf
 sudo cp $HOME/nftables.conf /etc/
@@ -146,23 +140,20 @@ sudo systemctl enable nftables
 sudo systemctl start nftables
 echo "70" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Provisioning home directories ..${RESET}"
-echo "Creating home directories" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Creating home directories ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd ${HOME}
 mkdir dls Downloads dox git gmz lib mnt mzk pix
 git clone https://github.com/hakirot/skps.git
 sed -i "s|suckless-hakirot|suckless|g" ${HOME}/skps/reskin
 echo "75" > ${CONTROL_PIPE}
 
-echo "Fetching hakirot's suckless repo" > ${CONTROL_PIPE}
-echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot ..${RESET}"
+echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd $HOME/git
 git clone https://github.com/hakirot/suckless-hakirot.git
 mv suckless-hakirot suckless
 echo "79" > ${CONTROL_PIPE}
 
-echo "Building DWM, ST, & DMENU" > ${CONTROL_PIPE}
-echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU ..${RESET}"
+echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd $HOME/git/suckless/dwm
 sudo make clean install ; make clean
 cd $HOME/git/suckless/st
@@ -171,8 +162,7 @@ cd $HOME/git/suckless/dmenu
 sudo make clean install ; make clean
 echo "82" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Installing SARA ..${RESET}"
-echo "Installing SARA" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Installing SARA ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd $HOME/git
 curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz
 curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz.sig
@@ -187,7 +177,7 @@ make &> log
 mkdir -p $HOME/.config/sara
 echo "84" > ${CONTROL_PIPE}
 
-echo "Creating SARA shortcuts" > ${CONTROL_PIPE}
+echo "Creating SARA shortcuts" | tee -a ${CONTROL_PIPE}
 echo "$HOME/.local/bin" > $HOME/.config/sara/pshd
 echo "$HOME/.config" >> $HOME/.config/sara/pshd
 echo "$HOME/pix/walls" >> $HOME/.config/sara/pshd
@@ -197,15 +187,13 @@ echo "$HOME/git/d07f1135" >> $HOME/.config/sara/pshd
 echo "$HOME/git/sara" >> $HOME/.config/sara/pshd
 echo "87" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}"
-echo "Configuring dunst" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}" | tee -a ${CONTROL_PIPE}
 mkdir -p ${HOME}/.config/dunst
 cd ${HOME}/.config/dunst
 ln -s ${HOME}/git/suckless/dunst/dunstrc
 echo "89" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
-echo "Creating symlinks for custom scripts" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}" | tee -a ${CONTROL_PIPE}
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
@@ -218,16 +206,14 @@ ln -s ${HOME}/skps/reskin
 ln -s ${HOME}/skps/sudo_askpass
 echo "91" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Installing initial .xinitrc ..${RESET}"
-echo "Installing .xinitrc" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Installing initial .xinitrc ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd $HOME/git
 git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
 cp .xinitrc $HOME
 echo "92" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Fetching wallpapers and themes ..${RESET}"
-echo "Fetching desktop wallpapers and themes" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Fetching wallpapers and themes ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd $HOME/pix
 curl -k -u ${USR}:${PW} -O https://${NODEIP}:${NODEPORT}/walls.zip
 unzip walls.zip
@@ -236,8 +222,7 @@ mv themes $HOME/skps/themes
 rm -f walls.zip
 echo "93" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Installing picom config ..${RESET}"
-echo "Configuring picom" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Installing picom config ..${RESET}" | tee -a ${CONTROL_PIPE}
 mkdir -p $HOME/.config/
 cd $HOME/.config/
 ln -s $HOME/git/suckless/picom.conf
@@ -261,13 +246,11 @@ echo "94" > ${CONTROL_PIPE}
 #  GPU_INSTALL=1
 #fi
 
-echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}"
-echo "Changing shell to zsh" > ${CONTROL_PIPE}
+echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}" | tee -a ${CONTROL_PIPE}
 sudo chsh --shell /bin/zsh ${USER}
 echo "95" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}Preparing to switch to graphical environment ..${RESET}"
-echo "Getting ready for graphical environment" > ${CONTROL_PIPE}
+echo -e "${GREEN}Preparing to switch to graphical environment ..${RESET}" | tee -a ${CONTROL_PIPE}
 cd $HOME
 sed -i "/reskin/c\~\/.local\/bin\/reskin\ ~/pix/walls/please_wait.png &" ${HOME}/.xinitrc
 sleep 1
@@ -277,7 +260,7 @@ echo "sleep 1" >> .zshrc
 sleep 1
 echo "97" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Deploying sleeper subroutine ..${RESET}"
+echo -e "${GREEN}REPLICANT: Deploying sleeper subroutine ..${RESET}" | tee -a ${CONTROL_PIPE}
 echo "Configuring desktop automation hook" > ${CONTROL_PIPE}
 echo "nohup bash -c \"./sub.sh ${USER} > sub.out 2>&1 &\"" >> .zshrc
 sleep 1
@@ -307,7 +290,7 @@ sleep 1
 
 echo "100" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: GET READY ..${RESET}"
+echo -e "${GREEN}REPLICANT: GETTING READY ..${RESET}" | tee -a ${CONTROL_PIPE}
 
 seconds=5
 while [ $seconds -gt 0 ]; do
@@ -319,4 +302,4 @@ done
 touch ${HOME}/.zshrc
 
 endbar
-source logout.sh
+#source logout.sh

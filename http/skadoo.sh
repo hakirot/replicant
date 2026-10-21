@@ -7,6 +7,7 @@ YELLOW='\033[0;33m'
 RESET='\033[0m'
 
 endbar() {
+  echo "ARCHLINUX INSTALLED" > $CONTROL_PIPE
   flashes=9
   while [ $flashes -gt 0 ]; do
     echo "0" > $CONTROL_PIPE
@@ -30,6 +31,18 @@ if [ -z ${CONTROL_PIPE+x} ] ; then
 fi
 
 echo "5" > $CONTROL_PIPE
+echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+echo > $CONTROL_PIPE
+sleep 1
+echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+echo > $CONTROL_PIPE
+sleep 1
+echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+echo > $CONTROL_PIPE
+sleep 1
+echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
+echo > $CONTROL_PIPE
+sleep 1
 echo "ArchInstall pauses at 5...4...3...2...1, retain composure .." > $CONTROL_PIPE
 echo > $CONTROL_PIPE
 
@@ -67,8 +80,7 @@ echo "cp ./loading-bar /home/${USER}" >> ${MOUNT_HOME}/.bash_profile
 echo "cd /home/${USER}" >> ${MOUNT_HOME}/.bash_profile
 echo "./loading-bar -d -E replicate.sh -H \"replicate.sh: pre-environment run\" -C \"ENVIRONMENT READY\" -l /home/${USER}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
 echo "logout" >> ${MOUNT_HOME}/.bash_profile
-
-[ -f "/you/file.file" ] && echo 1 || echo 0
+echo "[ -f \${HOME}/logout.sh ] && source \${HOME}/logout.sh || echo" >> ${MOUNT_HOME}/.bash_profile
 
 sleep 1
 echo "99" > $CONTROL_PIPE
