@@ -41,7 +41,7 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
-send_pipe "+Replicant.sh: prepping desktop"
+send_pipe "+REPLICANT.sh: prepping desktop"
 send_pipe "1"
 send_pipe "Checking network connection .."
 
@@ -211,8 +211,10 @@ send_pipe "REPLICANT: Installing initial .xinitrc .."
 cd $HOME/git
 git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
-cp .xinitrc $HOME
-# TODO remove line with super+space
+cp .xinitrc ${HOME}
+cp .tmux.conf ${HOME}
+sed -i '/super/d' ${HOME}/.xinitrc
+sed -i '/Welcome/d' ${HOME}/.xinitrc
 send_pipe "92"
 
 send_pipe "REPLICANT: Fetching wallpapers and themes .."
@@ -264,7 +266,7 @@ send_pipe "97"
 
 send_pipe "REPLICANT: Deploying sleeper subroutine .."
 send_pipe "Configuring desktop automation hook"
-echo "nohup bash -c \"./sub.sh ${USER} > sub.out 2>&1 &\"" >> .zshrc
+echo "nohup bash -c \"./sub.sh > sub.out 2>&1 &\"" >> .zshrc
 sleep 1
 echo "sleep 1" >> .zshrc
 sleep 1

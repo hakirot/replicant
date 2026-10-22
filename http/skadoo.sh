@@ -11,7 +11,7 @@ if [ -z ${CONTROL_PIPE+x} ] ; then
 fi
 
 send_pipe () {
-  echo $1 | tee -a ${CONTROL_PIPE}
+  echo $1 > ${CONTROL_PIPE}
   sleep .1
 }
 
@@ -43,8 +43,8 @@ endbar() {
 
 send_pipe "5"
 send_pipe "ArchInstall pauses at 5...4...3...2...1 while it sorts mirrors, retain composure .. it shall continue .."
-send_pipe_wait "25" "Running ArchInstall for ${USER}"
-send_pipe_wait "25" "50"
+send_pipe_wait "160" "Running ArchInstall for ${USER}"
+send_pipe_wait "160" "50"
 sleep 1
 
 USER=${username}
