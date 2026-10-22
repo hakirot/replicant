@@ -36,7 +36,6 @@ endbar() {
     sleep .25
   done
   rm -f ${CONTROL_PIPE}
-  touch ${HOME}/replicant_completed
 }
 
 nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
@@ -199,6 +198,8 @@ sleep .5
 xdotool key control+d
 sleep .25
 xdotool key control+d
+xdotool key control+d
+xdotool key control+d
 send_pipe "68"
 
 send_pipe "Installing .dotfiles"
@@ -274,6 +275,11 @@ nohup /home/${USER}/git/suckless/polybar/bar.sh
 xdotool key control+d
 xdotool key control+d
 xdotool key control+d
+
+cd ${HOME}/git/sara
+make
+cd ${HOME}
+
 xdotool key super+space
 
 nohup notify-send --expire-time 3000 "Replicant" "Done" &
@@ -285,3 +291,5 @@ sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 make clean
 make
+
+touch ${HOME}/replicant_completed
