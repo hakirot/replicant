@@ -61,9 +61,9 @@ nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
 
-#cd ${HOME}/pix/walls
-# ${HOME}/skps/reskin detach
-#cd ${HOME}
+cd ${HOME}/pix/walls
+${HOME}/skps/reskin please_wait.png
+cd ${HOME}
 
 sleep 1
 xdotool key super+space
@@ -265,24 +265,24 @@ send_pipe "100"
 send_pipe "Clearing notification"
 dunstctl close
 
-cd ${HOME}/pix/walls
-${HOME}/skps/reskin detach
-cd ${HOME}
+${HOME}/skps/reskin
 
 endbar
 xdotool key control+d
 xdotool key control+d
 xdotool key control+d
 
-nohup /home/${USER}/git/suckless/polybar/bar.sh
+/home/${USER}/git/suckless/polybar/bar.sh
 xdotool key super+space
 # no idea why this isn't starting
 # sara:1: command not found: sara
 # sara launches just fine in any spawn after
 # bizzare
-sleep .2
-xdotool type "sara"
-xdotool key KP_Enter
+sleep .5
+if pgrep sara >/dev/null ; then
+  xdotool type "sara"
+  xdotool key KP_Enter
+fi
 sleep 2.5
 nohup notify-send --expire-time 3000 "Replicant" "Done" &
 
