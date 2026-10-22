@@ -98,8 +98,8 @@ xdotool key alt+minus
 send_pipe "36"
 
 send_pipe "Installing oh-my-zsh"
-echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"" > ${HOME}/.zshrc
-echo "touch ${HOME}/replicant_signal_2" >> ${HOME}/.zshrc
+echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" && touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
+#echo "touch ${HOME}/replicant_signal_2" >> ${HOME}/.zshrc
 xdotool key alt+minus
 xdotool key control+j
 xdotool key E
