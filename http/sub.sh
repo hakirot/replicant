@@ -38,7 +38,7 @@ endbar() {
   rm -f ${CONTROL_PIPE}
 }
 
-nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
+notify-send --expire-time 360000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
 
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
@@ -62,7 +62,8 @@ sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
 
 cd ${HOME}/pix/walls
-${HOME}/skps/reskin please_wait.png
+#${HOME}/skps/reskin please_wait.png
+wal -a 92 -f "${HOME}/skps/themes/detach.json"
 cd ${HOME}
 
 sleep 1
@@ -279,10 +280,10 @@ xdotool key super+space
 # sara launches just fine in any spawn after
 # bizzare
 sleep .5
-if pgrep sara >/dev/null ; then
-  xdotool type "sara"
-  xdotool key KP_Enter
-fi
+#if pgrep sara >/dev/null ; then
+#  xdotool type "sara"
+#  xdotool key KP_Enter
+#fi
 sleep 2.5
 nohup notify-send --expire-time 3000 "Replicant" "Done" &
 

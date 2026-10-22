@@ -107,7 +107,6 @@ cd ${HOME}/git/suckless/ranger
 cp commands_full.py commands.py rifle.conf rc.conf scope.sh ${HOME}/.config/ranger/
 send_pipe "27"
 
-nohup notify-send --expire-time 1000 "Replicant" "Configuring NEOVIM .." &
 send_pipe "Dropping in hakirot's neovim config"
 echo -e "${GREEN}REPLICANT: Configuring NEOVIM${RESET}"
 cd ${HOME}
