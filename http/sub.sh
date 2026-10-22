@@ -79,6 +79,10 @@ xdotool key alt+x
 xdotool key alt+x
 xdotool key alt+z
 xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
 
 while [ ! -e "${HOME}/replicant_signal_1" ]; do
   sleep 5
