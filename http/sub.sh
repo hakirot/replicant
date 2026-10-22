@@ -107,11 +107,14 @@ xdotool key alt+minus
 xdotool key control+j
 xdotool key E
 send_pipe "44"
+sleep 1
 
 send_pipe "Waiting for oh-my-zsh.sh to complete .."
 while [ ! -e "${HOME}/replicant_signal_2" ]; do
   xdotool key KP_Enter
-  sleep 2
+  sleep 1
+  xdotool key control+d
+  sleep 1
 done
 send_pipe "48"
 
