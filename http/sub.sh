@@ -40,7 +40,7 @@ endbar() {
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
 #echo -e "  sara" >> ${HOME}/.zshrc
-echo "./loading-bar -d -E replicant.sh -H \"REPLICANT.sh: Last script\" -C \"REPLICANT COMPLETE\" -l /home/${USER}/replicant_log" >> ${HOME}/.zshrc
+echo "./loading-bar -d -E replicant.sh -H \"REPLICANT.sh: Last script\" -C \"replicant complete\" -l /home/${USER}/replicant_log" >> ${HOME}/.zshrc
 echo "else" >> ${HOME}/.zshrc
 echo -e "  tmux" >> ${HOME}/.zshrc
 echo "fi" >> ${HOME}/.zshrc
