@@ -17,18 +17,23 @@ if [ -z ${CONTROL_PIPE+x} ] ; then
   CONTROL_PIPE="/tmp/load_pipe"
 fi
 
+send_pipe () {
+  echo -e $1 | tee -a ${CONTROL_PIPE}
+  sleep .5
+}
+
 endbar() {
   flashes=9
   while [ $flashes -gt 0 ]; do
-    echo "0" > $CONTROL_PIPE
+    send_pipe "0"
     sleep .05
-    echo "100" > $CONTROL_PIPE
+    send_pipe "100"
     sleep .05
     flashes=$((flashes - 1))
   done
   sleep .5
   while pgrep loading-bar >/dev/null ; do
-    echo "PIPE_END" > $CONTROL_PIPE
+    send_pipe "PIPE_END"
     echo "Still Running"
     sleep .25
   done
@@ -36,12 +41,9 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
-echo "Replicant.sh installs and preps lightweight desktop environment" | tee -a ${CONTROL_PIPE}
-echo "1" > ${CONTROL_PIPE}
-
-echo "Awaiting for network restoration .." > ${CONTROL_PIPE}
-
-echo -e "${GREEN}REPLICANT: Short delay for NETWORK to reawaken${RESET}"
+send_pipe "+Replicant.sh: preppring desktop"
+send_pipe "1"
+send_pipe "Checking network connection .."
 
 attempts=10
 until ping -c 1 google.com
@@ -53,20 +55,20 @@ do
 done
 
 if [ "$attempts" -eq "0" ]; then
-  echo "-CRIT: REPLICANT: No network connection. Configure internet connection then retry by pressing Control+d" > ${CONTROL_PIPE}
+  send_pipe "-CRIT: REPLICANT: No network connection. Configure internet connection then retry by pressing Control+d"
   exit
 fi
-echo "Network Restored" | tee -a ${CONTROL_PIPE}
-echo "5" > ${CONTROL_PIPE}
+send_pipe "Network Restored"
+send_pipe "3"
 
-echo -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}" | tee -a ${CONTROL_PIPE}
-echo "5" > ${CONTROL_PIPE}
+send_pipe -e "${GREEN}REPLICANT: Restoring .bash_profile${RESET}"
+send_pipe "5"
 rm -f $HOME/.bash_profile
 cp $HOME/.bash_profile.bak $HOME/.bash_profile
-echo "Bash profile restored" > ${CONTROL_PIPE}
-echo "6" > ${CONTROL_PIPE}
+send_pipe "Bash profile restored"
+send_pipe "6"
 
-echo -e "${GREEN}REPLICANT: Acquiring yay ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Acquiring yay ..${RESET}"
 cd $HOME
 sudo pacman --noconfirm -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -74,7 +76,7 @@ cd yay
 makepkg -si --noconfirm --clean
 cd $HOME
 rm -rf yay
-echo "15" > ${CONTROL_PIPE}
+send_pipe "15"
 
 echo -e "${GREEN}REPLICANT: Installing base environment packages (xorg packages, fonts, zsh, vim, etc)${RESET}" | tee -a  ${CONTROL_PIPE} 
 yay --noconfirm -S \
@@ -124,45 +126,45 @@ yay --noconfirm -S \
   xwallpaper       \
   zsh              \
   zsh-syntax-highlighting
-echo "60" > ${CONTROL_PIPE}
+send_pipe "60"
 
 # firewall
-echo -e "${GREEN}REPLICANT: Activating NetworkManager${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Activating NetworkManager${RESET}"
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
-echo "65" > ${CONTROL_PIPE}
+send_pipe "65"
 
-echo -e "${GREEN}REPLICANT: Activating Firewall${RESET}" | tee -a ${CONTROL_PIPE}
-echo "Activating your firewall" > ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Activating Firewall${RESET}"
+send_pipe "Activating your firewall"
 sudo nft --file $HOME/nftables.conf
 sudo cp $HOME/nftables.conf /etc/
 sudo systemctl enable nftables
 sudo systemctl start nftables
-echo "70" > ${CONTROL_PIPE}
+send_pipe "70"
 
-echo -e "${GREEN}REPLICANT: Creating home directories ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Creating home directories ..${RESET}"
 cd ${HOME}
 mkdir dls Downloads dox git gmz lib mnt mzk pix
 git clone https://github.com/hakirot/skps.git
 sed -i "s|suckless-hakirot|suckless|g" ${HOME}/skps/reskin
-echo "75" > ${CONTROL_PIPE}
+send_pipe "75"
 
-echo -e "${GREEN}REPLICANT: Cloning suckless-hakirot ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Cloning suckless-hakirot ..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/suckless-hakirot.git
 mv suckless-hakirot suckless
 echo "79" > ${CONTROL_PIPE}
 
-echo -e "${GREEN}REPLICANT: Building DWM, ST, DMENU ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Building DWM, ST, DMENU ..${RESET}"
 cd $HOME/git/suckless/dwm
 sudo make clean install ; make clean
 cd $HOME/git/suckless/st
 sudo make clean install ; make clean
 cd $HOME/git/suckless/dmenu
 sudo make clean install ; make clean
-echo "82" > ${CONTROL_PIPE}
+send_pipe "82"
 
-echo -e "${GREEN}REPLICANT: Installing SARA ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Installing SARA ..${RESET}"
 cd $HOME/git
 curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz
 curl -O https://www.hakipaks.org/sara/sara-latest.tar.gz.sig
@@ -175,9 +177,9 @@ cd sara
 mkdir -p ${BINPATH}
 make &> log
 mkdir -p $HOME/.config/sara
-echo "84" > ${CONTROL_PIPE}
+send_pipe "84"
 
-echo "Creating SARA shortcuts" | tee -a ${CONTROL_PIPE}
+send_pipe "Creating SARA shortcuts"
 echo "$HOME/.local/bin" > $HOME/.config/sara/pshd
 echo "$HOME/.config" >> $HOME/.config/sara/pshd
 echo "$HOME/pix/walls" >> $HOME/.config/sara/pshd
@@ -185,15 +187,15 @@ echo "$HOME/skps/themes" >> $HOME/.config/sara/pshd
 echo "$HOME/git/suckless" >> $HOME/.config/sara/pshd
 echo "$HOME/git/d07f1135" >> $HOME/.config/sara/pshd
 echo "$HOME/git/sara" >> $HOME/.config/sara/pshd
-echo "87" > ${CONTROL_PIPE}
+send_pipe "87"
 
-echo -e "${GREEN}REPLICANT: Configuring dunst${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Configuring dunst${RESET}"
 mkdir -p ${HOME}/.config/dunst
 cd ${HOME}/.config/dunst
 ln -s ${HOME}/git/suckless/dunst/dunstrc
-echo "89" > ${CONTROL_PIPE}
+send_pipe "89"
 
-echo -e "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Creating symlinks for local bin${RESET}"
 cd ${BINPATH}
 ln -s ${HOME}/git/sara/sara
 ln -s ${HOME}/skps/colortest
@@ -204,29 +206,30 @@ ln -s ${HOME}/skps/respawn.sh
 ln -s ${HOME}/skps/kill-session.sh ${HOME}/.local/bin/kill-session
 ln -s ${HOME}/skps/reskin
 ln -s ${HOME}/skps/sudo_askpass
-echo "91" > ${CONTROL_PIPE}
+send_pipe "91"
 
-echo -e "${GREEN}REPLICANT: Installing initial .xinitrc ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Installing initial .xinitrc ..${RESET}"
 cd $HOME/git
 git clone https://github.com/hakirot/d07f1135.git
 cd d07f1135
 cp .xinitrc $HOME
-echo "92" > ${CONTROL_PIPE}
+# TODO remove line with super+space
+send_pipe "92"
 
-echo -e "${GREEN}REPLICANT: Fetching wallpapers and themes ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Fetching wallpapers and themes ..${RESET}"
 cd $HOME/pix
 curl -k -u ${USR}:${PW} -O https://${NODEIP}:${NODEPORT}/walls.zip
 unzip walls.zip
 rm -rf $HOME/skps/themes
 mv themes $HOME/skps/themes
 rm -f walls.zip
-echo "93" > ${CONTROL_PIPE}
+send_pipe "93"
 
-echo -e "${GREEN}REPLICANT: Installing picom config ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Installing picom config ..${RESET}"
 mkdir -p $HOME/.config/
 cd $HOME/.config/
 ln -s $HOME/git/suckless/picom.conf
-echo "94" > ${CONTROL_PIPE}
+send_pipe "94"
 
 #GPU_INSTALL=0
 #lspci | grep -i nvidia && GPU_INSTALL=1
@@ -246,11 +249,11 @@ echo "94" > ${CONTROL_PIPE}
 #  GPU_INSTALL=1
 #fi
 
-echo -e "${GREEN}REPLICANT: Changing SHELL${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Changing SHELL${RESET}"
 sudo chsh --shell /bin/zsh ${USER}
-echo "95" > ${CONTROL_PIPE}
+send_pipe "95"
 
-echo -e "${GREEN}Preparing to switch to graphical environment ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}Preparing to switch to graphical environment ..${RESET}"
 cd $HOME
 sed -i "/reskin/c\~\/.local\/bin\/reskin\ ~/pix/walls/please_wait.png &" ${HOME}/.xinitrc
 sleep 1
@@ -258,16 +261,16 @@ echo "rm -f .zshrc" >> .zshrc
 sleep 1
 echo "sleep 1" >> .zshrc
 sleep 1
-echo "97" > ${CONTROL_PIPE}
+send_pipe "97"
 
-echo -e "${GREEN}REPLICANT: Deploying sleeper subroutine ..${RESET}" | tee -a ${CONTROL_PIPE}
-echo "Configuring desktop automation hook" > ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: Deploying sleeper subroutine ..${RESET}"
+send_pipe "Configuring desktop automation hook"
 echo "nohup bash -c \"./sub.sh ${USER} > sub.out 2>&1 &\"" >> .zshrc
 sleep 1
 echo "sleep 1" >> .zshrc
 sleep 1
 echo "startx" >> .zshrc
-echo "99" > ${CONTROL_PIPE}
+send_pipe "99"
 
 #if [ $GPU_INSTALL -eq 1 ]; then
 #  echo -e "${GREEN}REPLICANT: Rebooting ..${RESET}"
@@ -288,16 +291,16 @@ chmod +x logout.sh
 sleep 1
 #fi
 
-echo "100" > ${CONTROL_PIPE}
+send_pipe "100"
 
-echo -e "${GREEN}REPLICANT: GETTING READY ..${RESET}" | tee -a ${CONTROL_PIPE}
+send_pipe "${GREEN}REPLICANT: GETTING READY ..${RESET}"
 
-seconds=5
-while [ $seconds -gt 0 ]; do
-  echo -e "${YELLOW}${seconds}${RESET}"
-  sleep 1
-  seconds=$((seconds - 1))
-done
+#seconds=5
+#while [ $seconds -gt 0 ]; do
+#  echo -e "${YELLOW}${seconds}${RESET}"
+#  sleep 1
+#  seconds=$((seconds - 1))
+#done
 
 touch ${HOME}/.zshrc
 
