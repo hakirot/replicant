@@ -71,8 +71,9 @@ nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
 
-$HOME/skps/reskin $HOME/pix/walls/detach
-
+cd ${HOME}/pix/walls
+${HOME}/skps/reskin detach
+cd ${HOME}
 
 sleep 1
 xdotool key super+space
@@ -140,6 +141,7 @@ done
 send_pipe "56"
 
 send_pipe "Patching neovim lualine"
+sleep 1
 xdotool type "cp ${HOME}/git/suckless/sarax_lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 # TODO just copy these in
@@ -147,10 +149,8 @@ xdotool type "cd ${HOME}/.local/share/nvim/lazy/lualine.nvim"
 xdotool key KP_Enter
 xdotool type "patch -i sarax_lualine.diff"
 xdotool key KP_Enter
-sleep 1
 xdotool type "./lua/lualine/config.lua"
 xdotool key KP_Enter
-sleep 1
 xdotool type "./lua/lualine/themes/16color.lua"
 xdotool key KP_Enter
 send_pipe "60"
