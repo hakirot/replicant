@@ -11,6 +11,12 @@ if [ -z ${CONTROL_PIPE+x} ] ; then
 fi
 
 send_pipe () {
+  echo $1 | tee -a ${CONTROL_PIPE}
+  sleep .1
+}
+
+send_pipe_wait () {
+  nohup bash -c "sleep "$1"; echo -e $2 | tee -a ${CONTROL_PIPE}
   echo -e $1 | tee -a ${CONTROL_PIPE}
   sleep .5
 }
@@ -37,12 +43,12 @@ endbar() {
 
 send_pipe "5"
 send_pipe "ArchInstall pauses at 5...4...3...2...1 while it sorts mirrors, retain composure .. it shall continue .."
+send_pipe_wait "25" "Running ArchInstall for ${USER}"
+send_pipe_wait "25" "50"
 sleep 1
 
 USER=${username}
 MOUNT_HOME=/mnt/home/${USER}
-send_pipe "Running ArchInstall for ${USER}, please wait"
-#archinstall --config user_configuration.json --creds user_credentials.json --silent
 archinstall --config user_configuration.json --creds user_credentials.json --silent 2>&1 > /tmp/skadoosh_log
 
 send_pipe "+REPLICANT: ARCHINSTALL COMPLETE"
@@ -55,7 +61,7 @@ echo -e "${GREEN}REPLICANT: Configuring root perms for ${USER} ..${RESET}"
 echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${USER}
 
 send_pipe "95"
-send_pipe "${GREEN}REPLICANT: Installing automated build files ..${RESET}"
+send_pipe "REPLICANT: Installing automated build files .."
 mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh /mnt/home/${USER}/
 cp /mnt/home/${USER}/.bash_profile /mnt/home/${USER}/.bash_profile.bak
 
