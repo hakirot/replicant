@@ -6,6 +6,9 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 RESET='\033[0m'
 
+BINPATH=/home/${USER}/.local/bin
+PATH=${BINPATH}:$PATH
+
 export DISPLAY=:0
 
 if [ -z ${CONTROL_PIPE+x} ] ; then
@@ -40,12 +43,10 @@ endbar() {
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
 #echo -e "  sara" >> ${HOME}/.zshrc
-echo "./loading-bar -d -E replicant.sh -H \"REPLICANT.sh: Last script\" -C \"replicant complete\" -l /home/${USER}/replicant_log" >> ${HOME}/.zshrc
+echo "./loading-bar -d -E replicant.sh -H \"REPLICANT.sh: Last script\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
 echo "else" >> ${HOME}/.zshrc
 echo -e "  tmux" >> ${HOME}/.zshrc
 echo "fi" >> ${HOME}/.zshrc
-
-$HOME/skps/reskin $HOME/pix/walls/detach 2>&1 >/dev/null &
 
 
 nohup notify-send --expire-time 1000 "Please wait" "ten" &
@@ -69,6 +70,8 @@ sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
+
+$HOME/skps/reskin $HOME/pix/walls/detach
 
 
 sleep 1
@@ -98,7 +101,7 @@ xdotool key alt+minus
 send_pipe "36"
 
 send_pipe "Installing oh-my-zsh"
-echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" && touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
+echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" ; touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
 #echo "touch ${HOME}/replicant_signal_2" >> ${HOME}/.zshrc
 xdotool key alt+minus
 xdotool key control+j
