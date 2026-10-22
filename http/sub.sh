@@ -157,14 +157,17 @@ sleep 1
 xdotool type ":qa!"
 sleep .2
 xdotool key KP_Enter
-sleep 1
+sleep .2
+xdotool key control+l
 send_pipe "64"
 
 send_pipe "Reinstating password sudo for ${USER}"
+sleep .2
 # Restore sensible sudo user rule
 xdotool type "sudo su - root"
+sleep .1
 xdotool key KP_Enter
-sleep .25
+sleep .5
 xdotool type "vim /etc/sudoers.d/00"
 xdotool key KP_Tab
 xdotool key KP_Enter
