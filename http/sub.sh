@@ -49,16 +49,6 @@ echo -e "  tmux" >> ${HOME}/.zshrc
 echo "fi" >> ${HOME}/.zshrc
 
 
-nohup notify-send --expire-time 1000 "Please wait" "ten" &
-sleep 1
-nohup notify-send --expire-time 1000 "Please wait" "nine" &
-sleep 1
-nohup notify-send --expire-time 1000 "Please wait" "eight" &
-sleep 1
-nohup notify-send --expire-time 1000 "Please wait" "seven" &
-sleep 1
-nohup notify-send --expire-time 1000 "Please wait" "six" &
-sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "five" &
 sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "four" &
@@ -71,9 +61,9 @@ nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
 
-cd ${HOME}/pix/walls
-${HOME}/skps/reskin detach
-cd ${HOME}
+#cd ${HOME}/pix/walls
+# ${HOME}/skps/reskin detach
+#cd ${HOME}
 
 sleep 1
 xdotool key super+space
@@ -266,22 +256,34 @@ send_pipe "96"
 
 rm -f $HOME/pix/walls/please_wait.png \
       $HOME/pix/walls/tiger_no_touchy.jpeg
-send_pipe "100"
-
-send_pipe "Clearing notification"
-dunstctl close
-endbar
-nohup /home/${USER}/git/suckless/polybar/bar.sh
-xdotool key control+d
-xdotool key control+d
-xdotool key control+d
 
 cd ${HOME}/git/sara
 make
 cd ${HOME}
+send_pipe "100"
 
+send_pipe "Clearing notification"
+dunstctl close
+
+cd ${HOME}/pix/walls
+${HOME}/skps/reskin detach
+cd ${HOME}
+
+endbar
+xdotool key control+d
+xdotool key control+d
+xdotool key control+d
+
+nohup /home/${USER}/git/suckless/polybar/bar.sh
 xdotool key super+space
-
+# no idea why this isn't starting
+# sara:1: command not found: sara
+# sara launches just fine in any spawn after
+# bizzare
+sleep .2
+xdotool type "sara"
+xdotool key KP_Enter
+sleep 2.5
 nohup notify-send --expire-time 3000 "Replicant" "Done" &
 
 cd $HOME/git/sara
