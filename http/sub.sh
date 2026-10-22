@@ -170,7 +170,7 @@ xdotool key KP_Enter
 sleep .5
 sleep .2
 xdotool key control+l
-xdotool type "vim /etc/sudoers.d/00_${USER}"
+xdotool type "vim /etc/sudoers.d/00_"
 xdotool key KP_Tab
 xdotool key KP_Enter
 sleep 1
@@ -197,8 +197,6 @@ xdotool key KP_Enter
 sleep .5
 xdotool key control+d
 sleep .25
-xdotool key control+d
-xdotool key control+d
 xdotool key control+d
 send_pipe "68"
 
