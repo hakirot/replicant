@@ -39,6 +39,7 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
+nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
 
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
@@ -197,6 +198,7 @@ xdotool key KP_Enter
 sleep .5
 xdotool key control+d
 sleep .25
+xdotool key control+d
 send_pipe "68"
 
 send_pipe "Installing .dotfiles"
@@ -221,7 +223,7 @@ mv install.sh.fresh install.sh
 chmod +x install.sh
 source install.sh
 ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar
-nohup /home/${USER}/git/suckless/polybar/bar.sh
+#nohup /home/${USER}/git/suckless/polybar/bar.sh
 send_pipe "80"
 
 send_pipe "Installing rmpc and mpd configs"
@@ -263,9 +265,19 @@ send_pipe "96"
 
 rm -f $HOME/pix/walls/please_wait.png \
       $HOME/pix/walls/tiger_no_touchy.jpeg
-send_pipe "98"
+send_pipe "100"
 
-send_pipe "Building SARA"
+send_pipe "Clearing notification"
+dunstctl close
+endbar
+nohup /home/${USER}/git/suckless/polybar/bar.sh
+xdotool key control+d
+xdotool key control+d
+xdotool key control+d
+xdotool key super+space
+
+nohup notify-send --expire-time 3000 "Replicant" "Done" &
+
 cd $HOME/git/sara
 mv config.h config.h.replicant
 cp config.final config.h
@@ -273,13 +285,3 @@ sed -i "s|HOME_DIR_PLS|${HOME}|g" config.h
 sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 make clean
 make
-send_pipe "99"
-
-send_pipe "Clearing notification"
-dunstctl close
-endbar
-xdotool key control+d
-xdotool key control+d
-xdotool key control+d
-xdotool key super+space
-nohup notify-send --expire-time 3600000 "Replicant" "Done" &

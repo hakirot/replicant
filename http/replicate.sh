@@ -18,7 +18,7 @@ if [ -z ${CONTROL_PIPE+x} ] ; then
 fi
 
 send_pipe () {
-  echo $1 | tee -a ${CONTROL_PIPE}
+  echo $1 > ${CONTROL_PIPE}
   sleep .1
 }
 
@@ -294,7 +294,7 @@ sleep 1
 
 send_pipe "100"
 
-send_pipe "REPLICANT: GETTING READY .."
+send_pipe "REPLICANT: ENVIRONMENT READY .."
 
 #seconds=5
 #while [ $seconds -gt 0 ]; do
