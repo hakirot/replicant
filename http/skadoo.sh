@@ -40,43 +40,43 @@ endbar() {
   # Run post ops
 }
 
+MOUNT_HOME=/mnt/home/${username}
+
 send_pipe "5"
 send_pipe "ArchInstall pauses at 5...4...3...2...1 while it sorts mirrors, retain composure .. it shall continue .."
-send_pipe_wait "160" "Running ArchInstall for ${USER}"
-send_pipe_wait "160" "50"
+send_pipe_wait "160" "Running ArchInstall for ${username}"
+send_pipe_wait "162" "30"
 sleep 1
 
-USER=${username}
-MOUNT_HOME=/mnt/home/${USER}
 archinstall --config user_configuration.json --creds user_credentials.json --silent 2>&1 > /tmp/skadoosh_log
 
 send_pipe "+REPLICANT: ARCHINSTALL COMPLETE"
 send_pipe "90"
 
-echo -e "${GREEN}REPLICANT: Configuring autologin ${USER} ..${RESET}"
+echo -e "${GREEN}REPLICANT: Configuring autologin ${username} ..${RESET}"
 mkdir /mnt/etc/systemd/system/getty@tty1.service.d/
 mv autologin.conf /mnt/etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo -e "${GREEN}REPLICANT: Configuring root perms for ${USER} ..${RESET}"
-echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${USER}
+echo -e "${GREEN}REPLICANT: Configuring root perms for ${username} ..${RESET}"
+echo "${username} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${username}
 
 send_pipe "95"
 send_pipe "REPLICANT: Installing automated build files .."
-mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh /mnt/home/${USER}/
-cp /mnt/home/${USER}/.bash_profile /mnt/home/${USER}/.bash_profile.bak
+mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh /mnt/home/${username}/
+cp /mnt/home/${username}/.bash_profile /mnt/home/${username}/.bash_profile.bak
 
 send_pipe "98"
-echo -e "${GREEN}REPLICANT: Configuring build file ownership for ${USER} ..${RESET}"
-echo "sudo chown ${USER}:${USER} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
+echo -e "${GREEN}REPLICANT: Configuring build file ownership for ${username} ..${RESET}"
+echo "sudo chown ${username}:${username} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
 echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
 
 echo -e "${GREEN}REPLICANT: Facilitating replicant reboot automation ..${RESET}"
-cp -r ${HOME}/ncurses-loading-bar /mnt/home/${USER}/
+cp -r ${HOME}/ncurses-loading-bar /mnt/home/${username}/
 echo "cd ncurses-loading-bar" >> ${MOUNT_HOME}/.bash_profile
 echo "make clean" >> ${MOUNT_HOME}/.bash_profile
 echo "make" >> ${MOUNT_HOME}/.bash_profile
-echo "cp ./loading-bar /home/${USER}" >> ${MOUNT_HOME}/.bash_profile
-echo "cd /home/${USER}" >> ${MOUNT_HOME}/.bash_profile
-echo "./loading-bar -d -E replicate.sh -H \"replicate.sh: pre-environment run\" -C \"ENVIRONMENT READY\" -l /home/${USER}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
+echo "cp ./loading-bar /home/${username}" >> ${MOUNT_HOME}/.bash_profile
+echo "cd /home/${username}" >> ${MOUNT_HOME}/.bash_profile
+echo "./loading-bar -d -E replicate.sh -H \"replicate.sh: pre-environment run\" -C \"ENVIRONMENT READY\" -l /home/${username}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
 echo "logout" >> ${MOUNT_HOME}/.bash_profile
 echo "[ -f \${HOME}/logout.sh ] && source \${HOME}/logout.sh || echo" >> ${MOUNT_HOME}/.bash_profile
 
@@ -93,6 +93,6 @@ done
 
 send_pipe "100"
 
-cp /tmp/skadoosh_log /mnt/home/${USER}
+cp /tmp/skadoosh_log /mnt/home/${username}
 endbar
 shutdown -r now
