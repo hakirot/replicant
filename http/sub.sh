@@ -167,7 +167,8 @@ sleep .2
 xdotool type "sudo su - root"
 sleep .1
 xdotool key KP_Enter
-sleep .5
+sleep .2
+xdotool key control+d
 xdotool type "vim /etc/sudoers.d/00"
 xdotool key KP_Tab
 xdotool key KP_Enter
