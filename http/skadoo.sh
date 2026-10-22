@@ -61,13 +61,13 @@ echo "${username} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${username}
 
 send_pipe "95"
 send_pipe "REPLICANT: Installing automated build files .."
-mv replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh /mnt/home/${username}/
+mv replicate.sh replicant.sh sub.sh nftables.conf oh-my-zsh.sh /mnt/home/${username}/
 cp /mnt/home/${username}/.bash_profile /mnt/home/${username}/.bash_profile.bak
 
 send_pipe "98"
 echo -e "${GREEN}REPLICANT: Configuring build file ownership for ${username} ..${RESET}"
-echo "sudo chown ${username}:${username} replicate.sh replicant.sh sub.sh sub2.sh nftables.conf oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
-echo "chmod +x replicate.sh replicant.sh sub.sh sub2.sh oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
+echo "sudo chown ${username}:${username} replicate.sh replicant.sh sub.sh nftables.conf oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
+echo "chmod +x replicate.sh replicant.sh sub.sh oh-my-zsh.sh" >> ${MOUNT_HOME}/.bash_profile
 
 echo -e "${GREEN}REPLICANT: Facilitating replicant reboot automation ..${RESET}"
 cp -r ${HOME}/ncurses-loading-bar /mnt/home/${username}/
