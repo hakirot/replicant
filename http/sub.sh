@@ -38,8 +38,6 @@ endbar() {
   rm -f ${CONTROL_PIPE}
 }
 
-notify-send --expire-time 360000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
-
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
 #echo -e "  sara" >> ${HOME}/.zshrc
@@ -60,6 +58,9 @@ sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
+sleep 1
+nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
+
 
 cd ${HOME}/pix/walls
 #${HOME}/skps/reskin please_wait.png
@@ -165,11 +166,11 @@ send_pipe "Reinstating password sudo for ${USER}"
 sleep .2
 # Restore sensible sudo user rule
 xdotool type "sudo su - root"
-sleep .1
 xdotool key KP_Enter
+sleep .5
 sleep .2
-xdotool key control+d
-xdotool type "vim /etc/sudoers.d/00"
+xdotool key control+l
+xdotool type "vim /etc/sudoers.d/00_${USER}"
 xdotool key KP_Tab
 xdotool key KP_Enter
 sleep 1
@@ -288,6 +289,12 @@ xdotool key super+space
 # sara launches just fine in any spawn after
 # bizzare
 sleep .5
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
+xdotool key alt+z
 #if pgrep sara >/dev/null ; then
 #  xdotool type "sara"
 #  xdotool key KP_Enter
