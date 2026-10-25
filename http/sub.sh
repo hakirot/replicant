@@ -257,6 +257,8 @@ rm -rf $HOME/skps.bak \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
   $HOME/nftables.conf \
+  $HOME/ncurses-loading-bar \
+  $HOME/loading-bar \
   $HOME/.host.zsh
 send_pipe "92"
 
