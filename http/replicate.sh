@@ -41,7 +41,8 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
-send_pipe "+REPLICANT.sh: prepping desktop"
+sleep 4
+
 send_pipe "1"
 send_pipe "Checking network connection .."
 

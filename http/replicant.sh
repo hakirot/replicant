@@ -33,6 +33,8 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
+sleep 4
+
 echo -e "${GREEN}++REPLICANT.sh++${RESET}"
 
 # Restore .xinitrc
