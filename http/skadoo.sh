@@ -69,7 +69,8 @@ cp /mnt/home/${username}/.bash_profile /mnt/home/${username}/.bash_profile.bak
 
 send_pipe "98"
 echo -e "${GREEN}REPLICANT: Configuring build file ownership for ${username} ..${RESET}"
-echo "sudo chown ${username}:${username} replicate.sh replicant.sh sub.sh nftables.conf" >> ${MOUNT_HOME}/.bash_profile
+echo "sudo chown ${username}:${username} replicate.sh replicant.sh sub.sh nftables.conf skadoosh_log" >> ${MOUNT_HOME}/.bash_profile
+echo "sudo chown -R ${username}:${username} ncurses-loading-bar" >> ${MOUNT_HOME}/.bash_profile
 echo "chmod +x replicate.sh replicant.sh sub.sh" >> ${MOUNT_HOME}/.bash_profile
 
 echo -e "${GREEN}REPLICANT: Facilitating replicant reboot automation ..${RESET}"

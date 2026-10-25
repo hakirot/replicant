@@ -157,15 +157,15 @@ sleep .5
 xdotool key control+d
 sleep 1
 xdotool type ":qa!"
-sleep .2
+sleep .5
 xdotool key KP_Enter
-sleep .2
+sleep 2
 xdotool key control+l
 send_pipe "64"
 
-send_pipe "Reinstating password sudo for ${USER}"
+send_pipe "Reinstating sudo password for ${USER}"
 sleep .2
-# Restore sensible sudo user rule
+xdotool key control+l
 xdotool type "sudo su - root"
 sleep .2
 xdotool key KP_Enter
@@ -253,7 +253,6 @@ rm -rf $HOME/skps.bak \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
   $HOME/nftables.conf \
-  $HOME/ncurses-loading-bar \
   $HOME/loading-bar \
   $HOME/.host.zsh
 send_pipe "92"
@@ -311,5 +310,5 @@ make
 
 # SARA -> replicant doc
 xdotool key alt+f
-mv replicant_log replicate_log skadoosh_log sub.out /tmp
+mv replicant_log replicate_log sub.out skadoosh_log /tmp
 touch /tmp/replicant_completed
