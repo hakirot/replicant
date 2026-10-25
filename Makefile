@@ -4,8 +4,7 @@ BUILD_SCRIPTS=http/skadoo.sh \
 							http/replicant.sh \
 							http/replicate.sh \
 							http/sub.sh \
-							http/nftables.conf \
-							http/oh-my-zsh.sh
+							http/nftables.conf
 BUILD_DIR=replicant
 TAR_TARGET=replicant.tar.gz
 SIGNATURE_TARGET=replicant.tar.gz.sig
