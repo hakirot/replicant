@@ -83,6 +83,7 @@ yay --noconfirm -S \
   polkit \
   ripgrep \
   rmpc \
+  scrot \
   tldr \
   tree \
   ttf-nerd-fonts-symbols \
