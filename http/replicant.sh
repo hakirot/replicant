@@ -48,7 +48,7 @@ rm -f ${HOME}/.bash_profile
 cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 send_pipe "6"
 
-send_pipe "Installing more packages .."
+send_pipe "Moar packages!"
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
   adwaita-cursors \
@@ -128,6 +128,6 @@ cp ${HOME}/git/d07f1135/.tmux.conf ${HOME}
 send_pipe "33"
 
 send_pipe "Waiting for subroutine .."
-echo -e "${GREEN}REPLICANT: Waiting for subroutine ..${RESET}"
+echo -e "${GREEN}REPLICANT: Handing control to subroutine ..${RESET}"
 touch ${HOME}/replicant_signal_1
 cd ${HOME}

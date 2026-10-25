@@ -45,7 +45,7 @@ sleep 4
 
 MOUNT_HOME=/mnt/home/${username}
 
-send_pipe "5"
+send_pipe "2"
 send_pipe "ArchInstall pauses after 5...4...3...2...1 while it sorts its mirrorlist. Remain composed .. it shall continue .."
 send_pipe_wait "145" "Running ArchInstall for ${username}"
 send_pipe_wait "162" "30"
@@ -63,7 +63,7 @@ echo -e "${GREEN}REPLICANT: Configuring root perms for ${username} ..${RESET}"
 echo "${username} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${username}
 
 send_pipe "95"
-send_pipe "REPLICANT: Installing automated build files .."
+send_pipe "REPLICANT: Installing replicant build files .."
 mv replicate.sh replicant.sh sub.sh nftables.conf /mnt/home/${username}/
 cp /mnt/home/${username}/.bash_profile /mnt/home/${username}/.bash_profile.bak
 

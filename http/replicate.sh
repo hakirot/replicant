@@ -79,7 +79,7 @@ cd $HOME
 rm -rf yay
 send_pipe "15"
 
-send_pipe "REPLICANT: Installing base environment packages (xorg packages, fonts, zsh, vim, etc)"
+send_pipe "REPLICANT: Installing base environment packages (xorg extras, fonts, zsh, vim, polybar-dwm-git, etc ..)"
 yay --noconfirm -S \
   cairo            \
   dunst            \
