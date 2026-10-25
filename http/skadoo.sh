@@ -46,7 +46,7 @@ sleep 4
 MOUNT_HOME=/mnt/home/${username}
 
 send_pipe "2"
-send_pipe "ArchInstall pauses after 5...4...3...2...1 while it sorts its mirrorlist. Remain composed .. it shall continue .."
+send_pipe "ArchInstall pauses after 5...4...3...2...1 while it sorts it's mirrorlist. Remain composed .. it shall continue .."
 send_pipe_wait "145" "Running ArchInstall for ${username}"
 send_pipe_wait "162" "30"
 sleep 1
