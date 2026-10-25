@@ -40,7 +40,6 @@ endbar() {
 
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
-#echo -e "  sara" >> ${HOME}/.zshrc
 echo "./loading-bar -d -E replicant.sh -H \"REPLICANT (3/3) FINALIZING\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
 echo "else" >> ${HOME}/.zshrc
 echo -e "  tmux" >> ${HOME}/.zshrc
@@ -59,7 +58,7 @@ nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
 sleep 1
-nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
+nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not disturb" &
 
 
 cd ${HOME}/pix/walls
@@ -251,9 +250,6 @@ rm -rf $HOME/skps.bak \
   $HOME/nohup.out \
   $HOME/logout.sh \
   $HOME/sub.sh \
-  $HOME/sub.out \
-  $HOME/sub2.sh \
-  $HOME/oh-my-zsh.sh \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
   $HOME/nftables.conf \
@@ -315,5 +311,5 @@ make
 
 # SARA -> replicant doc
 xdotool key alt+f
-mv replicant_log replicate_log skadoosh_log /tmp
+mv replicant_log replicate_log skadoosh_log sub.out /tmp
 touch /tmp/replicant_completed
