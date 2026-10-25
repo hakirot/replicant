@@ -166,12 +166,15 @@ send_pipe "Reinstating password sudo for ${USER}"
 sleep .2
 # Restore sensible sudo user rule
 xdotool type "sudo su - root"
+sleep .2
 xdotool key KP_Enter
-sleep .5
 sleep .2
 xdotool key control+l
+sleep .2
 xdotool type "vim /etc/sudoers.d/00_"
+sleep .2
 xdotool key KP_Tab
+sleep 1
 xdotool key KP_Enter
 sleep 1
 xdotool key KP_Enter
@@ -273,14 +276,12 @@ send_pipe "100"
 send_pipe "Clearing notification"
 dunstctl close
 
-${HOME}/skps/reskin
-
 endbar
 xdotool key control+d
 xdotool key control+d
 xdotool key control+d
 
-/home/${USER}/git/suckless/polybar/bar.sh
+${HOME}/skps/reskin
 xdotool key super+space
 # no idea why this isn't starting
 # sara:1: command not found: sara
@@ -309,3 +310,6 @@ make clean
 make
 
 touch ${HOME}/replicant_completed
+
+# SARA -> replicant doc
+xdotool key alt+f
