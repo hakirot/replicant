@@ -115,6 +115,8 @@ while [ ! -e "${HOME}/replicant_signal_2" ]; do
 done
 send_pipe "48"
 
+rm -f ${HOME}/replicant_signal_2
+
 send_pipe "Patching oh-my-zsh"
 xdotool type "cp ${HOME}/git/suckless/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
 xdotool key KP_Enter
@@ -257,6 +259,8 @@ rm -rf $HOME/skps.bak \
   $HOME/nftables.conf \
   $HOME/.host.zsh
 send_pipe "92"
+
+mv replicant_completed replicant_log replicate_log skadoosh_log /tmp
 
 rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
