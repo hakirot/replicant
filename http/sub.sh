@@ -41,7 +41,7 @@ endbar() {
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
 #echo -e "  sara" >> ${HOME}/.zshrc
-echo "./loading-bar -d -E replicant.sh -H \"REPLICANT.sh: Last script\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
+echo "./loading-bar -d -E replicant.sh -H \"REPLICANT (3/3) FINAL ADJUSTMENTS\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
 echo "else" >> ${HOME}/.zshrc
 echo -e "  tmux" >> ${HOME}/.zshrc
 echo "fi" >> ${HOME}/.zshrc
@@ -262,8 +262,6 @@ rm -rf $HOME/skps.bak \
   $HOME/.host.zsh
 send_pipe "92"
 
-mv replicant_completed replicant_log replicate_log skadoosh_log /tmp
-
 rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
 rm -rf $HOME/git/sara/.git
@@ -315,7 +313,7 @@ sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 make clean
 make
 
-touch ${HOME}/replicant_completed
-
 # SARA -> replicant doc
 xdotool key alt+f
+mv replicant_log replicate_log skadoosh_log /tmp
+touch /tmp/replicant_completed

@@ -12,7 +12,7 @@ fi
 
 send_pipe () {
   echo $1 > ${CONTROL_PIPE}
-  sleep .1
+  sleep .2
 }
 
 send_pipe_wait () {
@@ -40,10 +40,13 @@ endbar() {
   # Run post ops
 }
 
+# loading bar needs a moment before CONTROL_PIPE starts polling
+sleep 4
+
 MOUNT_HOME=/mnt/home/${username}
 
 send_pipe "5"
-send_pipe "ArchInstall pauses at 5...4...3...2...1 while it sorts mirrors, retain composure .. it shall continue .."
+send_pipe "ArchInstall pauses after 5...4...3...2...1 while it sorts its mirrorlist. Remain composed .. it shall continue .."
 send_pipe_wait "160" "Running ArchInstall for ${username}"
 send_pipe_wait "162" "30"
 sleep 1
@@ -76,7 +79,7 @@ echo "make clean" >> ${MOUNT_HOME}/.bash_profile
 echo "make" >> ${MOUNT_HOME}/.bash_profile
 echo "cp ./loading-bar /home/${username}" >> ${MOUNT_HOME}/.bash_profile
 echo "cd /home/${username}" >> ${MOUNT_HOME}/.bash_profile
-echo "./loading-bar -d -E replicate.sh -H \"replicate.sh: pre-environment run\" -C \"environment ready\" -l /home/${username}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
+echo "./loading-bar -d -E replicate.sh -H \"REPLICANT (2/3) BASE SYSTEM + DESKTOP SETUP\" -C \"environment ready\" -l /home/${username}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
 echo "logout" >> ${MOUNT_HOME}/.bash_profile
 echo "[ -f \${HOME}/logout.sh ] && source \${HOME}/logout.sh || echo" >> ${MOUNT_HOME}/.bash_profile
 

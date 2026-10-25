@@ -78,7 +78,6 @@ yay --noconfirm -S \
   neovim \
   ntfs-3g \
   openssh \
-  packer \
   polkit \
   ripgrep \
   rmpc \
@@ -98,6 +97,7 @@ yay --noconfirm -S \
   zathura \
   zathura-pdf-mupdf \
   zip
+
 send_pipe "25"
 
 send_pipe "Configuring RANGER"
