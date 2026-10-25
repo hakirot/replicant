@@ -274,11 +274,7 @@ echo "startx" >> .zshrc
 send_pipe "99"
 
 #if [ $GPU_INSTALL -eq 1 ]; then
-<<<<<<< HEAD
-#  echo -e "${GREEN}REPLICANT: Rebooting to load GPU ..${RESET}"
-=======
-#  echo -e "${GREEN}REPLICANT: Rebooting ..${RESET}"
->>>>>>> test
+#  echo -e "${GREEN}REPLICANT: Rebooting to load GPU drivers..${RESET}"
 #  seconds=3
 #  while [ $seconds -gt 0 ]; do
 #    echo -e "${YELLOW}${seconds}${RESET}"
@@ -287,21 +283,8 @@ send_pipe "99"
 #  done
 #  reboot
 #else
-<<<<<<< HEAD
-#  touch logout.sh
-#  echo "#\!/usr/bin/env bash" > logout.sh
-#  sleep 1
-#  echo "logout" > logout.sh
-#  sleep 1
-#  chmod +x logout.sh
-#  sleep 1
-#fi
-
-echo -e "${GREEN}REPLICANT: GET READY ..${RESET}"
-=======
 touch logout.sh
 echo "#\!/usr/bin/env bash" > logout.sh
->>>>>>> test
 sleep 1
 echo "logout" > logout.sh
 sleep 1
@@ -321,10 +304,6 @@ send_pipe "REPLICANT: ENVIRONMENT READY .."
 #done
 
 touch ${HOME}/.zshrc
-<<<<<<< HEAD
-#echo "# Comment" > ${HOME}/.zshrc
-=======
->>>>>>> test
 
 endbar
 #source logout.sh
