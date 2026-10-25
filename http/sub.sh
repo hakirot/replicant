@@ -97,7 +97,7 @@ xdotool key alt+minus
 send_pipe "36"
 
 send_pipe "Installing oh-my-zsh"
-echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" ; touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
+echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"; touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
 #echo "touch ${HOME}/replicant_signal_2" >> ${HOME}/.zshrc
 xdotool key alt+minus
 xdotool key control+j
@@ -113,8 +113,6 @@ while [ ! -e "${HOME}/replicant_signal_2" ]; do
   sleep 1
 done
 send_pipe "48"
-
-rm -f ${HOME}/replicant_signal_2
 
 send_pipe "Patching oh-my-zsh"
 xdotool type "cp ${HOME}/git/suckless/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
@@ -308,7 +306,10 @@ sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 make clean
 make
 
+cd ${HOME}
+mv replicant_log replicate_log sub.out skadoosh_log /tmp
+rm -f ${HOME}/replicant_signal_2
+
 # SARA -> replicant doc
 xdotool key alt+f
-mv replicant_log replicate_log sub.out skadoosh_log /tmp
 touch /tmp/replicant_completed

@@ -16,7 +16,7 @@ send_pipe () {
 }
 
 send_pipe_wait () {
-  nohup bash -c "sleep \"$1\"; echo -e $2 | tee -a ${CONTROL_PIPE}" &
+  nohup bash -c "sleep \"$1\"; echo -e $2 > ${CONTROL_PIPE}" &
   sleep .5
 }
 
