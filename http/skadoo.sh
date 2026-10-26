@@ -60,7 +60,7 @@ echo -e "${GREEN}REPLICANT: Configuring root perms for ${username} ..${RESET}"
 echo "${username} ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/00_${username}
 
 send_pipe "95"
-send_pipe "REPLICANT: Installing automated build files .."
+send_pipe "REPLICANT: Installing build files .."
 mv replicate.sh replicant.sh sub.sh nftables.conf /mnt/home/${username}/
 cp /mnt/home/${username}/.bash_profile /mnt/home/${username}/.bash_profile.bak
 

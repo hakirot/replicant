@@ -136,20 +136,13 @@ while [ ! -e "${HOME}/.local/share/nvim/lazy/lualine.nvim/README.md" ]; do
 done
 send_pipe "56"
 
-send_pipe "Patching neovim lualine"
-sleep 1
-xdotool type "cp ${HOME}/git/suckless/sarax_lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim"
-xdotool key KP_Enter
-# TODO just copy these in
-xdotool type "cd ${HOME}/.local/share/nvim/lazy/lualine.nvim"
-xdotool key KP_Enter
-xdotool type "patch -i sarax_lualine.diff"
-xdotool key KP_Enter
-xdotool type "./lua/lualine/config.lua"
-xdotool key KP_Enter
-xdotool type "./lua/lualine/themes/16color.lua"
-xdotool key KP_Enter
+send_pipe "Patching lualine"
+sleep .5
+cp ${HOME}/git/suckless/lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim
+cd ${HOME}/.local/share/nvim/lazy/lualine.nvim
+patch -i lualine.diff -p1"
 send_pipe "60"
+echo "lualine patched"
 
 send_pipe "Closing .."
 sleep .5

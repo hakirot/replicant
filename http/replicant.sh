@@ -84,6 +84,15 @@ yay --noconfirm -S \
   rmpc \
   tldr \
   tree \
+  tree \
+  tree-sitter \
+  tree-sitter-c \
+  tree-sitter-cli \
+  tree-sitter-lua \
+  tree-sitter-markdown \
+  tree-sitter-query \
+  tree-sitter-vim \
+  tree-sitter-vimdoc \
   ttf-nerd-fonts-symbols \
   ttf-nerd-fonts-symbols-common \
   ttf-nerd-fonts-symbols-mono \
