@@ -48,7 +48,7 @@ rm -f ${HOME}/.bash_profile
 cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 send_pipe "6"
 
-send_pipe "Moar packages!"
+send_pipe "Installing apps"
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
   adwaita-cursors \

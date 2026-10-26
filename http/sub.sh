@@ -305,4 +305,5 @@ rm -f ${HOME}/replicant_signal_2
 
 # SARA -> replicant doc
 xdotool key alt+f
+
 touch /tmp/replicant_completed
