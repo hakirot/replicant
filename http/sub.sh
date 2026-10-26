@@ -139,7 +139,7 @@ send_pipe "Patching lualine"
 sleep .5
 cp ${HOME}/git/suckless/lualine.diff ${HOME}/.local/share/nvim/lazy/lualine.nvim
 cd ${HOME}/.local/share/nvim/lazy/lualine.nvim
-patch -i lualine.diff -p1"
+patch -i lualine.diff -p1
 send_pipe "60"
 echo "lualine patched"
 
