@@ -41,7 +41,8 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
-send_pipe "+REPLICANT.sh: prepping desktop"
+sleep 4
+
 send_pipe "1"
 send_pipe "Checking network connection .."
 
@@ -78,7 +79,7 @@ cd $HOME
 rm -rf yay
 send_pipe "15"
 
-send_pipe "REPLICANT: Installing base environment packages (xorg packages, fonts, zsh, vim, etc)"
+send_pipe "REPLICANT: Installing base environment packages (xorg extras, fonts, zsh, vim, polybar-dwm-git, etc ..)"
 yay --noconfirm -S \
   cairo            \
   dunst            \
@@ -274,7 +275,7 @@ echo "startx" >> .zshrc
 send_pipe "99"
 
 #if [ $GPU_INSTALL -eq 1 ]; then
-#  echo -e "${GREEN}REPLICANT: Rebooting ..${RESET}"
+#  echo -e "${GREEN}REPLICANT: Rebooting to load GPU drivers..${RESET}"
 #  seconds=3
 #  while [ $seconds -gt 0 ]; do
 #    echo -e "${YELLOW}${seconds}${RESET}"

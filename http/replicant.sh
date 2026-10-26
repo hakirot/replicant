@@ -33,6 +33,8 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
+sleep 4
+
 echo -e "${GREEN}++REPLICANT.sh++${RESET}"
 
 # Restore .xinitrc
@@ -46,7 +48,7 @@ rm -f ${HOME}/.bash_profile
 cp ${HOME}/.bash_profile.bak ${HOME}/.bash_profile
 send_pipe "6"
 
-send_pipe "Installing more packages .."
+send_pipe "Moar packages!"
 echo -e "${GREEN}REPLICANT: Installing a whole lotta packages${RESET}"
 yay --noconfirm -S \
   adwaita-cursors \
@@ -78,10 +80,10 @@ yay --noconfirm -S \
   neovim \
   ntfs-3g \
   openssh \
-  packer \
   polkit \
   ripgrep \
   rmpc \
+  scrot \
   tldr \
   tree \
   tree \
@@ -107,6 +109,7 @@ yay --noconfirm -S \
   zathura \
   zathura-pdf-mupdf \
   zip
+
 send_pipe "25"
 
 send_pipe "Configuring RANGER"
@@ -135,6 +138,6 @@ cp ${HOME}/git/d07f1135/.tmux.conf ${HOME}
 send_pipe "33"
 
 send_pipe "Waiting for subroutine .."
-echo -e "${GREEN}REPLICANT: Waiting for subroutine ..${RESET}"
+echo -e "${GREEN}REPLICANT: Handing control to subroutine ..${RESET}"
 touch ${HOME}/replicant_signal_1
 cd ${HOME}

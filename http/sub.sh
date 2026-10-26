@@ -40,8 +40,7 @@ endbar() {
 
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
-#echo -e "  sara" >> ${HOME}/.zshrc
-echo "./loading-bar -d -E replicant.sh -H \"REPLICANT.sh: Last script\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
+echo "./loading-bar -d -E replicant.sh -H \"REPLICANT (3/3) FINALIZING\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
 echo "else" >> ${HOME}/.zshrc
 echo -e "  tmux" >> ${HOME}/.zshrc
 echo "fi" >> ${HOME}/.zshrc
@@ -59,7 +58,7 @@ nohup notify-send --expire-time 1000 "Please wait" "one" &
 sleep 1
 nohup notify-send --expire-time 1000 "Final script" "Launching" &
 sleep 1
-nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not touch mouse/keyboard" &
+nohup notify-send --expire-time 3600000 "Replicant is finishing up" "Please do not disturb" &
 
 
 cd ${HOME}/pix/walls
@@ -98,7 +97,7 @@ xdotool key alt+minus
 send_pipe "36"
 
 send_pipe "Installing oh-my-zsh"
-echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" ; touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
+echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"; touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
 #echo "touch ${HOME}/replicant_signal_2" >> ${HOME}/.zshrc
 xdotool key alt+minus
 xdotool key control+j
@@ -149,15 +148,15 @@ sleep .5
 xdotool key control+d
 sleep 1
 xdotool type ":qa!"
-sleep .2
+sleep .5
 xdotool key KP_Enter
-sleep .2
+sleep 2
 xdotool key control+l
 send_pipe "64"
 
-send_pipe "Reinstating password sudo for ${USER}"
+send_pipe "Reinstating sudo password for ${USER}"
 sleep .2
-# Restore sensible sudo user rule
+xdotool key control+l
 xdotool type "sudo su - root"
 sleep .2
 xdotool key KP_Enter
@@ -242,12 +241,10 @@ rm -rf $HOME/skps.bak \
   $HOME/nohup.out \
   $HOME/logout.sh \
   $HOME/sub.sh \
-  $HOME/sub.out \
-  $HOME/sub2.sh \
-  $HOME/oh-my-zsh.sh \
   $HOME/replicant.sh \
   $HOME/replicate.sh \
   $HOME/nftables.conf \
+  $HOME/loading-bar \
   $HOME/.host.zsh
 send_pipe "92"
 
@@ -302,7 +299,10 @@ sed -i "s|PATH_ME_PLS|${HOME}/git/sara/sara|g" config.h
 make clean
 make
 
-touch ${HOME}/replicant_completed
+cd ${HOME}
+mv replicant_log replicate_log sub.out skadoosh_log /tmp
+rm -f ${HOME}/replicant_signal_2
 
 # SARA -> replicant doc
 xdotool key alt+f
+touch /tmp/replicant_completed
