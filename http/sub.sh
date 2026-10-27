@@ -11,9 +11,7 @@ PATH=${BINPATH}:$PATH
 
 export DISPLAY=:0
 
-if [ -z ${CONTROL_PIPE+x} ] ; then
-  CONTROL_PIPE="/tmp/load_pipe"
-fi
+CONTROL_PIPE=/tmp/replicant_pipe
 
 send_pipe () {
   echo $1 | tee -a ${CONTROL_PIPE}
@@ -40,7 +38,7 @@ endbar() {
 
 sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
-echo "./loading-bar -d -n sub_pipe -E replicant.sh -H \"REPLICANT (3/3) FINALIZING\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
+echo "./loading-bar -d -n replicant_pipe -E replicant.sh -H \"REPLICANT (3/3) FINALIZING\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
 echo "else" >> ${HOME}/.zshrc
 echo -e "  tmux" >> ${HOME}/.zshrc
 echo "fi" >> ${HOME}/.zshrc
@@ -98,7 +96,6 @@ send_pipe "36"
 
 send_pipe "Installing oh-my-zsh"
 echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"; touch \${HOME}/replicant_signal_2" > ${HOME}/.zshrc
-#echo "touch ${HOME}/replicant_signal_2" >> ${HOME}/.zshrc
 xdotool key alt+minus
 xdotool key control+j
 xdotool key E
@@ -150,8 +147,8 @@ sleep 1
 xdotool type ":qa!"
 sleep .5
 xdotool key KP_Enter
-sleep 2
-#sleep 500 
+sleep .5
+#sleep 500
 xdotool key control+l
 send_pipe "64"
 

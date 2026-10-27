@@ -80,7 +80,7 @@ echo "make clean" >> ${MOUNT_HOME}/.bash_profile
 echo "make" >> ${MOUNT_HOME}/.bash_profile
 echo "cp ./loading-bar /home/${username}" >> ${MOUNT_HOME}/.bash_profile
 echo "cd /home/${username}" >> ${MOUNT_HOME}/.bash_profile
-echo "./loading-bar -d -n replicate_bar -E replicate.sh -H \"REPLICANT (2/3) BASE SYSTEM + DESKTOP SETUP\" -C \"environment ready\" -l /home/${username}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
+echo "./loading-bar -d -n replicate_pipe -E replicate.sh -H \"REPLICANT (2/3) BASE SYSTEM + DESKTOP SETUP\" -C \"environment ready\" -l /home/${username}/replicate_log" >> ${MOUNT_HOME}/.bash_profile
 echo "logout" >> ${MOUNT_HOME}/.bash_profile
 echo "[ -f \${HOME}/logout.sh ] && source \${HOME}/logout.sh || echo" >> ${MOUNT_HOME}/.bash_profile
 
