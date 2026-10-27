@@ -41,7 +41,6 @@ endbar() {
 }
 
 # loading bar needs a moment before CONTROL_PIPE starts polling
-#sleep 4
 
 MOUNT_HOME=/mnt/home/${username}
 

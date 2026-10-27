@@ -36,7 +36,6 @@ endbar() {
   rm -f ${CONTROL_PIPE}
 }
 
-sleep 5
 echo "if { [ \"\$TERM\" = \"tmux-256color\" ] && [ ! -z \${TMUX+x} ] ; } then" >> ${HOME}/.zshrc
 echo "./loading-bar -d -n replicant_pipe -E replicant.sh -H \"REPLICANT (3/3) FINALIZING\" -C \"replicant complete\" -l ${HOME}/replicant_log" >> ${HOME}/.zshrc
 echo "else" >> ${HOME}/.zshrc
@@ -44,6 +43,16 @@ echo -e "  tmux" >> ${HOME}/.zshrc
 echo "fi" >> ${HOME}/.zshrc
 
 
+nohup notify-send --expire-time 1000 "Please wait" "ten" &
+sleep 1
+nohup notify-send --expire-time 1000 "Please wait" "nine" &
+sleep 1
+nohup notify-send --expire-time 1000 "Please wait" "eight" &
+sleep 1
+nohup notify-send --expire-time 1000 "Please wait" "seven" &
+sleep 1
+nohup notify-send --expire-time 1000 "Please wait" "six" &
+sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "five" &
 sleep 1
 nohup notify-send --expire-time 1000 "Please wait" "four" &

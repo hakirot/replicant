@@ -41,8 +41,6 @@ endbar() {
   touch ${HOME}/replicant_completed
 }
 
-sleep 4
-
 send_pipe "1"
 send_pipe "Checking network connection .."
 
