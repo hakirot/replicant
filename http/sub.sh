@@ -121,19 +121,11 @@ done
 send_pipe "48"
 
 send_pipe "Patching oh-my-zsh"
-xdotool type "cp ${HOME}/git/suckless/oh-my-zsh.diff ${HOME}/.oh-my-zsh/"
-xdotool key KP_Enter
-xdotool type "cd ${HOME}/.oh-my-zsh/"
-xdotool key KP_Enter
-xdotool type "patch -i oh-my-zsh.diff"
-xdotool key KP_Enter
-xdotool type "./lib/grep.zsh"
-xdotool key KP_Enter
-xdotool type "./plugins/git/git.plugin.zsh"
-xdotool key KP_Enter
-xdotool type "./themes/fwalch.zsh-theme"
-xdotool key KP_Enter
+cp ${HOME}/git/suckless/oh-my-zsh.diff ${HOME}/.oh-my-zsh/
+cd ${HOME}/.oh-my-zsh
+patch -i oh-my-zsh.diff -p1
 send_pipe "52"
+echo "oh-my-zsh patched"
 
 send_pipe "Waiting for neovim plugins to install .."
 while [ ! -e "${HOME}/.local/share/nvim/lazy/lualine.nvim/README.md" ]; do
