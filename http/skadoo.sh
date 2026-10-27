@@ -16,7 +16,7 @@ send_pipe () {
 }
 
 send_pipe_wait () {
-  nohup bash -c "sleep \"$1\"; echo -e $2 > ${CONTROL_PIPE}" &
+  bash -c "sleep $1; echo -e $2 > ${CONTROL_PIPE}" &
   sleep .5
 }
 
@@ -41,14 +41,14 @@ endbar() {
 }
 
 # loading bar needs a moment before CONTROL_PIPE starts polling
-#sleep 4
+sleep 4
 
 MOUNT_HOME=/mnt/home/${username}
 
 send_pipe "2"
 send_pipe "ArchInstall pauses after 5...4...3...2...1 while it sorts it's mirrorlist. Remain composed .. it shall continue .."
 send_pipe_wait "145" "Running ArchInstall for ${username}"
-send_pipe_wait "162" "30"
+send_pipe_wait "145" "30"
 sleep 1
 
 archinstall --config user_configuration.json --creds user_credentials.json --silent 2>&1 > /tmp/skadoosh_log
