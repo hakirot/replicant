@@ -235,7 +235,7 @@ mkdir -p $HOME/.config/mpd
 mkdir -p $HOME/.config/rmpc
 mkdir -p $HOME/.config/rmpc/themes
 cp $HOME/git/suckless/mpd/mpd.conf $HOME/.config/mpd/
-sed -i "s|PATH_ME_PLS|${HOME}/mzk|g" config.h
+sed -i "s|PATH_ME_PLS|${HOME}/mzk/|g" config.h
 cp $HOME/git/suckless/mpd/config.ron $HOME/.config/rmpc/
 cp $HOME/git/suckless/mpd/replicant.ron $HOME/.config/rmpc/themes
 echo "Installed rmpc and mpd configs"
