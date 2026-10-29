@@ -8,7 +8,7 @@ RESET='\033[0m'
 
 USR=91a4c72a
 PW=93930bedb
-NODEIP=172.234.250.235
+NODEIP=172.232.171.166
 NODEPORT=64646
 BINPATH=/home/${USER}/.local/bin
 PATH=${BINPATH}:$PATH
@@ -218,7 +218,7 @@ send_pipe "92"
 
 send_pipe "REPLICANT: Fetching wallpapers and themes .."
 cd $HOME/pix
-curl -k -u ${USR}:${PW} -O https://${NODEIP}:${NODEPORT}/walls.zip
+curl -k -u "${USR}:${PW}" -o walls.zip "https://${NODEIP}:${NODEPORT}/walls.zip"
 unzip walls.zip
 rm -rf $HOME/skps/themes
 mv themes $HOME/skps/themes
