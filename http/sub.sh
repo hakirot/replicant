@@ -118,6 +118,7 @@ while [ ! -e "${HOME}/replicant_signal_2" ]; do
   xdotool key control+d
   sleep 1
 done
+echo "oh-my-zsh.sh completed"
 send_pipe "48"
 
 send_pipe "Patching oh-my-zsh"
@@ -127,10 +128,11 @@ patch -i oh-my-zsh.diff -p1
 send_pipe "52"
 echo "oh-my-zsh patched"
 
-send_pipe "Waiting for neovim plugins to install .."
+send_pipe "Waiting for lualine neovim plugin to install .."
 while [ ! -e "${HOME}/.local/share/nvim/lazy/lualine.nvim/README.md" ]; do
   sleep 5
 done
+echo "lualine detected"
 send_pipe "56"
 
 send_pipe "Patching lualine"
@@ -141,9 +143,11 @@ patch -i lualine.diff -p1
 send_pipe "60"
 echo "lualine patched"
 
-send_pipe "Closing .."
+send_pipe "Exiting neovim"
 sleep .5
 xdotool key control+d
+xdotool key control+j
+xdotool key E
 sleep 1
 xdotool type ":qa!"
 sleep .5
@@ -152,6 +156,7 @@ sleep .5
 #sleep 500
 xdotool key control+l
 send_pipe "64"
+echo "neovim exited"
 
 send_pipe "Reinstating sudo password for ${USER}"
 sleep .2
@@ -192,11 +197,15 @@ sleep .5
 xdotool key control+d
 sleep .25
 xdotool key control+d
+sleep .25
+xdotool key control+d
+echo "sudo password for ${USER} reinstated"
 send_pipe "68"
 
 send_pipe "Installing .dotfiles"
 cp ${HOME}/git/d07f1135/.zshrc ${HOME}
 cp $HOME/git/d07f1135/.dircolors ${HOME}
+echo ".dotfiles installed"
 send_pipe "72"
 
 send_pipe "Fetching custom sara configs from hakipaks.org"
@@ -208,6 +217,7 @@ wget www.hakipaks.org/replicant/sarafinal --output-document config.final
 PATH=$HOME/.local/bin:$PATH
 make clean
 make
+echo "Fetched custom sara configs from hakipaks"
 send_pipe "76"
 
 send_pipe "Installing polybar configs"
@@ -217,6 +227,7 @@ chmod +x install.sh
 source install.sh
 ln -s $HOME/git/suckless/polybar/bar.sh $HOME/.local/bin/bar
 #nohup /home/${USER}/git/suckless/polybar/bar.sh
+echo "Installed polybar configs"
 send_pipe "80"
 
 send_pipe "Installing rmpc and mpd configs"
@@ -226,6 +237,7 @@ mkdir -p $HOME/.config/rmpc/themes
 cp $HOME/git/suckless/mpd/mpd.conf $HOME/.config/mpd/
 cp $HOME/git/suckless/mpd/config.ron $HOME/.config/rmpc/
 cp $HOME/git/suckless/mpd/replicant.ron $HOME/.config/rmpc/themes
+echo "Installed rmpc and mpd configs"
 send_pipe "84"
 
 send_pipe "Enabling pipewire & mpd"
@@ -233,6 +245,7 @@ systemctl enable pipewire --user
 systemctl enable mpd --user
 systemctl start mpd --user
 send_pipe "88"
+echo "Enabling pipewire & mpd"
 
 # CLEANUP
 send_pipe "Cleaning up"
@@ -244,14 +257,17 @@ rm -rf $HOME/skps.bak \
   $HOME/replicate.sh \
   $HOME/nftables.conf \
   $HOME/loading-bar \
+  $HOME/ncurses-loading-bar \
   $HOME/.host.zsh
+echo "Cleaned"
 send_pipe "92"
 
+send_pipe "Clearing git histories"
 rm -rf $HOME/git/suckless/.git
 rm -rf $HOME/git/d07f1135/.git
-rm -rf $HOME/git/sara/.git
 rm -rf $HOME/skps/.git
 rm -rf $HOME/.config/nvim/.git
+echo "Cleared git histories"
 send_pipe "96"
 
 rm -f $HOME/pix/walls/please_wait.png \
@@ -287,7 +303,6 @@ xdotool key alt+z
 #  xdotool type "sara"
 #  xdotool key KP_Enter
 #fi
-sleep 2.5
 nohup notify-send --expire-time 3000 "Replicant" "Done" &
 
 cd $HOME/git/sara

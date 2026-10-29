@@ -9,9 +9,6 @@ BUILD_DIR=replicant
 TAR_TARGET=replicant.tar.gz
 SIGNATURE_TARGET=replicant.tar.gz.sig
 CHECKSUM_TARGET=replicant.sha256
-NODEUSER=gambit
-NODE=node
-NODETARGETPATH=/home/gambit
 ARCHIVE_DIR=archive
 
 ARCHIVE_DIR_TEST=test
